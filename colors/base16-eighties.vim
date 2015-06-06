@@ -210,6 +210,13 @@ call <sid>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
 " C highlighting
 call <sid>hi("cOperator",   s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("cPreCondit",  s:gui0E, "", s:cterm0E, "", "")
+call <sid>hi("cStatement",  s:gui0E, "", s:cterm0E, "", "")
+call <sid>hi("cRepeat",     s:gui0E, "", s:cterm0E, "", "")
+call <sid>hi("cLabel",      s:gui0E, "", s:cterm0E, "", "")
+call <sid>hi("cUserLabel",  s:gui0E, "", s:cterm0E, "", "")
+
+" C++ highlighting
+call <sid>hi("cppStatement",   s:gui0E, "", s:cterm0E, "", "")
 
 " CSS highlighting
 call <sid>hi("cssBraces",      s:gui05, "", s:cterm05, "", "")
