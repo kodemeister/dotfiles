@@ -45,7 +45,8 @@ colorscheme base16-eighties
 
 " Set font when running in GUI mode
 if has('gui_running')
-	set guifont=Source\ Code\ Pro\ Regular\ 13
+	set guifont=Droid\ Sans\ Mono\ Slashed\ 14
+	set linespace=4
 endif
 
 " Remove menu bar, toolbar and scrollbars
