@@ -40,6 +40,13 @@ syntax enable
 " Use dark variation of color scheme
 set background=dark
 
+" Modify 256 colorspace to make base16 color schemes look fine in terminal
+if !has('gui_running')
+	let g:base16_shell_path='~/.vim/scripts'
+	let base16colorspace=256
+	set t_Co=256
+endif
+
 " Set some eye candy color scheme
 colorscheme base16-eighties
 
