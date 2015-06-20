@@ -5,17 +5,28 @@
 " Disable compability with old fashioned Vi
 set nocompatible
 
-" Set the character encoding
-set encoding=utf-8
+" Setup the runtime path and initialize Vundle
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Set the number of commands to be remembered in history
-set history=100
+" Let Vundle manage itself
+Plugin 'gmarik/Vundle.vim'
+
+" Finish with plugin stuff
+call vundle#end()
 
 " Enable automatic detection of file type, allow loading plugins and
 " indent files for specific file types
 filetype on
 filetype plugin on
 filetype indent on
+
+" Set the default character encoding
+set encoding=utf-8
+
+" Set the number of commands to be remembered in history
+set history=100
 
 " Automatically read files that has been changed outside of Vim
 set autoread
