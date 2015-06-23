@@ -13,6 +13,9 @@ call vundle#begin()
 " Let Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 
+" List the required plugins
+Plugin 'bling/vim-airline'
+
 " Finish with plugin stuff
 call vundle#end()
 
@@ -63,7 +66,7 @@ colorscheme base16-eighties
 
 " Set font when running in GUI mode
 if has('gui_running')
-	set guifont=Droid\ Sans\ Mono\ Slashed\ 14
+	set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 14
 	set linespace=4
 endif
 
@@ -165,3 +168,10 @@ set wrapscan
 
 " Don't jump to matching brackets while typing
 set noshowmatch
+
+" ------------------------------------------------------------------------------
+" VIM-AIRLINE PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Use fancy powerline symbols for better looking
+let g:airline_powerline_fonts=1
