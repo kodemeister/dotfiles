@@ -14,6 +14,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
+Plugin 'toiffel/base16-vim'
+Plugin 'chriskempson/base16-shell'
 Plugin 'bling/vim-airline'
 
 " Finish with plugin stuff
@@ -56,7 +58,7 @@ set background=dark
 
 " Modify 256 colorspace to make base16 color schemes look fine in terminal
 if !has('gui_running')
-	let g:base16_shell_path='~/.vim/scripts'
+	let g:base16_shell_path='~/.vim/bundle/base16-shell'
 	let base16colorspace=256
 	set t_Co=256
 endif
