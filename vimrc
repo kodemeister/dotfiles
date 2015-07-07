@@ -111,7 +111,7 @@ set cursorline
 set scrolloff=5
 
 " Enable list mode, show whitespace characters
-set listchars=tab:⟶\ ,space:·,trail:·,extends:>,precedes:<,nbsp:%
+set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
 
 " Enable the enhanced command-line completion
