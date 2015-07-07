@@ -175,3 +175,9 @@ set noshowmatch
 
 " Use fancy powerline symbols for better looking
 let g:airline_powerline_fonts=1
+
+" Enable enhanced tabline
+let g:airline#extensions#tabline#enabled=1
+
+" Show only filenames (without full path) in the tabline
+let g:airline#extensions#tabline#fnamemod=':t'
