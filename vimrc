@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
 Plugin 'toiffel/base16-vim'
-Plugin 'chriskempson/base16-shell'
+Plugin 'toiffel/base16-shell'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 
