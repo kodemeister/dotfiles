@@ -17,6 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'toiffel/base16-vim'
 Plugin 'chriskempson/base16-shell'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
 
 " Finish with plugin stuff
 call vundle#end()
@@ -183,3 +184,29 @@ let g:airline#extensions#tabline#enabled=1
 
 " Show only filenames (without full path) in the tabline
 let g:airline#extensions#tabline#fnamemod=':t'
+
+" ------------------------------------------------------------------------------
+" NERD TREE PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Open NERD tree on startup, move cursor back to the main window
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" Don't show unneeded 'Press ? for help' label
+let NERDTreeMinimalUI=1
+
+" Show nice-looking right and down arrows to the left of directory nodes
+let NERDTreeDirArrows=1
+
+" Sort directories first, then files
+let NERDTreeSortOrder=['\/$', '*']
+
+" Enable case-sensitive sorting
+let NERDTreeCaseSensitiveSort=1
+
+" Display hidden files by default
+let NERDTreeShowHidden=1
+
+" Always show all files, don't ignore anything
+let NERDTreeIgnore=[]
