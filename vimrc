@@ -7,8 +7,9 @@ set nocompatible
 
 " Setup the runtime path and initialize Vundle
 filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+let config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+let &runtimepath .= ',' . config_dir . '/bundle/Vundle.vim'
+call vundle#begin(config_dir . '/bundle')
 
 " Let Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
@@ -59,7 +60,7 @@ set background=dark
 
 " Modify 256 colorspace to make base16 color schemes look fine in terminal
 if !has('gui_running')
-	let g:base16_shell_path='~/.vim/bundle/base16-shell'
+	let g:base16_shell_path = config_dir . '/bundle/base16-shell'
 	let base16colorspace=256
 	set t_Co=256
 endif
