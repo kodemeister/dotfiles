@@ -69,7 +69,11 @@ colorscheme base16-eighties
 
 " Set font when running in GUI mode
 if has('gui_running')
-	set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 14
+	if has('gui_gtk2')
+		set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 14
+	elseif has('gui_macvim')
+		set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline:h18
+	endif
 	set linespace=4
 endif
 
