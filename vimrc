@@ -72,10 +72,12 @@ colorscheme base16-eighties
 if has('gui_running')
 	if has('gui_gtk2')
 		set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 14
+		set linespace=4
 	elseif has('gui_macvim')
-		set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline:h18
+		set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h18
+	elseif has('gui_win32')
+		set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14:cANSI
 	endif
-	set linespace=4
 endif
 
 " Remove menu bar, toolbar and scrollbars
