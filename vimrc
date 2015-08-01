@@ -71,12 +71,12 @@ colorscheme base16-eighties
 " Set font when running in GUI mode
 if has('gui_running')
 	if has('gui_gtk2')
-		set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 14
+		set guifont=Droid\ Sans\ Mono\ Slashed\ 14
 		set linespace=4
 	elseif has('gui_macvim')
-		set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h18
+		set guifont=Menlo\ Regular:h18
 	elseif has('gui_win32')
-		set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline:h14:cANSI
+		set guifont=Courier\ New:h14:cDEFAULT
 	endif
 endif
 
@@ -183,14 +183,15 @@ set noshowmatch
 " VIM-AIRLINE PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
 
-" Use fancy powerline symbols for better looking
-let g:airline_powerline_fonts=1
-
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled=1
 
 " Show only filenames (without full path) in the tabline
 let g:airline#extensions#tabline#fnamemod=':t'
+
+" Define 'straight' tabs in the statusline and tabline
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " ------------------------------------------------------------------------------
 " NERD TREE PLUGIN SETTINGS
