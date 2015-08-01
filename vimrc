@@ -198,8 +198,7 @@ let g:airline_right_sep=''
 " ------------------------------------------------------------------------------
 
 " Open NERD tree on startup, move cursor back to the main window
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+autocmd VimEnter * NERDTree | setlocal nolist | wincmd p
 
 " Don't show unneeded 'Press ? for help' label
 let NERDTreeMinimalUI=1
