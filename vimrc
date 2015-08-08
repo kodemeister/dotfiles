@@ -15,10 +15,10 @@ call vundle#begin(config_dir . '/bundle')
 Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
-Plugin 'toiffel/base16-vim'
-Plugin 'toiffel/base16-shell'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
+Plugin 'toiffel/base16-shell'
+Plugin 'toiffel/base16-vim'
 
 " Finish with plugin stuff
 call vundle#end()
@@ -66,7 +66,7 @@ if !has('gui_running')
 endif
 
 " Set some eye candy color scheme
-colorscheme base16-eighties
+colorscheme base16-ocean
 
 " Set font when running in GUI mode
 if has('gui_running')
