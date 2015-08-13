@@ -180,6 +180,32 @@ set wrapscan
 set noshowmatch
 
 " ------------------------------------------------------------------------------
+" KEY MAPPINGS
+" ------------------------------------------------------------------------------
+
+" First, configure the <Leader> key
+let mapleader=','
+
+" Remap backslash to comma for backward searches
+nnoremap \ ,
+
+" Fast saving
+nmap <silent> <Leader>w :w<CR>
+
+" Clear the last search highlighting
+nmap <silent> <Leader><Space> :nohlsearch<CR>
+
+" Easy navigation between windows
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+
+" Make Y yank from the current cursor position to the end of line,
+" to be consistent with C and D
+nnoremap Y y$
+
+" ------------------------------------------------------------------------------
 " VIM-AIRLINE PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
 
