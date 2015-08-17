@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
 Plugin 'bling/vim-airline'
+Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Plugin 'toiffel/base16-shell'
 Plugin 'toiffel/base16-vim'
@@ -218,6 +219,20 @@ let g:airline#extensions#tabline#fnamemod=':t'
 " Define 'straight' tabs in the statusline and tabline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+
+" ------------------------------------------------------------------------------
+" VIM-BUFKILL PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Delete a buffer without closing the window it was displayed in
+nmap <silent> <Leader>bd :BD<CR>
+
+" Move backwards/forwards through recently accessed buffers
+nmap <silent> <Leader>bp :BB<CR>
+nmap <silent> <Leader>bn :BF<CR>
+
+" Move to the alternate buffer whilst preserving cursor position
+nmap <silent> <Leader>ba :BA<CR>
 
 " ------------------------------------------------------------------------------
 " NERD TREE PLUGIN SETTINGS
