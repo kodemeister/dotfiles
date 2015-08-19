@@ -184,7 +184,14 @@ set noshowmatch
 " KEY MAPPINGS
 " ------------------------------------------------------------------------------
 
-" First, configure the <Leader> key
+" Disable timeout for mapped key sequences, e.g. <Leader>+keys
+set notimeout
+
+" Keep timeout for keyboard codes like <Esc> but reduce it to minimal value
+set ttimeout
+set ttimeoutlen=0
+
+" Configure the <Leader> key
 let mapleader=','
 
 " Remap backslash to comma for backward searches
