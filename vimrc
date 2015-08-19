@@ -200,6 +200,9 @@ nnoremap \ ,
 " Fast saving
 nmap <silent> <Leader>w :w<CR>
 
+" Save all modified files and build the project
+nmap <silent> <Leader>m :wall <Bar> make!<CR>
+
 " Clear the last search highlighting
 nmap <silent> <Leader><Space> :nohlsearch<CR>
 
