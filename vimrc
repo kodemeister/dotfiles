@@ -184,11 +184,8 @@ set noshowmatch
 " KEY MAPPINGS
 " ------------------------------------------------------------------------------
 
-" Disable timeout for mapped key sequences, e.g. <Leader>+keys
-set notimeout
-
-" Keep timeout for keyboard codes like <Esc> but reduce it to minimal value
-set ttimeout
+" Reduce timeout for keyboard codes like <Esc> to minimal value
+" This eliminates annoying delays while exiting Insert/Visual modes in terminal
 set ttimeoutlen=0
 
 " Configure the <Leader> key
