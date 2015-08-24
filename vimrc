@@ -231,15 +231,11 @@ let g:airline_right_sep=''
 " VIM-BUFKILL PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
 
+" Keep the cursor position while switching to alternate buffer via <C-^> (<C-6>)
+let g:BufKillOverrideCtrlCaret=1
+
 " Delete a buffer without closing the window it was displayed in
 nmap <silent> <Leader>bd :BD<CR>
-
-" Move backwards/forwards through recently accessed buffers
-nmap <silent> <Leader>bp :BB<CR>
-nmap <silent> <Leader>bn :BF<CR>
-
-" Move to the alternate buffer whilst preserving cursor position
-nmap <silent> <Leader>ba :BA<CR>
 
 " ------------------------------------------------------------------------------
 " NERD TREE PLUGIN SETTINGS
