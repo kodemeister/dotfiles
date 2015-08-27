@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
 Plugin 'bling/vim-airline'
+Plugin 'kana/vim-altr'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Plugin 'toiffel/base16-shell'
@@ -226,6 +227,17 @@ let g:airline#extensions#tabline#fnamemod=':t'
 " Define 'straight' tabs in the statusline and tabline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+
+" ------------------------------------------------------------------------------
+" VIM-ALTR PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Define additional vim-altr rules
+call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc', '%/src/%.m',
+	\'%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
+
+" Switch between associated files, e.g. C++ header and implementation
+nmap <Leader>a <Plug>(altr-forward)
 
 " ------------------------------------------------------------------------------
 " VIM-BUFKILL PLUGIN SETTINGS
