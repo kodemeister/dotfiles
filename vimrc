@@ -7,15 +7,17 @@ set nocompatible
 
 " Setup the runtime path and initialize Vundle
 filetype off
-let config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
-let &runtimepath .= ',' . config_dir . '/bundle/Vundle.vim'
-call vundle#begin(config_dir . '/bundle')
+let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+let s:cache_dir = s:config_dir . '/.cache'
+let &runtimepath .= ',' . s:config_dir . '/bundle/Vundle.vim'
+call vundle#begin(s:config_dir . '/bundle')
 
 " Let Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
 Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-altr'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
@@ -62,7 +64,7 @@ set background=dark
 
 " Modify 256 colorspace to make base16 color schemes look fine in terminal
 if !has('gui_running')
-	let g:base16_shell_path = config_dir . '/bundle/base16-shell'
+	let g:base16_shell_path = s:config_dir . '/bundle/base16-shell'
 	let base16colorspace=256
 	set t_Co=256
 endif
@@ -227,6 +229,19 @@ let g:airline#extensions#tabline#fnamemod=':t'
 " Define 'straight' tabs in the statusline and tabline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+
+" ------------------------------------------------------------------------------
+" CTRLP.VIM PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Set the directory to store cache files
+let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
+
+" Always scan for dotfiles and dotdirs
+let g:ctrlp_show_hidden=1
+
+" Do not limit the maximum number of files to scan
+let g:ctrlp_max_files=0
 
 " ------------------------------------------------------------------------------
 " VIM-ALTR PLUGIN SETTINGS
