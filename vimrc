@@ -164,6 +164,9 @@ set cindent
 " Allow backspacing over autoindent, line break and the start of insert
 set backspace=indent,eol,start
 
+" Keep the cursor column while jumping or switching between buffers
+set nostartofline
+
 " ------------------------------------------------------------------------------
 " SEARCH SETTINGS
 " ------------------------------------------------------------------------------
@@ -257,9 +260,6 @@ nmap <Leader>a <Plug>(altr-forward)
 " ------------------------------------------------------------------------------
 " VIM-BUFKILL PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
-
-" Keep the cursor position while switching to alternate buffer via <C-^> (<C-6>)
-let g:BufKillOverrideCtrlCaret=1
 
 " Delete a buffer without closing the window it was displayed in
 nmap <silent> <Leader>bd :BD<CR>
