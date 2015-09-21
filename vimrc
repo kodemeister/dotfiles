@@ -65,7 +65,7 @@ set background=dark
 " Modify 256 colorspace to make base16 color schemes look fine in terminal
 if !has('gui_running')
 	let g:base16_shell_path = s:config_dir . '/bundle/base16-shell'
-	let base16colorspace=256
+	let base16colorspace = 256
 	set t_Co=256
 endif
 
@@ -196,7 +196,7 @@ set noshowmatch
 set ttimeoutlen=0
 
 " Configure the <Leader> key
-let mapleader=','
+let mapleader = ','
 
 " Remap backslash to comma for backward searches
 nnoremap \ ,
@@ -225,14 +225,14 @@ nnoremap Y y$
 " ------------------------------------------------------------------------------
 
 " Enable enhanced tabline
-let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#enabled = 1
 
 " Show only filenames (without full path) in the tabline
-let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Define 'straight' tabs in the statusline and tabline
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 " ------------------------------------------------------------------------------
 " CTRLP.VIM PLUGIN SETTINGS
@@ -242,10 +242,10 @@ let g:airline_right_sep=''
 let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
 " Always scan for dotfiles and dotdirs
-let g:ctrlp_show_hidden=1
+let g:ctrlp_show_hidden = 1
 
 " Do not limit the maximum number of files to scan
-let g:ctrlp_max_files=0
+let g:ctrlp_max_files = 0
 
 " Search in the currently opened buffers
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
@@ -266,7 +266,7 @@ nmap <Leader>a <Plug>(altr-forward)
 " ------------------------------------------------------------------------------
 
 " Disable predefined bufkill mappings
-let g:BufKillCreateMappings=0
+let g:BufKillCreateMappings = 0
 
 " Delete a buffer without closing the window it was displayed in
 nmap <silent> <Leader>q :BD<CR>
@@ -279,19 +279,19 @@ nmap <silent> <Leader>q :BD<CR>
 autocmd VimEnter * NERDTree | setlocal nolist | wincmd p
 
 " Don't show unneeded 'Press ? for help' label
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI = 1
 
 " Show nice-looking right and down arrows to the left of directory nodes
-let NERDTreeDirArrows=1
+let NERDTreeDirArrows = 1
 
 " Sort directories first, then files
-let NERDTreeSortOrder=['\/$', '*']
+let NERDTreeSortOrder = ['\/$', '*']
 
 " Enable case-sensitive sorting
-let NERDTreeCaseSensitiveSort=1
+let NERDTreeCaseSensitiveSort = 1
 
 " Display hidden files by default
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
 " Always show all files, don't ignore anything
-let NERDTreeIgnore=[]
+let NERDTreeIgnore = []
