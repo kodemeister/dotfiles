@@ -247,6 +247,9 @@ let g:ctrlp_show_hidden=1
 " Do not limit the maximum number of files to scan
 let g:ctrlp_max_files=0
 
+" Search in the currently opened buffers
+nmap <silent> <Leader>b :CtrlPBuffer<CR>
+
 " ------------------------------------------------------------------------------
 " VIM-ALTR PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
@@ -262,8 +265,11 @@ nmap <Leader>a <Plug>(altr-forward)
 " VIM-BUFKILL PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
 
+" Disable predefined bufkill mappings
+let g:BufKillCreateMappings=0
+
 " Delete a buffer without closing the window it was displayed in
-nmap <silent> <Leader>bd :BD<CR>
+nmap <silent> <Leader>q :BD<CR>
 
 " ------------------------------------------------------------------------------
 " NERD TREE PLUGIN SETTINGS
