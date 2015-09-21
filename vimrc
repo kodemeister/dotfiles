@@ -115,7 +115,8 @@ set nowrap
 " Disable hard wrapping of long lines
 set textwidth=0
 
-" Show relative line numbers
+" Show absolute number for the current line and relative numbers for other lines
+set number
 set relativenumber
 
 " Highlight the line containing the cursor
