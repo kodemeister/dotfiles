@@ -18,6 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 " List the required plugins
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'kana/vim-altr'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
@@ -248,6 +249,9 @@ let g:ctrlp_max_files = 0
 if executable('ag')
 	let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
 endif
+
+" Use Python-based matcher to speed up matching
+let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
 
 " Search in the currently opened buffers
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
