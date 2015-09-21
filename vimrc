@@ -241,11 +241,13 @@ let g:airline_right_sep = ''
 " Set the directory to store cache files
 let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
-" Always scan for dotfiles and dotdirs
-let g:ctrlp_show_hidden = 1
-
 " Do not limit the maximum number of files to scan
 let g:ctrlp_max_files = 0
+
+" Use ag to speed up file indexing
+if executable('ag')
+	let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+endif
 
 " Search in the currently opened buffers
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
