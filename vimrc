@@ -199,8 +199,8 @@ set ttimeoutlen=0
 " Configure the <Leader> key
 let mapleader = ','
 
-" Remap backslash to comma for backward searches
-nnoremap \ ,
+" Press <Leader> twice for backward searches
+nnoremap <Leader><Leader> ,
 
 " Fast saving
 nmap <silent> <Leader>w :w<CR>
