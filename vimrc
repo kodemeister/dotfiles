@@ -242,6 +242,10 @@ let g:airline_right_sep = ''
 " Set the directory to store cache files
 let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
+" Don't jump to buffer if it's already opened in a window somewhere
+" This is useful when opening the same buffer in different windows
+let g:ctrlp_switch_buffer = 0
+
 " Do not limit the maximum number of files to scan
 let g:ctrlp_max_files = 0
 
