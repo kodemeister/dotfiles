@@ -20,6 +20,7 @@ Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'kana/vim-altr'
+Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Plugin 'toiffel/base16-shell'
@@ -270,6 +271,22 @@ call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc', '%/src/%.m',
 
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)
+
+" ------------------------------------------------------------------------------
+" ACK.VIM PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Specify the default arguments given to ack
+let g:ack_default_options = ' -i -s -H --nocolor --nogroup --column'
+
+" Highlight all matches of the search pattern
+let g:ackhighlight = 1
+
+" Display ack prompt and wait for search pattern
+nmap <Leader>/ :Ack!<Space>
+
+" Search for word under the cursor
+nmap <Leader>* :Ack!<CR>
 
 " ------------------------------------------------------------------------------
 " VIM-BUFKILL PLUGIN SETTINGS
