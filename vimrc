@@ -282,6 +282,11 @@ let g:ack_default_options = ' -i -s -H --nocolor --nogroup --column'
 " Highlight all matches of the search pattern
 let g:ackhighlight = 1
 
+" Use ag to speed up file searching
+if executable('ag')
+	let g:ackprg = 'ag -i --vimgrep'
+endif
+
 " Display ack prompt and wait for search pattern
 nmap <Leader>/ :Ack!<Space>
 
