@@ -97,10 +97,13 @@ if has('gui_running')
 	set guioptions-=b
 endif
 
-" Set 100% sized cursor shape for Operator-pending mode,
-" disable cursor blinking for all modes
+" Configure the cursor shape
 if has('gui_running')
 	set guicursor+=o:block-Cursor,a:blinkon0
+elseif &term =~ 'xterm\|rxvt'
+	let &t_SI = "\<Esc>[6 q"
+	let &t_SR = "\<Esc>[4 q"
+	let &t_EI = "\<Esc>[2 q"
 endif
 
 " Turn off annoying beeps/flashes on errors
