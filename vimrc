@@ -316,9 +316,6 @@ autocmd VimEnter * NERDTree | setlocal nolist | wincmd p
 " Don't show unneeded 'Press ? for help' label
 let NERDTreeMinimalUI = 1
 
-" Show nice-looking right and down arrows to the left of directory nodes
-let NERDTreeDirArrows = 1
-
 " Sort directories first, then files
 let NERDTreeSortOrder = ['\/$', '*']
 
