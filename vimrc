@@ -290,8 +290,8 @@ if executable('ag')
 	let g:ackprg = 'ag -i --vimgrep'
 endif
 
-" Display ack prompt and wait for search pattern
-nmap <Leader>/ :Ack!<Space>
+" Display ack prompt and place the cursor into the quotes
+nmap <Leader>/ :Ack!<Space>""<Left>
 
 " Search for word under the cursor
 nmap <Leader>* :Ack!<CR>
