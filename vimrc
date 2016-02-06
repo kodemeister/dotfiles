@@ -13,7 +13,7 @@ let &runtimepath .= ',' . s:config_dir . '/bundle/Vundle.vim'
 call vundle#begin(s:config_dir . '/bundle')
 
 " Let Vundle manage itself
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " List the required plugins
 Plugin 'vim-airline/vim-airline'
