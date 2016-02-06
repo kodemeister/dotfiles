@@ -16,7 +16,8 @@ call vundle#begin(s:config_dir . '/bundle')
 Plugin 'gmarik/Vundle.vim'
 
 " List the required plugins
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'kana/vim-altr'
