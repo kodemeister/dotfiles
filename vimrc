@@ -213,8 +213,8 @@ nmap <silent> <Leader>w :w<CR>
 " Save all modified files and build the project
 nmap <silent> <Leader>m :wall <Bar> make!<CR>
 
-" Clear the last search highlighting
-nmap <silent> <Leader><Space> :nohlsearch<CR>
+" Toggle the last search highlighting
+nmap <silent> <Leader><Space> :set invhlsearch<CR>
 
 " Easy navigation between windows
 nnoremap <C-H> <C-W>h
