@@ -266,7 +266,9 @@ if executable('ag')
 endif
 
 " Use Python-based matcher to speed up matching
-let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+if has('python') || has('python3')
+	let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+endif
 
 " Search in the currently opened buffers
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
