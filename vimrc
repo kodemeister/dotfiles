@@ -24,8 +24,7 @@ Plugin 'kana/vim-altr'
 Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
-Plugin 'toiffel/base16-shell'
-Plugin 'toiffel/base16-vim'
+Plugin 'toiffel/ocean256.vim'
 
 " Finish with plugin stuff
 call vundle#end()
@@ -65,15 +64,8 @@ syntax enable
 " Use dark variation of color scheme
 set background=dark
 
-" Modify 256 colorspace to make base16 color schemes look fine in terminal
-if !has('gui_running')
-	let g:base16_shell_path = s:config_dir . '/bundle/base16-shell'
-	let base16colorspace = 256
-	set t_Co=256
-endif
-
 " Set some eye candy color scheme
-colorscheme base16-ocean
+colorscheme ocean256
 
 " Set font when running in GUI mode
 if has('gui_running')
@@ -235,6 +227,9 @@ vnoremap ? ?\v
 " ------------------------------------------------------------------------------
 " VIM-AIRLINE PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
+
+" Pick a good airline theme matching current Vim color scheme
+let g:airline_theme = 'base16'
 
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled = 1
