@@ -24,7 +24,7 @@ Plugin 'kana/vim-altr'
 Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
-Plugin 'toiffel/ocean256.vim'
+Plugin 'toiffel/vim-hybrid'
 
 " Finish with plugin stuff
 call vundle#end()
@@ -65,7 +65,7 @@ syntax enable
 set background=dark
 
 " Set some eye candy color scheme
-colorscheme ocean256
+colorscheme hybrid
 
 " Set font when running in GUI mode
 if has('gui_running')
@@ -229,7 +229,7 @@ vnoremap ? ?\v
 " ------------------------------------------------------------------------------
 
 " Pick a good airline theme matching current Vim color scheme
-let g:airline_theme = 'base16'
+let g:airline_theme = 'tomorrow'
 
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled = 1
