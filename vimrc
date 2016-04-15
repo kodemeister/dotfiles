@@ -218,12 +218,6 @@ nnoremap <C-L> <C-W>l
 " to be consistent with C and D
 nnoremap Y y$
 
-" Enable 'very magic' mode for all searches to be consistent with Ack
-nnoremap / /\v
-vnoremap / /\v
-nnoremap ? ?\v
-vnoremap ? ?\v
-
 " ------------------------------------------------------------------------------
 " VIM-AIRLINE PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
