@@ -68,6 +68,11 @@ syntax enable
 " Use dark variation of color scheme
 set background=dark
 
+" Use colors from custom terminal theme
+if !has('gui_running')
+	let g:hybrid_custom_term_colors = 1
+endif
+
 " Set some eye candy color scheme
 colorscheme hybrid
 
