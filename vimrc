@@ -17,7 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " List the required plugins
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'kana/vim-altr'
@@ -25,6 +24,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Plugin 'toiffel/vim-hybrid'
+Plugin 'toiffel/vim-airline-themes'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
@@ -230,9 +230,6 @@ nnoremap Y y$
 " ------------------------------------------------------------------------------
 " VIM-AIRLINE PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
-
-" Pick a good airline theme matching current Vim color scheme
-let g:airline_theme = 'tomorrow'
 
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled = 1
