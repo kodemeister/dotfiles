@@ -5,34 +5,31 @@
 " Disable compability with old fashioned Vi
 set nocompatible
 
-" Setup the runtime path and initialize Vundle
-filetype off
+" Setup directory paths
 let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
 let s:cache_dir = s:config_dir . '/.cache'
-let &runtimepath .= ',' . s:config_dir . '/bundle/Vundle.vim'
-call vundle#begin(s:config_dir . '/bundle')
 
-" Let Vundle manage itself
-Plugin 'VundleVim/Vundle.vim'
+" Begin the plugin section
+call plug#begin()
 
 " List the required plugins
-Plugin 'vim-airline/vim-airline'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'kana/vim-altr'
-Plugin 'mileszs/ack.vim'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'scrooloose/nerdtree'
-Plugin 'toiffel/vim-hybrid'
-Plugin 'toiffel/vim-airline-themes'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
+Plug 'vim-airline/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'kana/vim-altr'
+Plug 'mileszs/ack.vim'
+Plug 'qpkorr/vim-bufkill'
+Plug 'scrooloose/nerdtree'
+Plug 'toiffel/vim-hybrid'
+Plug 'toiffel/vim-airline-themes'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
 
-" Finish with plugin stuff
-call vundle#end()
+" Finish the plugin section, update runtimepath and initialize plugin system
+call plug#end()
 
 " Set the default character encoding
 set encoding=utf-8
