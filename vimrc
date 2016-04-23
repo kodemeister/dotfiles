@@ -26,6 +26,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'toiffel/vim-hybrid'
 Plugin 'toiffel/vim-airline-themes'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
@@ -33,20 +34,8 @@ Plugin 'tpope/vim-repeat'
 " Finish with plugin stuff
 call vundle#end()
 
-" Enable automatic detection of file type, allow loading plugins and
-" indent files for specific file types
-filetype on
-filetype plugin on
-filetype indent on
-
 " Set the default character encoding
 set encoding=utf-8
-
-" Set the number of commands to be remembered in history
-set history=100
-
-" Automatically read files that has been changed outside of Vim
-set autoread
 
 " Don't clutter the filesystem with garbage files
 set nobackup
@@ -61,9 +50,6 @@ set hidden
 " ------------------------------------------------------------------------------
 " UI SETTINGS
 " ------------------------------------------------------------------------------
-
-" Enable syntax highlighting
-syntax enable
 
 " Use dark variation of color scheme
 set background=dark
@@ -136,20 +122,11 @@ set scrolloff=5
 set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
 
-" Enable the enhanced command-line completion
-set wildmenu
-
-" Always show the status line, even if there is only one window opened
-set laststatus=2
-
 " Show the current mode on the last line
 set showmode
 
 " Show the current command in the bottom right corner
 set showcmd
-
-" Show the cursor position in the bottom right corner
-set ruler
 
 " ------------------------------------------------------------------------------
 " EDIT SETTINGS
@@ -163,15 +140,6 @@ set shiftwidth=4
 " Always use tabs instead of spaces
 set noexpandtab
 
-" Enable automatic indenting of new lines
-set autoindent
-
-" Enable automatic indenting for C-like programs
-set cindent
-
-" Allow backspacing over autoindent, line break and the start of insert
-set backspace=indent,eol,start
-
 " Keep the cursor column while jumping or switching between buffers
 set nostartofline
 
@@ -181,9 +149,6 @@ set nostartofline
 
 " Highlight all matches of the search pattern
 set hlsearch
-
-" Jump to matches while typing a search command
-set incsearch
 
 " Ignore case in search patterns
 set ignorecase
@@ -197,10 +162,6 @@ set noshowmatch
 " ------------------------------------------------------------------------------
 " KEY MAPPINGS
 " ------------------------------------------------------------------------------
-
-" Reduce timeout for keyboard codes like <Esc> to minimal value
-" This eliminates annoying delays while exiting Insert/Visual modes in terminal
-set ttimeoutlen=0
 
 " Configure the <Leader> key
 let mapleader = ','
