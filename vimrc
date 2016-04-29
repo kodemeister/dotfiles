@@ -19,6 +19,7 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'kana/vim-altr'
 Plug 'mileszs/ack.vim'
 Plug 'qpkorr/vim-bufkill'
+Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'toiffel/vim-hybrid'
 Plug 'toiffel/vim-airline-themes'
@@ -267,6 +268,13 @@ let g:BufKillCreateMappings = 0
 
 " Delete a buffer without closing the window it was displayed in
 nmap <silent> <Leader>q :BD<CR>
+
+" ------------------------------------------------------------------------------
+" DELIMITMATE PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Insert an indent when pressing <CR> inside empty pair of matching characters
+let delimitMate_expand_cr = 1
 
 " ------------------------------------------------------------------------------
 " NERD TREE PLUGIN SETTINGS
