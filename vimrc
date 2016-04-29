@@ -33,7 +33,9 @@ Plug 'tpope/vim-repeat'
 call plug#end()
 
 " Set the default character encoding
-set encoding=utf-8
+if !has('nvim')
+	set encoding=utf-8
+endif
 
 " Don't clutter the filesystem with garbage files
 set nobackup
@@ -86,6 +88,8 @@ endif
 " Configure the cursor shape
 if has('gui_running')
 	set guicursor+=o:block-Cursor,a:blinkon0
+elseif has('nvim')
+	let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 elseif &term =~ 'xterm\|rxvt'
 	let &t_SI = "\<Esc>[6 q"
 	let &t_SR = "\<Esc>[4 q"
