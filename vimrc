@@ -16,6 +16,7 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'embear/vim-localvimrc'
 Plug 'kana/vim-altr'
 Plug 'mileszs/ack.vim'
 Plug 'qpkorr/vim-bufkill'
@@ -230,6 +231,16 @@ endif
 
 " Search in the currently opened buffers
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
+
+" ------------------------------------------------------------------------------
+" VIM-LOCALVIMRC PLUGIN SETTINGS
+" ------------------------------------------------------------------------------
+
+" Don't load local vimrc files in a sandbox
+let g:localvimrc_sandbox = 0
+
+" Don't ask before sourcing local vimrc files
+let g:localvimrc_ask = 0
 
 " ------------------------------------------------------------------------------
 " VIM-ALTR PLUGIN SETTINGS
