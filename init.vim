@@ -6,11 +6,15 @@
 set nocompatible
 
 " Setup directory paths
-let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+if has('nvim')
+	let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
+else
+	let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+endif
 let s:cache_dir = s:config_dir . '/.cache'
 
 " Begin the plugin section
-call plug#begin()
+call plug#begin(s:config_dir . '/plugged')
 
 " List the required plugins
 Plug 'vim-airline/vim-airline'
