@@ -71,7 +71,6 @@ colorscheme hybrid
 if has('gui_running')
 	if has('gui_gtk2')
 		set guifont=Droid\ Sans\ Mono\ Slashed\ 14
-		set linespace=4
 	elseif has('gui_macvim')
 		set guifont=Menlo\ Regular:h18
 	elseif has('gui_win32')
