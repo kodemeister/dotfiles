@@ -299,9 +299,6 @@ let delimitMate_expand_cr = 1
 " NERD TREE PLUGIN SETTINGS
 " ------------------------------------------------------------------------------
 
-" Open NERD tree on startup, move cursor back to the main window
-autocmd VimEnter * NERDTree | setlocal nolist | wincmd p
-
 " Don't show unneeded 'Press ? for help' label
 let NERDTreeMinimalUI = 1
 
@@ -316,3 +313,12 @@ let NERDTreeShowHidden = 1
 
 " Always show all files, don't ignore anything
 let NERDTreeIgnore = []
+
+" Disable cascade opening of directories having only one child subdirectory
+let NERDTreeCascadeOpenSingleChildDir = 0
+
+" Quickly toggle NERD tree window
+nmap <silent> <Leader>nn :NERDTreeToggle <Bar> setlocal nolist<CR>
+
+" Reveal the current file in NERD tree window
+nmap <silent> <Leader>nf :NERDTreeFind <Bar> setlocal nolist<CR>
