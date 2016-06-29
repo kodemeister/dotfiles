@@ -285,7 +285,8 @@ nmap <Leader>* :Ack!<CR>
 let g:BufKillCreateMappings = 0
 
 " Delete a buffer without closing the window it was displayed in
-nmap <silent> <Leader>q :BD<CR>
+nmap <silent> <Leader>x :BW<CR>
+nmap <silent> <Leader>X :BW!<CR>
 
 " ------------------------------------------------------------------------------
 " DELIMITMATE PLUGIN SETTINGS
