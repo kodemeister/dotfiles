@@ -1,6 +1,4 @@
-" ------------------------------------------------------------------------------
-" GENERAL SETTINGS
-" ------------------------------------------------------------------------------
+" Plugins {{{1
 
 " Disable compability with old fashioned Vi
 set nocompatible
@@ -17,7 +15,14 @@ let s:cache_dir = s:config_dir . '/.cache'
 call plug#begin(s:config_dir . '/plugged')
 
 " List the required plugins
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
+Plug 'toiffel/vim-airline-themes'
+Plug 'toiffel/vim-hybrid'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'embear/vim-localvimrc'
@@ -26,16 +31,11 @@ Plug 'mileszs/ack.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
-Plug 'toiffel/vim-hybrid'
-Plug 'toiffel/vim-airline-themes'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
 
 " Finish the plugin section, update runtimepath and initialize plugin system
 call plug#end()
+
+" General settings {{{1
 
 " Set the default character encoding
 if !has('nvim')
@@ -52,9 +52,7 @@ set noundofile
 " without asking to save the current changes first
 set hidden
 
-" ------------------------------------------------------------------------------
-" UI SETTINGS
-" ------------------------------------------------------------------------------
+" UI settings {{{1
 
 " Use dark variation of color scheme
 set background=dark
@@ -134,9 +132,7 @@ set showmode
 " Show the current command in the bottom right corner
 set showcmd
 
-" ------------------------------------------------------------------------------
-" EDIT SETTINGS
-" ------------------------------------------------------------------------------
+" Edit settings {{{1
 
 " Set width of tabs and indents to 4 spaces
 set tabstop=4
@@ -149,9 +145,7 @@ set noexpandtab
 " Keep the cursor column while jumping or switching between buffers
 set nostartofline
 
-" ------------------------------------------------------------------------------
-" SEARCH SETTINGS
-" ------------------------------------------------------------------------------
+" Search settings {{{1
 
 " Highlight all matches of the search pattern
 set hlsearch
@@ -165,9 +159,7 @@ set wrapscan
 " Don't jump to matching brackets while typing
 set noshowmatch
 
-" ------------------------------------------------------------------------------
-" KEY MAPPINGS
-" ------------------------------------------------------------------------------
+" Key mappings {{{1
 
 " Configure the <Leader> key
 let mapleader = ','
@@ -194,9 +186,9 @@ nnoremap <C-L> <C-W>l
 " to be consistent with C and D
 nnoremap Y y$
 
-" ------------------------------------------------------------------------------
-" VIM-AIRLINE PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" Plugin settings {{{1
+
+" vim-airline {{{2
 
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -208,9 +200,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" ------------------------------------------------------------------------------
-" CTRLP.VIM PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" ctrlp.vim {{{2
 
 " Set the directory to store cache files
 let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
@@ -235,9 +225,7 @@ endif
 " Search in the currently opened buffers
 nmap <silent> <Leader>b :CtrlPBuffer<CR>
 
-" ------------------------------------------------------------------------------
-" VIM-LOCALVIMRC PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" localvimrc {{{2
 
 " Don't load local vimrc files in a sandbox
 let g:localvimrc_sandbox = 0
@@ -245,9 +233,7 @@ let g:localvimrc_sandbox = 0
 " Don't ask before sourcing local vimrc files
 let g:localvimrc_ask = 0
 
-" ------------------------------------------------------------------------------
-" VIM-ALTR PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" altr {{{2
 
 " Define additional vim-altr rules
 call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc', '%/src/%.m',
@@ -256,9 +242,7 @@ call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc', '%/src/%.m',
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)
 
-" ------------------------------------------------------------------------------
-" ACK.VIM PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" ack.vim {{{2
 
 " Specify the default arguments given to ack
 let g:ack_default_options = ' -i -s -H --nocolor --nogroup --column'
@@ -277,9 +261,7 @@ nmap <Leader>/ :Ack!<Space>""<Left>
 " Search for word under the cursor
 nmap <Leader>* :Ack!<CR>
 
-" ------------------------------------------------------------------------------
-" VIM-BUFKILL PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" vim-bufkill {{{2
 
 " Disable predefined bufkill mappings
 let g:BufKillCreateMappings = 0
@@ -288,16 +270,12 @@ let g:BufKillCreateMappings = 0
 nmap <silent> <Leader>x :BW<CR>
 nmap <silent> <Leader>X :BW!<CR>
 
-" ------------------------------------------------------------------------------
-" DELIMITMATE PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
 let delimitMate_expand_cr = 1
 
-" ------------------------------------------------------------------------------
-" NERD TREE PLUGIN SETTINGS
-" ------------------------------------------------------------------------------
+" NERD tree {{{2
 
 " Don't show unneeded 'Press ? for help' label
 let NERDTreeMinimalUI = 1
@@ -322,3 +300,7 @@ nmap <silent> <Leader>nn :NERDTreeToggle <Bar> setlocal nolist<CR>
 
 " Reveal the current file in NERD tree window
 nmap <silent> <Leader>nf :NERDTreeFind <Bar> setlocal nolist<CR>
+
+" }}}2
+
+" vim: fen fdm=marker fmr={{{,}}} fdc=3 noet ts=4 sts=4 sw=4
