@@ -167,8 +167,12 @@ let mapleader = ','
 " Press <Leader> twice for backward searches
 nnoremap <Leader><Leader> ,
 
+" Edit/reload Vim configuration file
+nmap <silent> <Leader>ve :edit $MYVIMRC<CR>
+nmap <silent> <Leader>vr :source $MYVIMRC<CR>
+
 " Fast saving
-nmap <silent> <Leader>w :w<CR>
+nmap <silent> <Leader>w :write<CR>
 
 " Save all modified files and build the project
 nmap <silent> <Leader>m :wall <Bar> make!<CR>
