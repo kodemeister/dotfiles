@@ -9,10 +9,22 @@ if has('nvim')
 else
 	let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
 endif
+let s:autoload_dir = s:config_dir . '/autoload'
+let s:plugins_dir = s:config_dir . '/plugged'
 let s:cache_dir = s:config_dir . '/.cache'
 
+" Setup global variables
+let s:first_run = empty(glob(s:autoload_dir . '/plug.vim'))
+
+" Automatically install vim-plug upon first run
+if s:first_run
+	execute 'silent !curl -fLo "' . s:autoload_dir . '/plug.vim" --create-dirs ' .
+		\'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 " Begin the plugin section
-call plug#begin(s:config_dir . '/plugged')
+call plug#begin(s:plugins_dir)
 
 " List the required plugins
 Plug 'tpope/vim-sensible'
@@ -34,6 +46,11 @@ Plug 'scrooloose/nerdtree'
 
 " Finish the plugin section, update runtimepath and initialize plugin system
 call plug#end()
+
+" Skip the rest of initialization before installing plugins upon first run
+if s:first_run
+	finish
+endif
 
 " General settings {{{1
 
