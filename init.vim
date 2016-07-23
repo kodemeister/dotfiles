@@ -18,9 +18,9 @@ let s:first_run = empty(glob(s:autoload_dir . '/plug.vim'))
 
 " Automatically install vim-plug upon first run
 if s:first_run
-	execute 'silent !curl -fLo "' . s:autoload_dir . '/plug.vim" --create-dirs ' .
-		\'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * PlugInstall | source $MYVIMRC
+	execute 'silent !curl --create-dirs -fLo ' . shellescape(s:autoload_dir . '/plug.vim') .
+		\' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall | windo source $MYVIMRC
 endif
 
 " Begin the plugin section
