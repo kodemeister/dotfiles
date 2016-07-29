@@ -52,6 +52,25 @@ if s:first_run
 	finish
 endif
 
+" Functions {{{1
+
+function! s:GetVisualSelection() " {{{2
+	let old_reg = getreg('"')
+	let old_reg_type = getregtype('"')
+	normal! gv""y
+	let selection = getreg('"')
+	call setreg('"', old_reg, old_reg_type)
+	return selection
+endfunction
+
+function! s:SearchVisualSelection(command) " {{{2
+	let selection = s:GetVisualSelection()
+	let @/ = '\V' . substitute(escape(selection, a:command . '\'), '\n', '\\n', 'g')
+	call feedkeys(a:command . @/ . "\<CR>", 'n')
+endfunction
+
+" }}}2
+
 " General settings {{{1
 
 " Set the default character encoding
@@ -206,6 +225,10 @@ nnoremap <C-L> <C-W>l
 " Make Y yank from the current cursor position to the end of line,
 " to be consistent with C and D
 nnoremap Y y$
+
+" Replace built-in * and # behavior in Visual mode
+xnoremap <silent> * :<C-u>call <SID>SearchVisualSelection('/')<CR>
+xnoremap <silent> # :<C-u>call <SID>SearchVisualSelection('?')<CR>
 
 " Plugin settings {{{1
 
