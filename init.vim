@@ -5,9 +5,9 @@ set nocompatible
 
 " Setup directory paths
 if has('nvim')
-	let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
+  let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
 else
-	let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+  let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
 endif
 let s:autoload_dir = s:config_dir . '/autoload'
 let s:plugins_dir = s:config_dir . '/plugged'
@@ -18,9 +18,9 @@ let s:first_run = empty(glob(s:autoload_dir . '/plug.vim'))
 
 " Automatically install vim-plug upon first run
 if s:first_run
-	execute 'silent !curl --create-dirs -fLo ' . shellescape(s:autoload_dir . '/plug.vim') .
-		\' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * PlugInstall | windo source $MYVIMRC
+  execute 'silent !curl --create-dirs -fLo ' . shellescape(s:autoload_dir . '/plug.vim') .
+    \' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall | windo source $MYVIMRC
 endif
 
 " Begin the plugin section
@@ -49,24 +49,24 @@ call plug#end()
 
 " Skip the rest of initialization before installing plugins upon first run
 if s:first_run
-	finish
+  finish
 endif
 
 " Functions {{{1
 
 function! s:GetVisualSelection() " {{{2
-	let old_reg = getreg('"')
-	let old_reg_type = getregtype('"')
-	normal! gv""y
-	let selection = getreg('"')
-	call setreg('"', old_reg, old_reg_type)
-	return selection
+  let old_reg = getreg('"')
+  let old_reg_type = getregtype('"')
+  normal! gv""y
+  let selection = getreg('"')
+  call setreg('"', old_reg, old_reg_type)
+  return selection
 endfunction
 
 function! s:SearchVisualSelection(command) " {{{2
-	let selection = s:GetVisualSelection()
-	let @/ = '\V' . substitute(escape(selection, a:command . '\'), '\n', '\\n', 'g')
-	call feedkeys(a:command . @/ . "\<CR>", 'n')
+  let selection = s:GetVisualSelection()
+  let @/ = '\V' . substitute(escape(selection, a:command . '\'), '\n', '\\n', 'g')
+  call feedkeys(a:command . @/ . "\<CR>", 'n')
 endfunction
 
 " }}}2
@@ -75,7 +75,7 @@ endfunction
 
 " Set the default character encoding
 if !has('nvim')
-	set encoding=utf-8
+  set encoding=utf-8
 endif
 
 " Don't clutter the filesystem with garbage files
@@ -95,7 +95,7 @@ set background=dark
 
 " Use colors from custom terminal theme
 if !has('gui_running')
-	let g:hybrid_custom_term_colors = 1
+  let g:hybrid_custom_term_colors = 1
 endif
 
 " Set some eye candy color scheme
@@ -103,35 +103,35 @@ colorscheme hybrid
 
 " Set font when running in GUI mode
 if has('gui_running')
-	if has('gui_gtk2')
-		set guifont=Droid\ Sans\ Mono\ Slashed\ 14
-	elseif has('gui_macvim')
-		set guifont=Menlo\ Regular:h18
-	elseif has('gui_win32')
-		set guifont=Consolas:h14:cANSI
-	endif
+  if has('gui_gtk2')
+    set guifont=Droid\ Sans\ Mono\ Slashed\ 14
+  elseif has('gui_macvim')
+    set guifont=Menlo\ Regular:h18
+  elseif has('gui_win32')
+    set guifont=Consolas:h14:cANSI
+  endif
 endif
 
 " Remove menu bar, toolbar and scrollbars
 if has('gui_running')
-	set guioptions-=m
-	set guioptions-=T
-	set guioptions-=l
-	set guioptions-=L
-	set guioptions-=r
-	set guioptions-=R
-	set guioptions-=b
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=l
+  set guioptions-=L
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=b
 endif
 
 " Configure the cursor shape
 if has('gui_running')
-	set guicursor+=o:block-Cursor,a:blinkon0
+  set guicursor+=o:block-Cursor,a:blinkon0
 elseif has('nvim')
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 elseif &term =~ 'xterm\|rxvt'
-	let &t_SI = "\<Esc>[6 q"
-	let &t_SR = "\<Esc>[4 q"
-	let &t_EI = "\<Esc>[2 q"
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
 endif
 
 " Turn off annoying beeps/flashes on errors
@@ -258,12 +258,12 @@ let g:ctrlp_max_files = 0
 
 " Use ag to speed up file indexing
 if executable('ag')
-	let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+  let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
 endif
 
 " Use Python-based matcher to speed up matching
 if has('python') || has('python3')
-	let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+  let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
 endif
 
 " Search in the currently opened buffers
@@ -281,7 +281,7 @@ let g:localvimrc_ask = 0
 
 " Define additional vim-altr rules
 call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc', '%/src/%.m',
-	\'%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
+  \'%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
 
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)
@@ -296,7 +296,7 @@ let g:ackhighlight = 1
 
 " Use ag to speed up file searching
 if executable('ag')
-	let g:ackprg = 'ag -i --vimgrep'
+  let g:ackprg = 'ag -i --vimgrep'
 endif
 
 " Display ack prompt and place the cursor into the quotes
@@ -347,4 +347,4 @@ nmap <silent> <Leader>nf :NERDTreeFind <Bar> setlocal nolist<CR>
 
 " }}}2
 
-" vim: fen fdm=marker fmr={{{,}}} fdc=3 noet ts=4 sts=4 sw=4
+" vim: fen fdm=marker fmr={{{,}}} fdc=3 et ts=2 sts=2 sw=2
