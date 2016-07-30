@@ -69,6 +69,22 @@ function! s:SearchVisualSelection(command) " {{{2
   call feedkeys(a:command . @/ . "\<CR>", 'n')
 endfunction
 
+function! s:SearchVisualSelectionInFiles() " {{{2
+  let selection = s:GetVisualSelection()
+
+  if selection =~ '\n'
+    echohl ErrorMsg | echomsg 'Multiline search is not supported' | echohl None
+    return
+  endif
+
+  let pattern = shellescape(selection)
+  call ack#Ack('grep!', '-Q ' . pattern)
+
+  let @/ = '\V' . escape(selection, '\')
+  call histadd('/', @/)
+  call feedkeys(":let &hlsearch=1 \| echo\<CR>", 'n')
+endfunction
+
 " }}}2
 
 " General settings {{{1
@@ -301,6 +317,10 @@ endif
 
 " Display ack prompt and place the cursor into the quotes
 nmap <Leader>/ :Ack!<Space>""<Left>
+
+" Search for currently selected text
+xnoremap <silent> <Leader>* :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
+xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
 
 " Search for word under the cursor
 nmap <Leader>* :Ack!<CR>
