@@ -85,6 +85,22 @@ function! s:SearchVisualSelectionInFiles() " {{{2
   call feedkeys(":let &hlsearch=1 \| echo\<CR>", 'n')
 endfunction
 
+function! s:SearchCurrentWordInFiles() " {{{2
+  let word = expand('<cword>')
+
+  if empty(word)
+    echohl ErrorMsg | echomsg 'No string under cursor' | echohl None
+    return
+  endif
+
+  let pattern = shellescape(word)
+  call ack#Ack('grep!', '-Q -w ' . pattern)
+
+  let @/ = '\V\<' . escape(word, '\') . '\>'
+  call histadd('/', @/)
+  call feedkeys(":let &hlsearch=1 \| echo\<CR>", 'n')
+endfunction
+
 " }}}2
 
 " General settings {{{1
@@ -323,7 +339,8 @@ xnoremap <silent> <Leader>* :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
 xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
 
 " Search for word under the cursor
-nmap <Leader>* :Ack!<CR>
+nnoremap <silent> <Leader>* :call <SID>SearchCurrentWordInFiles()<CR>
+nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
 
 " vim-bufkill {{{2
 
