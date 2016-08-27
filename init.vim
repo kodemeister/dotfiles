@@ -377,6 +377,9 @@ let NERDTreeIgnore = []
 " Disable cascade opening of directories having only one child subdirectory
 let NERDTreeCascadeOpenSingleChildDir = 0
 
+" Set the path to bookmarks file
+let NERDTreeBookmarksFile = s:cache_dir . '/.NERDTreeBookmarks'
+
 " Quickly toggle NERD tree window
 nmap <silent> <Leader>nn :NERDTreeToggle <Bar> setlocal nolist<CR>
 
