@@ -15,6 +15,7 @@ let s:cache_dir = s:config_dir . '/.cache'
 
 " Setup global variables
 let s:first_run = empty(glob(s:autoload_dir . '/plug.vim'))
+let g:use_fzf = executable('fzf') && !has('gui_running')
 
 " Automatically install vim-plug upon first run
 if s:first_run
@@ -35,8 +36,10 @@ Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'toiffel/vim-airline-themes'
 Plug 'toiffel/vim-hybrid'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'junegunn/fzf', g:use_fzf ? {} : {'on': []}
+Plug 'junegunn/fzf.vim', g:use_fzf ? {} : {'on': []}
+Plug 'ctrlpvim/ctrlp.vim', !g:use_fzf ? {} : {'on': []}
+Plug 'FelikZ/ctrlp-py-matcher', !g:use_fzf ? {} : {'on': []}
 Plug 'embear/vim-localvimrc'
 Plug 'kana/vim-altr'
 Plug 'mileszs/ack.vim'
@@ -276,30 +279,50 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+" fzf.vim {{{2
+
+if g:use_fzf
+  " Configure FZF window position and height
+  let g:fzf_layout = {'down': '12'}
+
+  " Use ag to speed up file indexing
+  if executable('ag')
+    let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+  endif
+
+  " Search in files
+  nmap <silent> <C-p> :FZF<CR>
+
+  " Search in the currently opened buffers
+  nmap <silent> <Leader>b :Buffers<CR>
+endif
+
 " ctrlp.vim {{{2
 
-" Set the directory to store cache files
-let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
+if !g:use_fzf
+  " Set the directory to store cache files
+  let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
-" Don't jump to buffer if it's already opened in a window somewhere
-" This is useful when opening the same buffer in different windows
-let g:ctrlp_switch_buffer = 0
+  " Don't jump to buffer if it's already opened in a window somewhere
+  " This is useful when opening the same buffer in different windows
+  let g:ctrlp_switch_buffer = 0
 
-" Do not limit the maximum number of files to scan
-let g:ctrlp_max_files = 0
+  " Do not limit the maximum number of files to scan
+  let g:ctrlp_max_files = 0
 
-" Use ag to speed up file indexing
-if executable('ag')
-  let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+  " Use ag to speed up file indexing
+  if executable('ag')
+    let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+  endif
+
+  " Use Python-based matcher to speed up matching
+  if has('python') || has('python3')
+    let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+  endif
+
+  " Search in the currently opened buffers
+  nmap <silent> <Leader>b :CtrlPBuffer<CR>
 endif
-
-" Use Python-based matcher to speed up matching
-if has('python') || has('python3')
-  let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
-endif
-
-" Search in the currently opened buffers
-nmap <silent> <Leader>b :CtrlPBuffer<CR>
 
 " localvimrc {{{2
 
