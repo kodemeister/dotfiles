@@ -403,11 +403,14 @@ let NERDTreeCascadeOpenSingleChildDir = 0
 " Set the path to bookmarks file
 let NERDTreeBookmarksFile = s:cache_dir . '/.NERDTreeBookmarks'
 
+" Don't show whitespace characters in NERD tree window
+autocmd FileType nerdtree setlocal nolist
+
 " Quickly toggle NERD tree window
-nmap <silent> <Leader>nn :NERDTreeToggle <Bar> setlocal nolist<CR>
+nmap <silent> <Leader>nn :NERDTreeToggle<CR>
 
 " Reveal the current file in NERD tree window
-nmap <silent> <Leader>nf :NERDTreeFind <Bar> setlocal nolist<CR>
+nmap <silent> <Leader>nf :NERDTreeFind<CR>
 
 " }}}2
 
