@@ -36,6 +36,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'toiffel/vim-airline-themes'
 Plug 'toiffel/vim-hybrid'
+Plug 'dbakker/vim-projectroot'
 Plug 'junegunn/fzf', g:use_fzf ? {} : {'on': []}
 Plug 'junegunn/fzf.vim', g:use_fzf ? {} : {'on': []}
 Plug 'ctrlpvim/ctrlp.vim', !g:use_fzf ? {} : {'on': []}
@@ -291,7 +292,7 @@ if g:use_fzf
   endif
 
   " Search in files
-  nnoremap <silent> <C-p> :FZF<CR>
+  nnoremap <silent> <expr> <C-p> ':FZF ' . fnameescape(projectroot#guess()) . '<CR>'
 
   " Search in the currently opened buffers
   nnoremap <silent> <Leader>b :Buffers<CR>
