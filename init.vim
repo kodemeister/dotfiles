@@ -239,17 +239,17 @@ let mapleader = ','
 nnoremap <Leader><Leader> ,
 
 " Edit/reload Vim configuration file
-nmap <silent> <Leader>ve :edit $MYVIMRC<CR>
-nmap <silent> <Leader>vr :source $MYVIMRC<CR>
+nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
+nnoremap <silent> <Leader>vr :source $MYVIMRC<CR>
 
 " Fast saving
-nmap <silent> <Leader>w :write<CR>
+nnoremap <silent> <Leader>w :write<CR>
 
 " Save all modified files and build the project
-nmap <silent> <Leader>m :wall <Bar> make!<CR>
+nnoremap <silent> <Leader>m :wall <Bar> make!<CR>
 
 " Clear the last search highlighting
-nmap <silent> <Leader><Space> :nohlsearch<CR>
+nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
 " Easy navigation between windows
 nnoremap <C-H> <C-W>h
@@ -291,10 +291,10 @@ if g:use_fzf
   endif
 
   " Search in files
-  nmap <silent> <C-p> :FZF<CR>
+  nnoremap <silent> <C-p> :FZF<CR>
 
   " Search in the currently opened buffers
-  nmap <silent> <Leader>b :Buffers<CR>
+  nnoremap <silent> <Leader>b :Buffers<CR>
 endif
 
 " ctrlp.vim {{{2
@@ -321,7 +321,7 @@ if !g:use_fzf
   endif
 
   " Search in the currently opened buffers
-  nmap <silent> <Leader>b :CtrlPBuffer<CR>
+  nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 endif
 
 " localvimrc {{{2
@@ -372,8 +372,8 @@ nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
 let g:BufKillCreateMappings = 0
 
 " Delete a buffer without closing the window it was displayed in
-nmap <silent> <Leader>x :BW<CR>
-nmap <silent> <Leader>X :BW!<CR>
+nnoremap <silent> <Leader>x :BW<CR>
+nnoremap <silent> <Leader>X :BW!<CR>
 
 " delimitMate {{{2
 
@@ -407,10 +407,10 @@ let NERDTreeBookmarksFile = s:cache_dir . '/.NERDTreeBookmarks'
 autocmd FileType nerdtree setlocal nolist
 
 " Quickly toggle NERD tree window
-nmap <silent> <Leader>nn :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>nn :NERDTreeToggle<CR>
 
 " Reveal the current file in NERD tree window
-nmap <silent> <Leader>nf :NERDTreeFind<CR>
+nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
 
 " }}}2
 
