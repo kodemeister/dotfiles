@@ -1,4 +1,4 @@
-" Plugins {{{1
+" Variables {{{1
 
 " Disable compability with old fashioned Vi
 set nocompatible
@@ -9,52 +9,10 @@ if has('nvim')
 else
   let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
 endif
-let s:autoload_dir = s:config_dir . '/autoload'
-let s:plugins_dir = s:config_dir . '/plugged'
 let s:cache_dir = s:config_dir . '/.cache'
 
 " Setup global variables
-let s:first_run = empty(glob(s:autoload_dir . '/plug.vim'))
-let g:use_fzf = executable('fzf') && !has('gui_running')
-
-" Automatically install vim-plug upon first run
-if s:first_run
-  execute 'silent !curl --create-dirs -fLo ' . shellescape(s:autoload_dir . '/plug.vim') .
-    \' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall | windo source $MYVIMRC
-endif
-
-" Begin the plugin section
-call plug#begin(s:plugins_dir)
-
-" List the required plugins
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'tomtom/tcomment_vim'
-Plug 'vim-airline/vim-airline'
-Plug 'toiffel/vim-airline-themes'
-Plug 'toiffel/vim-hybrid'
-Plug 'dbakker/vim-projectroot'
-Plug 'junegunn/fzf', g:use_fzf ? {} : {'on': []}
-Plug 'junegunn/fzf.vim', g:use_fzf ? {} : {'on': []}
-Plug 'ctrlpvim/ctrlp.vim', !g:use_fzf ? {} : {'on': []}
-Plug 'FelikZ/ctrlp-py-matcher', !g:use_fzf ? {} : {'on': []}
-Plug 'embear/vim-localvimrc'
-Plug 'kana/vim-altr'
-Plug 'mileszs/ack.vim'
-Plug 'qpkorr/vim-bufkill'
-Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/nerdtree'
-
-" Finish the plugin section, update runtimepath and initialize plugin system
-call plug#end()
-
-" Skip the rest of initialization before installing plugins upon first run
-if s:first_run
-  finish
-endif
+let s:use_fzf = executable('fzf') && !has('gui_running')
 
 " Functions {{{1
 
@@ -282,15 +240,15 @@ let g:airline_right_sep = ''
 
 " fzf.vim {{{2
 
-if g:use_fzf
-  " Configure FZF window position and height
-  let g:fzf_layout = {'down': '12'}
+" Configure FZF window position and height
+let g:fzf_layout = {'down': '12'}
 
-  " Use ag to speed up file indexing
-  if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
-  endif
+" Use ag to speed up file indexing
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+endif
 
+if s:use_fzf
   " Search in files
   nnoremap <silent> <expr> <C-p> ':FZF ' . fnameescape(projectroot#guess()) . '<CR>'
 
@@ -300,29 +258,32 @@ endif
 
 " ctrlp.vim {{{2
 
-if !g:use_fzf
-  " Set the directory to store cache files
-  let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
+" Set the directory to store cache files
+let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
-  " Don't jump to buffer if it's already opened in a window somewhere
-  " This is useful when opening the same buffer in different windows
-  let g:ctrlp_switch_buffer = 0
+" Don't jump to buffer if it's already opened in a window somewhere
+" This is useful when opening the same buffer in different windows
+let g:ctrlp_switch_buffer = 0
 
-  " Do not limit the maximum number of files to scan
-  let g:ctrlp_max_files = 0
+" Do not limit the maximum number of files to scan
+let g:ctrlp_max_files = 0
 
-  " Use ag to speed up file indexing
-  if executable('ag')
-    let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
-  endif
+" Use ag to speed up file indexing
+if executable('ag')
+  let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+endif
 
-  " Use Python-based matcher to speed up matching
-  if has('python') || has('python3')
-    let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
-  endif
+" Use Python-based matcher to speed up matching
+if has('python') || has('python3')
+  let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+endif
 
+if !s:use_fzf
   " Search in the currently opened buffers
   nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+else
+  " Disable default CtrlP mapping
+  let g:ctrlp_map = ''
 endif
 
 " localvimrc {{{2
@@ -334,10 +295,6 @@ let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
 
 " altr {{{2
-
-" Define additional vim-altr rules
-call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc', '%/src/%.m',
-  \'%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
 
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)

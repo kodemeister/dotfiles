@@ -1,0 +1,57 @@
+[submodule "pack/bundle/start/ack.vim"]
+	path = pack/bundle/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "pack/bundle/start/ctrlp-py-matcher"]
+	path = pack/bundle/start/ctrlp-py-matcher
+	url = https://github.com/FelikZ/ctrlp-py-matcher.git
+[submodule "pack/bundle/start/ctrlp.vim"]
+	path = pack/bundle/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/bundle/start/delimitMate"]
+	path = pack/bundle/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "pack/bundle/start/fzf"]
+	path = pack/bundle/start/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "pack/bundle/start/fzf.vim"]
+	path = pack/bundle/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "pack/bundle/start/nerdtree"]
+	path = pack/bundle/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/bundle/start/tcomment_vim"]
+	path = pack/bundle/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "pack/bundle/start/vim-airline"]
+	path = pack/bundle/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "pack/bundle/start/vim-airline-themes"]
+	path = pack/bundle/start/vim-airline-themes
+	url = https://github.com/toiffel/vim-airline-themes.git
+[submodule "pack/bundle/start/vim-altr"]
+	path = pack/bundle/start/vim-altr
+	url = https://github.com/kana/vim-altr.git
+[submodule "pack/bundle/start/vim-bufkill"]
+	path = pack/bundle/start/vim-bufkill
+	url = https://github.com/qpkorr/vim-bufkill.git
+[submodule "pack/bundle/start/vim-hybrid"]
+	path = pack/bundle/start/vim-hybrid
+	url = https://github.com/toiffel/vim-hybrid.git
+[submodule "pack/bundle/start/vim-localvimrc"]
+	path = pack/bundle/start/vim-localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
+[submodule "pack/bundle/start/vim-projectroot"]
+	path = pack/bundle/start/vim-projectroot
+	url = https://github.com/dbakker/vim-projectroot.git
+[submodule "pack/bundle/start/vim-repeat"]
+	path = pack/bundle/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "pack/bundle/start/vim-sensible"]
+	path = pack/bundle/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "pack/bundle/start/vim-surround"]
+	path = pack/bundle/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pack/bundle/start/vim-unimpaired"]
+	path = pack/bundle/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

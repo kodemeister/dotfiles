@@ -1,5 +1,3 @@
-.cache/
-autoload/
-plugged/
-.netrwhist
-init.vim
+/.cache/
+/.netrwhist
+/init.vim
