@@ -196,10 +196,7 @@ set noshowmatch
 " Key mappings {{{1
 
 " Configure the <Leader> key
-let mapleader = ','
-
-" Press <Leader> twice for backward searches
-nnoremap <Leader><Leader> ,
+let mapleader = "\<Space>"
 
 " Edit/reload Vim configuration file
 nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
