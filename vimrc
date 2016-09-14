@@ -172,6 +172,10 @@ set shiftwidth=4
 " Always use tabs instead of spaces
 set noexpandtab
 
+" Allow backspacing over autoindent, line break and the start of insert
+" Required to avoid an error message from delimitMate upon startup
+set backspace=indent,eol,start
+
 " Keep the cursor column while jumping or switching between buffers
 set nostartofline
 
