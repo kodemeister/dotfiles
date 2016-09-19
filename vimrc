@@ -206,7 +206,7 @@ nnoremap <silent> <Leader>vr :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>w :write<CR>
 
 " Save all modified files and build the project
-nnoremap <silent> <Leader>m :wall <Bar> make!<CR>
+nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
 
 " Clear the last search highlighting
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>

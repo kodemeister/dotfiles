@@ -34,6 +34,9 @@
 [submodule "pack/bundle/start/vim-bufkill"]
 	path = pack/bundle/start/vim-bufkill
 	url = https://github.com/qpkorr/vim-bufkill.git
+[submodule "pack/bundle/start/vim-dispatch"]
+	path = pack/bundle/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
 [submodule "pack/bundle/start/vim-hybrid"]
 	path = pack/bundle/start/vim-hybrid
 	url = https://github.com/toiffel/vim-hybrid.git
