@@ -211,6 +211,10 @@ nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
 " Clear the last search highlighting
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
+" Move cursor up/down by screen lines when wrapping the text
+nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+
 " Easy navigation between windows
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
