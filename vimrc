@@ -97,8 +97,8 @@ colorscheme hybrid
 
 " Set font when running in GUI mode
 if has('gui_running')
-  if has('gui_gtk2')
-    set guifont=Droid\ Sans\ Mono\ Slashed\ 14
+  if has('gui_gtk')
+    set guifont=Fira\ Mono\ 14,Monospace\ 14
   elseif has('gui_macvim')
     set guifont=Menlo\ Regular:h18
   elseif has('gui_win32')
