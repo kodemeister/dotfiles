@@ -346,38 +346,6 @@ nnoremap <silent> <Leader>X :BW!<CR>
 " Insert an indent when pressing <CR> inside empty pair of matching characters
 let delimitMate_expand_cr = 1
 
-" NERD tree {{{2
-
-" Don't show unneeded 'Press ? for help' label
-let NERDTreeMinimalUI = 1
-
-" Sort directories first, then files
-let NERDTreeSortOrder = ['\/$', '*']
-
-" Enable case-sensitive sorting
-let NERDTreeCaseSensitiveSort = 1
-
-" Display hidden files by default
-let NERDTreeShowHidden = 1
-
-" Always show all files, don't ignore anything
-let NERDTreeIgnore = []
-
-" Disable cascade opening of directories having only one child subdirectory
-let NERDTreeCascadeOpenSingleChildDir = 0
-
-" Set the path to bookmarks file
-let NERDTreeBookmarksFile = s:cache_dir . '/.NERDTreeBookmarks'
-
-" Don't show whitespace characters in NERD tree window
-autocmd FileType nerdtree setlocal nolist
-
-" Quickly toggle NERD tree window
-nnoremap <silent> <Leader>nn :NERDTreeToggle<CR>
-
-" Reveal the current file in NERD tree window
-nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
-
 " }}}2
 
 " vim: fen fdm=marker fmr={{{,}}} fdc=3 et ts=2 sts=2 sw=2

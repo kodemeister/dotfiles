@@ -16,9 +16,6 @@
 [submodule "pack/bundle/start/fzf.vim"]
 	path = pack/bundle/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "pack/bundle/start/nerdtree"]
-	path = pack/bundle/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "pack/bundle/start/tcomment_vim"]
 	path = pack/bundle/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
