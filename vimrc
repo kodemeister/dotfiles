@@ -82,6 +82,9 @@ set noundofile
 " without asking to save the current changes first
 set hidden
 
+" Filetype-specific settings
+autocmd FileType text setlocal wrap
+
 " UI settings {{{1
 
 " Use dark variation of color scheme
