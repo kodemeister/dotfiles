@@ -234,35 +234,30 @@ xnoremap <silent> # :<C-u>call <SID>SearchVisualSelection('?')<CR>
 
 " Plugin settings {{{1
 
-" vim-airline {{{2
+" ack.vim {{{2
 
-" Enable enhanced tabline
-let g:airline#extensions#tabline#enabled = 1
+" Specify the default arguments given to ack
+let g:ack_default_options = ' -i -s -H --nocolor --nogroup --column'
 
-" Show only filenames (without full path) in the tabline
-let g:airline#extensions#tabline#fnamemod = ':t'
+" Highlight all matches of the search pattern
+let g:ackhighlight = 1
 
-" Define 'straight' tabs in the statusline and tabline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" fzf.vim {{{2
-
-" Configure FZF window position and height
-let g:fzf_layout = {'down': '12'}
-
-" Use ag to speed up file indexing
+" Use ag to speed up file searching
 if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+  let g:ackprg = 'ag -i --vimgrep'
 endif
 
-if s:use_fzf
-  " Search in files
-  nnoremap <silent> <expr> <C-p> ':FZF ' . fnameescape(projectroot#guess()) . '<CR>'
+" Display ack prompt and place the cursor into the quotes
+nnoremap <Leader>/ :Ack! ''<Left>
+nnoremap <Leader>? :Ack! ''<Left>
 
-  " Search in the currently opened buffers
-  nnoremap <silent> <Leader>b :Buffers<CR>
-endif
+" Search for currently selected text
+xnoremap <silent> <Leader>* :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
+xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
+
+" Search for word under the cursor
+nnoremap <silent> <Leader>* :call <SID>SearchCurrentWordInFiles()<CR>
+nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
 
 " ctrlp.vim {{{2
 
@@ -294,43 +289,45 @@ else
   let g:ctrlp_map = ''
 endif
 
-" localvimrc {{{2
+" delimitMate {{{2
 
-" Don't load local vimrc files in a sandbox
-let g:localvimrc_sandbox = 0
+" Insert an indent when pressing <CR> inside empty pair of matching characters
+let delimitMate_expand_cr = 1
 
-" Don't ask before sourcing local vimrc files
-let g:localvimrc_ask = 0
+" fzf.vim {{{2
 
-" altr {{{2
+" Configure FZF window position and height
+let g:fzf_layout = {'down': '12'}
+
+" Use ag to speed up file indexing
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+endif
+
+if s:use_fzf
+  " Search in files
+  nnoremap <silent> <expr> <C-p> ':FZF ' . fnameescape(projectroot#guess()) . '<CR>'
+
+  " Search in the currently opened buffers
+  nnoremap <silent> <Leader>b :Buffers<CR>
+endif
+
+" vim-airline {{{2
+
+" Enable enhanced tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Show only filenames (without full path) in the tabline
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Define 'straight' tabs in the statusline and tabline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" vim-altr {{{2
 
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)
-
-" ack.vim {{{2
-
-" Specify the default arguments given to ack
-let g:ack_default_options = ' -i -s -H --nocolor --nogroup --column'
-
-" Highlight all matches of the search pattern
-let g:ackhighlight = 1
-
-" Use ag to speed up file searching
-if executable('ag')
-  let g:ackprg = 'ag -i --vimgrep'
-endif
-
-" Display ack prompt and place the cursor into the quotes
-nnoremap <Leader>/ :Ack! ''<Left>
-nnoremap <Leader>? :Ack! ''<Left>
-
-" Search for currently selected text
-xnoremap <silent> <Leader>* :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
-xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
-
-" Search for word under the cursor
-nnoremap <silent> <Leader>* :call <SID>SearchCurrentWordInFiles()<CR>
-nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
 
 " vim-bufkill {{{2
 
@@ -341,10 +338,13 @@ let g:BufKillCreateMappings = 0
 nnoremap <silent> <Leader>x :BW<CR>
 nnoremap <silent> <Leader>X :BW!<CR>
 
-" delimitMate {{{2
+" vim-localvimrc {{{2
 
-" Insert an indent when pressing <CR> inside empty pair of matching characters
-let delimitMate_expand_cr = 1
+" Don't load local vimrc files in a sandbox
+let g:localvimrc_sandbox = 0
+
+" Don't ask before sourcing local vimrc files
+let g:localvimrc_ask = 0
 
 " }}}2
 
