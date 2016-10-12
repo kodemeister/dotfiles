@@ -83,7 +83,10 @@ set noundofile
 set hidden
 
 " Filetype-specific settings
-autocmd FileType text setlocal wrap
+augroup vimrc
+  autocmd!
+  autocmd FileType text setlocal wrap
+augroup end
 
 " UI settings {{{1
 
