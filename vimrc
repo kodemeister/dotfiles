@@ -318,6 +318,17 @@ if s:use_fzf
   nnoremap <silent> <Leader>b :Buffers<CR>
 endif
 
+" netrw {{{2
+
+" Don't clutter the buffer list with old directory listings
+let g:netrw_fastbrowse = 0
+
+" <C-^> switches to the last edited file instead of directory listing
+let g:netrw_altfile = 1
+
+" Refresh file list with R since <C-L> is used for navigation between windows
+autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
+
 " vim-airline {{{2
 
 " Enable enhanced tabline
