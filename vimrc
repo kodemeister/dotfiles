@@ -162,8 +162,8 @@ set scrolloff=5
 set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
 
-" Show the current mode on the last line
-set showmode
+" Don't show the current mode on the last line
+set noshowmode
 
 " Show the current command in the bottom right corner
 set showcmd
@@ -330,6 +330,9 @@ let g:netrw_altfile = 1
 autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
 
 " vim-airline {{{2
+
+" Pick a good airline theme matching current Vim color scheme
+let g:airline_theme = 'hybrid'
 
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled = 1
