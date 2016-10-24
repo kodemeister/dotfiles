@@ -55,6 +55,3 @@
 [submodule "pack/bundle/start/vim-unimpaired"]
 	path = pack/bundle/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "pack/bundle/start/vim-vinegar"]
-	path = pack/bundle/start/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar.git
