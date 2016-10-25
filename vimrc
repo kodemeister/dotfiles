@@ -93,11 +93,6 @@ augroup end
 " Use dark variation of color scheme
 set background=dark
 
-" Use colors from custom terminal theme
-if !has('gui_running')
-  let g:hybrid_custom_term_colors = 1
-endif
-
 " Set some eye candy color scheme
 colorscheme hybrid
 
@@ -133,6 +128,13 @@ else
   let &t_SR = "\<Esc>[4 q"
   let &t_EI = "\<Esc>[2 q"
 endif
+
+" Enable 24-bit colors in the terminal
+set termguicolors
+
+" Define 24-bit TrueColor RGB escape sequences
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Turn off annoying beeps/flashes on errors
 set noerrorbells
