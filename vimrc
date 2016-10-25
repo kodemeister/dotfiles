@@ -340,7 +340,7 @@ autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
 " vim-airline {{{2
 
 " Pick a good airline theme matching current Vim color scheme
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'tomorrow'
 
 " Enable enhanced tabline
 let g:airline#extensions#tabline#enabled = 1
