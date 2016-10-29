@@ -325,11 +325,8 @@ endif
 " Hide annoying banner at the top of the window
 let g:netrw_banner = 0
 
-" Don't clutter the buffer list with old directory listings
-let g:netrw_fastbrowse = 0
-
-" <C-^> switches to the last edited file instead of directory listing
-let g:netrw_altfile = 1
+" Sort directories first, then files
+let g:netrw_sort_sequence = '[\/]$,*'
 
 " Show the directory listing in the current window
 nnoremap <silent> - :Explore<CR>
