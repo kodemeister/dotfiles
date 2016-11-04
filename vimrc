@@ -164,8 +164,8 @@ set scrolloff=5
 set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
 
-" Don't show the current mode on the last line
-set noshowmode
+" Show the current mode on the last line
+set showmode
 
 " Show the current command in the bottom right corner
 set showcmd
@@ -333,21 +333,6 @@ nnoremap <silent> - :Explore<CR>
 
 " Refresh file list with R since <C-L> is used for navigation between windows
 autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
-
-" vim-airline {{{2
-
-" Pick a good airline theme matching current Vim color scheme
-let g:airline_theme = 'tomorrow'
-
-" Enable enhanced tabline
-let g:airline#extensions#tabline#enabled = 1
-
-" Show only filenames (without full path) in the tabline
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" Define 'straight' tabs in the statusline and tabline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 
 " vim-altr {{{2
 
