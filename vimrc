@@ -170,6 +170,20 @@ set showmode
 " Show the current command in the bottom right corner
 set showcmd
 
+" Configure the statusline
+let &statusline =
+  \   '%<'
+  \ . '%1* %f %*'
+  \ . '%3*%{&modified ? "[+]" : ""}%*'
+  \ . '%4*%r%*'
+  \ . '%='
+  \ . '%{&filetype != "" ? &filetype : "none"} |'
+  \ . ' %{&fileformat} |'
+  \ . ' %{&fileencoding != "" ? &fileencoding : &encoding} '
+  \ . '%1* %3p%% %*'
+  \ . '%2* %4l:'
+  \ . '%-3v %*'
+
 " Edit settings {{{1
 
 " Set width of tabs and indents to 4 spaces
