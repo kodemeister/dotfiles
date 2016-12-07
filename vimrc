@@ -353,15 +353,6 @@ autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)
 
-" vim-bufkill {{{2
-
-" Disable predefined bufkill mappings
-let g:BufKillCreateMappings = 0
-
-" Delete a buffer without closing the window it was displayed in
-nnoremap <silent> <Leader>x :BW<CR>
-nnoremap <silent> <Leader>X :BW!<CR>
-
 " vim-localvimrc {{{2
 
 " Don't load local vimrc files in a sandbox
