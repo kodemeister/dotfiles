@@ -261,6 +261,10 @@ nnoremap Y y$
 xnoremap <silent> * :<C-u>call <SID>SearchVisualSelection('/')<CR>
 xnoremap <silent> # :<C-u>call <SID>SearchVisualSelection('?')<CR>
 
+" Jump to the current error in quickfix or location list
+nnoremap <silent> =q :cc<CR>
+nnoremap <silent> =l :ll<CR>
+
 " Plugin settings {{{1
 
 " ack.vim {{{2
