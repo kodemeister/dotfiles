@@ -1,3 +1,6 @@
+[submodule "pack/bundle/start/ListToggle"]
+	path = pack/bundle/start/ListToggle
+	url = https://github.com/Valloric/ListToggle.git
 [submodule "pack/bundle/start/ack.vim"]
 	path = pack/bundle/start/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
