@@ -63,6 +63,13 @@ function! s:SearchCurrentWordInFiles() " {{{2
   call feedkeys(":let &hlsearch=1 \| echo\<CR>", 'n')
 endfunction
 
+function! s:RunFZF(command, ...) " {{{2
+  if &buftype == 'quickfix' || &buftype == 'help'
+    wincmd p
+  endif
+  execute a:command join(a:000, ' ')
+endfunction
+
 " }}}2
 
 " General settings {{{1
@@ -328,10 +335,10 @@ endif
 
 if s:use_fzf
   " Search in files
-  nnoremap <silent> <expr> <C-p> ':FZF ' . fnameescape(projectroot#guess()) . '<CR>'
+  nnoremap <silent> <C-p> :call <SID>RunFZF('FZF', fnameescape(projectroot#guess()))<CR>
 
   " Search in the currently opened buffers
-  nnoremap <silent> <Leader>b :Buffers<CR>
+  nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 endif
 
 " netrw {{{2
