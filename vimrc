@@ -247,12 +247,6 @@ nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
-" Easy navigation between windows
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-
 " Make Y yank from the current cursor position to the end of line,
 " to be consistent with C and D
 nnoremap Y y$
