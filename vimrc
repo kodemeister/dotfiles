@@ -281,8 +281,8 @@ if executable('ag')
 endif
 
 " Display ack prompt and place the cursor into the quotes
-nnoremap <Leader>/ :Ack! ''<Left>
-nnoremap <Leader>? :Ack! ''<Left>
+nnoremap <Leader>/ :Ack! ""<Left>
+nnoremap <Leader>? :Ack! ""<Left>
 
 " Search for currently selected text
 xnoremap <silent> <Leader>* :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
