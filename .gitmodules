@@ -1,57 +1,57 @@
-[submodule "pack/bundle/start/ListToggle"]
-	path = pack/bundle/start/ListToggle
+[submodule ".vim/pack/bundle/start/ListToggle"]
+	path = .vim/pack/bundle/start/ListToggle
 	url = https://github.com/Valloric/ListToggle.git
-[submodule "pack/bundle/start/ack.vim"]
-	path = pack/bundle/start/ack.vim
+[submodule ".vim/pack/bundle/start/ack.vim"]
+	path = .vim/pack/bundle/start/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "pack/bundle/start/ctrlp-py-matcher"]
-	path = pack/bundle/start/ctrlp-py-matcher
+[submodule ".vim/pack/bundle/start/ctrlp-py-matcher"]
+	path = .vim/pack/bundle/start/ctrlp-py-matcher
 	url = https://github.com/FelikZ/ctrlp-py-matcher.git
-[submodule "pack/bundle/start/ctrlp.vim"]
-	path = pack/bundle/start/ctrlp.vim
+[submodule ".vim/pack/bundle/start/ctrlp.vim"]
+	path = .vim/pack/bundle/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "pack/bundle/start/delimitMate"]
-	path = pack/bundle/start/delimitMate
+[submodule ".vim/pack/bundle/start/delimitMate"]
+	path = .vim/pack/bundle/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "pack/bundle/start/fzf"]
-	path = pack/bundle/start/fzf
+[submodule ".vim/pack/bundle/start/fzf"]
+	path = .vim/pack/bundle/start/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "pack/bundle/start/fzf.vim"]
-	path = pack/bundle/start/fzf.vim
+[submodule ".vim/pack/bundle/start/fzf.vim"]
+	path = .vim/pack/bundle/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "pack/bundle/start/tcomment_vim"]
-	path = pack/bundle/start/tcomment_vim
+[submodule ".vim/pack/bundle/start/tcomment_vim"]
+	path = .vim/pack/bundle/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "pack/bundle/start/vim-altr"]
-	path = pack/bundle/start/vim-altr
+[submodule ".vim/pack/bundle/start/vim-altr"]
+	path = .vim/pack/bundle/start/vim-altr
 	url = https://github.com/kana/vim-altr.git
-[submodule "pack/bundle/start/vim-dispatch"]
-	path = pack/bundle/start/vim-dispatch
+[submodule ".vim/pack/bundle/start/vim-dispatch"]
+	path = .vim/pack/bundle/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
-[submodule "pack/bundle/start/vim-hybrid"]
-	path = pack/bundle/start/vim-hybrid
+[submodule ".vim/pack/bundle/start/vim-hybrid"]
+	path = .vim/pack/bundle/start/vim-hybrid
 	url = https://github.com/toiffel/vim-hybrid.git
-[submodule "pack/bundle/start/vim-localvimrc"]
-	path = pack/bundle/start/vim-localvimrc
+[submodule ".vim/pack/bundle/start/vim-localvimrc"]
+	path = .vim/pack/bundle/start/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
-[submodule "pack/bundle/start/vim-projectroot"]
-	path = pack/bundle/start/vim-projectroot
+[submodule ".vim/pack/bundle/start/vim-projectroot"]
+	path = .vim/pack/bundle/start/vim-projectroot
 	url = https://github.com/dbakker/vim-projectroot.git
-[submodule "pack/bundle/start/vim-repeat"]
-	path = pack/bundle/start/vim-repeat
+[submodule ".vim/pack/bundle/start/vim-repeat"]
+	path = .vim/pack/bundle/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "pack/bundle/start/vim-sensible"]
-	path = pack/bundle/start/vim-sensible
+[submodule ".vim/pack/bundle/start/vim-sensible"]
+	path = .vim/pack/bundle/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
-[submodule "pack/bundle/start/vim-surround"]
-	path = pack/bundle/start/vim-surround
+[submodule ".vim/pack/bundle/start/vim-surround"]
+	path = .vim/pack/bundle/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "pack/bundle/start/vim-tmux-focus-events"]
-	path = pack/bundle/start/vim-tmux-focus-events
+[submodule ".vim/pack/bundle/start/vim-tmux-focus-events"]
+	path = .vim/pack/bundle/start/vim-tmux-focus-events
 	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
-[submodule "pack/bundle/start/vim-tmux-navigator"]
-	path = pack/bundle/start/vim-tmux-navigator
+[submodule ".vim/pack/bundle/start/vim-tmux-navigator"]
+	path = .vim/pack/bundle/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "pack/bundle/start/vim-unimpaired"]
-	path = pack/bundle/start/vim-unimpaired
+[submodule ".vim/pack/bundle/start/vim-unimpaired"]
+	path = .vim/pack/bundle/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git

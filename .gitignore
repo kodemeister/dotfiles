@@ -1,3 +1,11 @@
-/.cache/
-/.netrwhist
-/init.vim
+/*
+
+!/.vim
+/.vim/*
+!/.vim/after
+!/.vim/pack
+!/.vim/vimrc
+
+!/.gitignore
+!/.gitmodules
+!/.vimrc
