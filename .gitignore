@@ -4,6 +4,8 @@
 /.config/*
 !/.config/nvim
 
+!/.tmux
+
 !/.vim
 /.vim/*
 !/.vim/after
@@ -13,4 +15,5 @@
 
 !/.gitignore
 !/.gitmodules
+!/.tmux.conf
 !/.vimrc
