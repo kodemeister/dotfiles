@@ -1,9 +1,14 @@
 /*
 
+!/.config
+/.config/*
+!/.config/nvim
+
 !/.vim
 /.vim/*
 !/.vim/after
 !/.vim/pack
+!/.vim/init.vim
 !/.vim/vimrc
 
 !/.gitignore
