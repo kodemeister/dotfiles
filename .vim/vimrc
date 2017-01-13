@@ -3,17 +3,6 @@
 " Disable compability with old fashioned Vi
 set nocompatible
 
-" Setup directory paths
-if has('nvim')
-  let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
-else
-  let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
-endif
-let s:cache_dir = s:config_dir . '/.cache'
-
-" Setup global variables
-let s:use_fzf = executable('fzf') && !has('gui_running')
-
 " Functions {{{1
 
 function! s:GetVisualSelection() " {{{2
@@ -286,36 +275,6 @@ xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
 nnoremap <silent> <Leader>* :call <SID>SearchCurrentWordInFiles()<CR>
 nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
 
-" ctrlp.vim {{{2
-
-" Set the directory to store cache files
-let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
-
-" Don't jump to buffer if it's already opened in a window somewhere
-" This is useful when opening the same buffer in different windows
-let g:ctrlp_switch_buffer = 0
-
-" Do not limit the maximum number of files to scan
-let g:ctrlp_max_files = 0
-
-" Use ag to speed up file indexing
-if executable('ag')
-  let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
-endif
-
-" Use Python-based matcher to speed up matching
-if has('python') || has('python3')
-  let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
-endif
-
-if !s:use_fzf
-  " Search in the currently opened buffers
-  nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
-else
-  " Disable default CtrlP mapping
-  let g:ctrlp_map = ''
-endif
-
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
@@ -331,13 +290,11 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
 endif
 
-if s:use_fzf
-  " Search in files
-  nnoremap <silent> <C-p> :call <SID>RunFZF('FZF', fnameescape(projectroot#guess()))<CR>
+" Search in files
+nnoremap <silent> <Leader>f :call <SID>RunFZF('FZF', fnameescape(projectroot#guess()))<CR>
 
-  " Search in the currently opened buffers
-  nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
-endif
+" Search in the currently opened buffers
+nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 
 " netrw {{{2
 

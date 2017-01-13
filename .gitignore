@@ -7,11 +7,7 @@
 !/.tmux
 
 !/.vim
-/.vim/*
-!/.vim/after
-!/.vim/pack
-!/.vim/init.vim
-!/.vim/vimrc
+/.vim/.netrwhist
 
 !/.gitignore
 !/.gitmodules
