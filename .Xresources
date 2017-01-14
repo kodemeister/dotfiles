@@ -38,10 +38,10 @@ Xft.rgba: rgb
 ! URxvt settings
 ! ------------------------------------------------------------------------------
 
-URxvt*.font: xft:Fira Mono:size=14
-URxvt*.boldFont: xft:Fira Mono:style=Medium:size=14
+URxvt*.font: xft:Droid Sans Mono Slashed for Powerline:size=14
+URxvt*.boldFont: xft:Droid Sans Mono Slashed for Powerline:size=14
 
-URxvt*.letterSpace: -2
+URxvt*.letterSpace: -1
 
 URxvt*.saveLines: 8192
 
@@ -74,5 +74,5 @@ URxvt*.keysym.M-v: perl:clipboard:paste
 ! Xterm settings
 ! ------------------------------------------------------------------------------
 
-xterm*.faceName: Fira Mono
+xterm*.faceName: Droid Sans Mono Slashed for Powerline
 xterm*.faceSize: 14
