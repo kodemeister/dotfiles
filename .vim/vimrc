@@ -160,25 +160,11 @@ set scrolloff=5
 set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
 
-" Show the current mode on the last line
-set showmode
+" Don't show the current mode on the last line
+set noshowmode
 
 " Show the current command in the bottom right corner
 set showcmd
-
-" Configure the statusline
-let &statusline =
-  \   '%<'
-  \ . '%1* %f %*'
-  \ . '%3*%{&modified ? "[+]" : ""}%*'
-  \ . '%4*%r%*'
-  \ . '%='
-  \ . '%{&filetype != "" ? &filetype : "none"} |'
-  \ . ' %{&fileformat} |'
-  \ . ' %{&fileencoding != "" ? &fileencoding : &encoding} '
-  \ . '%1* %3p%% %*'
-  \ . '%2* %4l:'
-  \ . '%-3v %*'
 
 " Edit settings {{{1
 
@@ -309,6 +295,14 @@ nnoremap <silent> - :Explore<CR>
 
 " Refresh file list with R since <C-L> is used for navigation between windows
 autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
+
+" vim-airline {{{2
+
+" Pick a good airline theme matching current Vim color scheme
+let g:airline_theme = 'tomorrow'
+
+" Use fancy powerline symbols for better looking
+let g:airline_powerline_fonts = 1
 
 " vim-altr {{{2
 
