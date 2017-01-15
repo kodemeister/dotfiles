@@ -92,6 +92,18 @@ set background=dark
 " Set some eye candy color scheme
 colorscheme hybrid
 
+" Force the terminal name for ConEmu to work correctly with 24-bit colors
+if !has('gui_running') && !empty($ConEmuBuild)
+  set term=xterm
+endif
+
+" Enable 24-bit colors in the terminal
+set termguicolors
+
+" Define 24-bit TrueColor RGB escape sequences
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " Set font when running in GUI mode
 if has('gui_running')
   if has('gui_gtk')
@@ -124,13 +136,6 @@ else
   let &t_SR = "\<Esc>[4 q"
   let &t_EI = "\<Esc>[2 q"
 endif
-
-" Enable 24-bit colors in the terminal
-set termguicolors
-
-" Define 24-bit TrueColor RGB escape sequences
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Turn off annoying beeps/flashes on errors
 set noerrorbells
@@ -229,6 +234,12 @@ nnoremap Y y$
 " Replace built-in * and # behavior in Visual mode
 xnoremap <silent> * :<C-u>call <SID>SearchVisualSelection('/')<CR>
 xnoremap <silent> # :<C-u>call <SID>SearchVisualSelection('?')<CR>
+
+" Make backspace work under ConEmu
+if !has('gui_running') && !empty($ConEmuBuild)
+  nnoremap <Char-0x07F> <BS>
+  inoremap <Char-0x07F> <BS>
+endif
 
 " Jump to the current error in quickfix or location list
 nnoremap <silent> =q :cc<CR>
