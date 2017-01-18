@@ -82,6 +82,7 @@ set hidden
 augroup vimrc
   autocmd!
   autocmd FileType text setlocal wrap
+  autocmd FileType cpp setlocal commentstring=//\ %s
 augroup end
 
 " UI settings {{{1
