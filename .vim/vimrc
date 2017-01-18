@@ -83,6 +83,7 @@ augroup vimrc
   autocmd!
   autocmd FileType text setlocal wrap
   autocmd FileType cpp setlocal commentstring=//\ %s
+  autocmd FileType haskell,cabal setlocal expandtab
 augroup end
 
 " UI settings {{{1
