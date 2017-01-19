@@ -7,6 +7,12 @@
 [submodule ".tmux/plugins/vim-tmux-navigator"]
 	path = .tmux/plugins/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule ".vim/pack/bundle/opt/fzf"]
+	path = .vim/pack/bundle/opt/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule ".vim/pack/bundle/opt/fzf.vim"]
+	path = .vim/pack/bundle/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/pack/bundle/start/ListToggle"]
 	path = .vim/pack/bundle/start/ListToggle
 	url = https://github.com/Valloric/ListToggle.git
@@ -16,12 +22,6 @@
 [submodule ".vim/pack/bundle/start/delimitMate"]
 	path = .vim/pack/bundle/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule ".vim/pack/bundle/start/fzf"]
-	path = .vim/pack/bundle/start/fzf
-	url = https://github.com/junegunn/fzf.git
-[submodule ".vim/pack/bundle/start/fzf.vim"]
-	path = .vim/pack/bundle/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/pack/bundle/start/vim-airline"]
 	path = .vim/pack/bundle/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git

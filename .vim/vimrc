@@ -3,6 +3,9 @@
 " Disable compability with old fashioned Vi
 set nocompatible
 
+" Setup global variables
+let s:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
+
 " Functions {{{1
 
 function! s:GetVisualSelection() " {{{2
@@ -281,19 +284,25 @@ let delimitMate_expand_cr = 1
 
 " fzf.vim {{{2
 
-" Configure FZF window position and height
-let g:fzf_layout = {'down': '12'}
+if s:use_fzf
+  " Add fzf and fzf.vim plugins to runtimepath
+  packadd! fzf
+  packadd! fzf.vim
 
-" Use ag to speed up file indexing
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+  " Configure FZF window position and height
+  let g:fzf_layout = {'down': '12'}
+
+  " Use ag to speed up file indexing
+  if executable('ag')
+    let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+  endif
+
+  " Search in files
+  nnoremap <silent> <Leader>f :call <SID>RunFZF('FZF', fnameescape(projectroot#guess()))<CR>
+
+  " Search in the currently opened buffers
+  nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 endif
-
-" Search in files
-nnoremap <silent> <Leader>f :call <SID>RunFZF('FZF', fnameescape(projectroot#guess()))<CR>
-
-" Search in the currently opened buffers
-nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 
 " netrw {{{2
 
