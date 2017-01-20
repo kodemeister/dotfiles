@@ -4,6 +4,7 @@
 set nocompatible
 
 " Setup global variables
+let s:temp_dir = tempname()
 let s:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
 
 " Functions {{{1
@@ -276,6 +277,40 @@ xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
 " Search for word under the cursor
 nnoremap <silent> <Leader>* :call <SID>SearchCurrentWordInFiles()<CR>
 nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
+
+" ctrlp.vim {{{2
+
+if !s:use_fzf
+  " Add ctrlp.vim plugin to runtimepath
+  packadd! ctrlp.vim
+
+  " Set the directory to store cache files
+  let g:ctrlp_cache_dir = s:temp_dir . '/ctrlp'
+
+  " Don't jump to buffer if it's already opened in a window somewhere
+  " This is useful when opening the same buffer in different windows
+  let g:ctrlp_switch_buffer = 0
+
+  " Do not limit the maximum number of files to scan
+  let g:ctrlp_max_files = 0
+
+  " Use ag to speed up file indexing
+  if executable('ag')
+    let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+  endif
+
+  " Use Python-based matcher to speed up matching
+  if has('python') || has('python3')
+    packadd! ctrlp-py-matcher
+    let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+  endif
+
+  " Search in files
+  let g:ctrlp_map = '<Leader>f'
+
+  " Search in the currently opened buffers
+  nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+endif
 
 " delimitMate {{{2
 
