@@ -3,8 +3,15 @@
 " Disable compability with old fashioned Vi
 set nocompatible
 
+" Setup directory paths
+if has('nvim')
+  let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
+else
+  let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+endif
+let s:cache_dir = s:config_dir . '/.cache'
+
 " Setup global variables
-let s:temp_dir = tempname()
 let s:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
 
 " Functions {{{1
@@ -285,7 +292,7 @@ if !s:use_fzf
   packadd! ctrlp.vim
 
   " Set the directory to store cache files
-  let g:ctrlp_cache_dir = s:temp_dir . '/ctrlp'
+  let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
   " Don't jump to buffer if it's already opened in a window somewhere
   " This is useful when opening the same buffer in different windows
