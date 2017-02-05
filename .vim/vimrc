@@ -301,9 +301,9 @@ if !s:use_fzf
   " Do not limit the maximum number of files to scan
   let g:ctrlp_max_files = 0
 
-  " Use ag to speed up file indexing
-  if executable('ag')
-    let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+  " Use rg to speed up file indexing
+  if executable('rg')
+    let g:ctrlp_user_command = 'rg --files --hidden -g "!.git/*" %s'
   endif
 
   " Use Python-based matcher to speed up matching
@@ -334,9 +334,9 @@ if s:use_fzf
   " Configure FZF window position and height
   let g:fzf_layout = {'down': '12'}
 
-  " Use ag to speed up file indexing
-  if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --nocolor'
+  " Use rg to speed up file indexing
+  if executable('rg') && empty($FZF_DEFAULT_COMMAND)
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git/*"'
   endif
 
   " Search in files
