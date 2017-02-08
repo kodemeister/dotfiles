@@ -16,47 +16,6 @@ let s:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
 
 " Functions {{{1
 
-function! s:GetVisualSelection() " {{{2
-  let old_reg = getreg('"')
-  let old_reg_type = getregtype('"')
-  normal! gv""y
-  let selection = getreg('"')
-  call setreg('"', old_reg, old_reg_type)
-  return selection
-endfunction
-
-function! s:SearchVisualSelectionInFiles() " {{{2
-  let selection = s:GetVisualSelection()
-
-  if selection =~ '\n'
-    echohl ErrorMsg | echomsg 'Multiline search is not supported' | echohl None
-    return
-  endif
-
-  let pattern = shellescape(selection)
-  call ack#Ack('grep!', '-Q ' . pattern)
-
-  let @/ = '\V' . escape(selection, '\')
-  call histadd('/', @/)
-  call feedkeys(":let &hlsearch=1 \| echo\<CR>", 'n')
-endfunction
-
-function! s:SearchCurrentWordInFiles() " {{{2
-  let word = expand('<cword>')
-
-  if empty(word)
-    echohl ErrorMsg | echomsg 'No string under cursor' | echohl None
-    return
-  endif
-
-  let pattern = shellescape(word)
-  call ack#Ack('grep!', '-Q -w ' . pattern)
-
-  let @/ = '\V\<' . escape(word, '\') . '\>'
-  call histadd('/', @/)
-  call feedkeys(":let &hlsearch=1 \| echo\<CR>", 'n')
-endfunction
-
 function! s:RunFZF(command, ...) " {{{2
   if &buftype == 'quickfix' || &buftype == 'help'
     wincmd p
@@ -250,31 +209,6 @@ nnoremap <silent> =l :ll<CR>
 
 " Plugin settings {{{1
 
-" ack.vim {{{2
-
-" Specify the default arguments given to ack
-let g:ack_default_options = ' -i -s -H --nocolor --nogroup --column'
-
-" Highlight all matches of the search pattern
-let g:ackhighlight = 1
-
-" Use ag to speed up file searching
-if executable('ag')
-  let g:ackprg = 'ag -i --vimgrep'
-endif
-
-" Display ack prompt and place the cursor into the quotes
-nnoremap <Leader>/ :Ack! ""<Left>
-nnoremap <Leader>? :Ack! ""<Left>
-
-" Search for currently selected text
-xnoremap <silent> <Leader>* :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
-xnoremap <silent> <Leader># :<C-u>call <SID>SearchVisualSelectionInFiles()<CR>
-
-" Search for word under the cursor
-nnoremap <silent> <Leader>* :call <SID>SearchCurrentWordInFiles()<CR>
-nnoremap <silent> <Leader># :call <SID>SearchCurrentWordInFiles()<CR>
-
 " ctrlp.vim {{{2
 
 if !s:use_fzf
@@ -362,6 +296,35 @@ let g:airline_powerline_fonts = 1
 
 " Switch between associated files, e.g. C++ header and implementation
 nmap <Leader>a <Plug>(altr-forward)
+
+" vim-grepper {{{2
+
+" Initialize vim-grepper options
+let g:grepper = {}
+
+" Highlight all matches of the search pattern
+let g:grepper.highlight = 1
+
+" Start searching from the project root (if any exists)
+" Use the directory of the current buffer as a fallback
+let g:grepper.dir = 'repo,file'
+
+" Use rg as a primary search tool, grep or findstr as a fallback
+let g:grepper.tools = ['rg', 'grep', 'findstr']
+
+" Define search commands for the used tools
+let g:grepper.rg = {'grepprg': 'rg -Hi --no-heading --vimgrep'}
+let g:grepper.grep = {'grepprg': 'grep -RIin $* .'}
+let g:grepper.findstr = {'grepprg': 'findstr -rsipnc:"$*" *'}
+
+" Display Grepper prompt and wait for search pattern
+nnoremap <Leader>/ :Grepper<CR>
+
+" Search for currently selected text
+xmap <Leader>* <Plug>(GrepperOperator)
+
+" Search for word under the cursor
+nnoremap <silent> <expr> <Leader>* ':Grepper -query ''\b' . expand('<cword>') . '\b''<CR>'
 
 " vim-localvimrc {{{2
 

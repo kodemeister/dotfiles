@@ -22,9 +22,6 @@
 [submodule ".vim/pack/bundle/start/ListToggle"]
 	path = .vim/pack/bundle/start/ListToggle
 	url = https://github.com/Valloric/ListToggle.git
-[submodule ".vim/pack/bundle/start/ack.vim"]
-	path = .vim/pack/bundle/start/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
 [submodule ".vim/pack/bundle/start/delimitMate"]
 	path = .vim/pack/bundle/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
@@ -43,6 +40,9 @@
 [submodule ".vim/pack/bundle/start/vim-dispatch"]
 	path = .vim/pack/bundle/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule ".vim/pack/bundle/start/vim-grepper"]
+	path = .vim/pack/bundle/start/vim-grepper
+	url = https://github.com/mhinz/vim-grepper.git
 [submodule ".vim/pack/bundle/start/vim-hybrid"]
 	path = .vim/pack/bundle/start/vim-hybrid
 	url = https://github.com/toiffel/vim-hybrid.git
