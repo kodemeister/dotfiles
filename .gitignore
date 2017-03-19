@@ -5,9 +5,13 @@
 !/.config/nvim
 
 !/.tmux
+/.tmux/plugins/*
+!/.tmux/plugins/tpm
 
 !/.vim
 /.vim/.cache
+/.vim/plugged/*
+!/.vim/plugged/vim-plug
 /.vim/.netrwhist
 
 !/.Xresources

@@ -10,9 +10,10 @@ else
   let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
 endif
 let s:cache_dir = s:config_dir . '/.cache'
+let s:plugins_dir = s:config_dir . '/plugged'
 
 " Setup global variables
-let s:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
+let g:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
 
 " Functions {{{1
 
@@ -24,6 +25,39 @@ function! s:RunFZF(command, ...) " {{{2
 endfunction
 
 " }}}2
+
+" Plugins {{{1
+
+" Begin the plugin section
+execute 'source ' . fnameescape(s:plugins_dir . '/vim-plug/plug.vim')
+call plug#begin(s:plugins_dir)
+
+" List the required plugins
+Plug 'Valloric/ListToggle'
+Plug 'FelikZ/ctrlp-py-matcher', !g:use_fzf ? {} : {'on': []}
+Plug 'ctrlpvim/ctrlp.vim', !g:use_fzf ? {} : {'on': []}
+Plug 'Raimondi/delimitMate'
+Plug 'junegunn/fzf', g:use_fzf ? {} : {'on': []}
+Plug 'junegunn/fzf.vim', g:use_fzf ? {} : {'on': []}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kana/vim-altr'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'mhinz/vim-grepper'
+Plug 'toiffel/vim-hybrid'
+Plug 'embear/vim-localvimrc'
+Plug 'dbakker/vim-projectroot'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-unimpaired'
+Plug 'thinca/vim-visualstar'
+
+" Finish the plugin section, update runtimepath and initialize plugin system
+call plug#end()
 
 " General settings {{{1
 
@@ -211,10 +245,7 @@ nnoremap <silent> =l :ll<CR>
 
 " ctrlp.vim {{{2
 
-if !s:use_fzf
-  " Add ctrlp.vim plugin to runtimepath
-  packadd! ctrlp.vim
-
+if !g:use_fzf
   " Set the directory to store cache files
   let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
 
@@ -232,8 +263,7 @@ if !s:use_fzf
 
   " Use Python-based matcher to speed up matching
   if has('python') || has('python3')
-    packadd! ctrlp-py-matcher
-    let g:ctrlp_match_func = {'match' : 'pymatcher#PyMatch'}
+    let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
   endif
 
   " Search in files
@@ -250,11 +280,7 @@ let delimitMate_expand_cr = 1
 
 " fzf.vim {{{2
 
-if s:use_fzf
-  " Add fzf and fzf.vim plugins to runtimepath
-  packadd! fzf
-  packadd! fzf.vim
-
+if g:use_fzf
   " Configure FZF window position and height
   let g:fzf_layout = {'down': '12'}
 
@@ -303,12 +329,10 @@ let g:airline#extensions#wordcount#enabled = 0
 nmap <Leader>a <Plug>(altr-forward)
 
 " Define additional vim-altr rules
-augroup vimrc
-  autocmd VimEnter * call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
-    \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
-  autocmd VimEnter * call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
-    \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
-augroup end
+call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
+  \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
+call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
+  \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
 
 " vim-grepper {{{2
 
