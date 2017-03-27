@@ -217,9 +217,6 @@ nnoremap <silent> <Leader>vr :source $MYVIMRC<CR>
 " Fast saving
 nnoremap <silent> <Leader>w :write<CR>
 
-" Save all modified files and build the project
-nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
-
 " Clear the last search highlighting
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
@@ -333,6 +330,11 @@ call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
   \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
 call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
   \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
+
+" vim-dispatch {{{2
+
+" Save all modified files and build the project
+nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
 
 " vim-grepper {{{2
 
