@@ -337,7 +337,7 @@ call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
 " vim-grepper {{{2
 
 " Initialize vim-grepper options
-let g:grepper = {}
+runtime autoload/grepper.vim
 
 " Highlight all matches of the search pattern
 let g:grepper.highlight = 1
@@ -349,10 +349,10 @@ let g:grepper.dir = 'repo,file'
 " Use rg as a primary search tool, grep or findstr as a fallback
 let g:grepper.tools = ['rg', 'grep', 'findstr']
 
-" Define search commands for the used tools
-let g:grepper.rg = {'grepprg': 'rg -Hi --no-heading --vimgrep'}
-let g:grepper.grep = {'grepprg': 'grep -RIin $* .'}
-let g:grepper.findstr = {'grepprg': 'findstr -rsipnc:"$*" *'}
+" Ignore case in search patterns
+for tool in g:grepper.tools
+  let g:grepper[tool].grepprg = substitute(g:grepper[tool].grepprg, ' ', ' -i ', '')
+endfor
 
 " Display Grepper prompt and wait for search pattern
 nnoremap <Leader>/ :Grepper<CR>
@@ -361,7 +361,7 @@ nnoremap <Leader>/ :Grepper<CR>
 xmap <Leader>* <Plug>(GrepperOperator)
 
 " Search for word under the cursor
-nnoremap <silent> <expr> <Leader>* ':Grepper -query ''\b' . expand('<cword>') . '\b''<CR>'
+nnoremap <silent> <Leader>* :Grepper -cword -noprompt<CR>
 
 " vim-localvimrc {{{2
 
