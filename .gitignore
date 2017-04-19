@@ -14,8 +14,16 @@
 !/.vim/plugged/vim-plug
 /.vim/.netrwhist
 
+!/.zprezto
+
 !/.Xresources
 !/.gitignore
 !/.gitmodules
 !/.tmux.conf
 !/.vimrc
+!/.zlogin
+!/.zlogout
+!/.zpreztorc
+!/.zprofile
+!/.zshenv
+!/.zshrc
