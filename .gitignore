@@ -19,6 +19,7 @@
 !/.Xresources
 !/.gitignore
 !/.gitmodules
+!/.inputrc
 !/.tmux.conf
 !/.vimrc
 !/.zlogin
