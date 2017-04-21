@@ -181,12 +181,15 @@ set shiftwidth=4
 " Always use tabs instead of spaces
 set noexpandtab
 
-" Reduce timeout for keyboard codes like <Esc> to minimal value
-" This eliminates annoying delays while exiting Insert/Visual modes in terminal
-set ttimeoutlen=0
+" Make all yank, delete, change and put operations work with system clipboard
+set clipboard^=unnamedplus
 
 " Disable mouse support
 set mouse=
+
+" Reduce timeout for keyboard codes like <Esc> to minimal value
+" This eliminates annoying delays while exiting Insert/Visual modes in terminal
+set ttimeoutlen=0
 
 " Keep the cursor column while jumping or switching between buffers
 set nostartofline
