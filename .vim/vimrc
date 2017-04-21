@@ -92,11 +92,6 @@ set background=dark
 " Set some eye candy color scheme
 colorscheme hybrid
 
-" Force the terminal name for ConEmu to work correctly with 24-bit colors
-if !has('gui_running') && !empty($ConEmuBuild)
-  set term=xterm
-endif
-
 " Enable 24-bit colors in the terminal
 set termguicolors
 
@@ -227,12 +222,6 @@ nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 " Make Y yank from the current cursor position to the end of line,
 " to be consistent with C and D
 nnoremap Y y$
-
-" Make backspace work under ConEmu
-if !has('gui_running') && !empty($ConEmuBuild)
-  nnoremap <Char-0x07F> <BS>
-  inoremap <Char-0x07F> <BS>
-endif
 
 " Jump to the current error in quickfix or location list
 nnoremap <silent> =q :cc<CR>
