@@ -28,8 +28,10 @@ endfunction
 
 " Plugins {{{1
 
-" Begin the plugin section
+" Load vim-plug manually from plugins directory
 execute 'source ' . fnameescape(s:plugins_dir . '/vim-plug/plug.vim')
+
+" Begin the plugin section
 call plug#begin(s:plugins_dir)
 
 " List the required plugins
@@ -58,6 +60,9 @@ Plug 'thinca/vim-visualstar'
 
 " Finish the plugin section, update runtimepath and initialize plugin system
 call plug#end()
+
+" Load vim-sensible plugin immediately in order to override some of its settings
+call plug#load('vim-sensible')
 
 " General settings {{{1
 
@@ -176,12 +181,12 @@ set shiftwidth=4
 " Always use tabs instead of spaces
 set noexpandtab
 
+" Reduce timeout for keyboard codes like <Esc> to minimal value
+" This eliminates annoying delays while exiting Insert/Visual modes in terminal
+set ttimeoutlen=0
+
 " Disable mouse support
 set mouse=
-
-" Allow backspacing over autoindent, line break and the start of insert
-" Required to avoid an error message from delimitMate upon startup
-set backspace=indent,eol,start
 
 " Keep the cursor column while jumping or switching between buffers
 set nostartofline
