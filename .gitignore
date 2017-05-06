@@ -2,6 +2,7 @@
 
 !/.config
 /.config/*
+!/.config/fontconfig
 !/.config/nvim
 
 !/.tmux
