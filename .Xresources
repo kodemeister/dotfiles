@@ -38,7 +38,7 @@ Xft.rgba: rgb
 ! URxvt settings
 ! ------------------------------------------------------------------------------
 
-URxvt*.font: xft:Fira Mono for Powerline:size=14
+URxvt*.font: xft:FuraMono Nerd Font:size=14
 
 URxvt*.letterSpace: -2
 
@@ -73,5 +73,5 @@ URxvt*.keysym.M-v: perl:clipboard:paste
 ! Xterm settings
 ! ------------------------------------------------------------------------------
 
-xterm*.faceName: Fira Mono for Powerline
+xterm*.faceName: FuraMono Nerd Font
 xterm*.faceSize: 14
