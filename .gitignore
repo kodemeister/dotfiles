@@ -5,6 +5,10 @@
 !/.config/fontconfig
 !/.config/nvim
 
+!/.local
+/.local/share/*
+!/.local/share/fonts
+
 !/.tmux
 /.tmux/plugins/*
 !/.tmux/plugins/tpm
