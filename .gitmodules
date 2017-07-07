@@ -1,9 +1,0 @@
-[submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm.git
-[submodule ".vim/plugged/vim-plug"]
-	path = .vim/plugged/vim-plug
-	url = https://github.com/junegunn/vim-plug.git
-[submodule ".zprezto"]
-	path = .zprezto
-	url = https://github.com/toiffel/prezto.git
