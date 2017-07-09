@@ -28,9 +28,6 @@ endfunction
 
 " Plugins {{{1
 
-" Load vim-plug manually from plugins directory
-execute 'source ' . fnameescape(s:plugins_dir . '/vim-plug/plug.vim')
-
 " Begin the plugin section
 call plug#begin(s:plugins_dir)
 
