@@ -87,6 +87,7 @@ augroup vimrc
   autocmd!
   autocmd FileType text setlocal wrap
   autocmd FileType cpp setlocal commentstring=//\ %s
+  autocmd FileType vim,sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType haskell,cabal setlocal expandtab
 augroup end
 
