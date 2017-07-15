@@ -160,6 +160,13 @@ set relativenumber
 " Highlight the line containing the cursor
 set cursorline
 
+" Disable highlighting of current line in quickfix and vimdiff windows
+augroup vimrc
+  autocmd FileType qf setlocal nocursorline
+  autocmd FilterWritePost * if &diff | let &l:cursorline = 0 | endif
+  autocmd BufEnter * if !&diff && &buftype != 'quickfix' | let &l:cursorline = 1 | endif
+augroup end
+
 " Keep the given number of lines above and below the cursor while scrolling
 set scrolloff=5
 
