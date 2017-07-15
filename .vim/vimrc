@@ -17,11 +17,11 @@ let g:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
 
 " Functions {{{1
 
-function! s:RunFZF(command, ...) " {{{2
+function! s:RunFZF(command) " {{{2
   if &buftype == 'quickfix' || &buftype == 'help'
     wincmd p
   endif
-  execute a:command join(a:000, ' ')
+  execute a:command
 endfunction
 
 " }}}2
@@ -48,8 +48,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-grepper'
 Plug 'toiffel/vim-hybrid'
 Plug 'embear/vim-localvimrc'
-Plug 'dbakker/vim-projectroot'
 Plug 'tpope/vim-repeat'
+Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'kana/vim-textobj-entire'
@@ -263,7 +263,10 @@ if !g:use_fzf
   " This is useful when opening the same buffer in different windows
   let g:ctrlp_switch_buffer = 0
 
-  " Do not limit the maximum number of files to scan
+  " Always start searching from the current working directory
+  let g:ctrlp_working_path_mode = 0
+
+  " Don't limit the maximum number of files to scan
   let g:ctrlp_max_files = 0
 
   " Use rg to speed up file indexing
@@ -300,7 +303,7 @@ if g:use_fzf
   endif
 
   " Search in files
-  nnoremap <silent> <Leader>f :call <SID>RunFZF('FZF', fnameescape(projectroot#guess()))<CR>
+  nnoremap <silent> <Leader>f :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
 
   " Search in the currently opened buffers
   nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
@@ -357,10 +360,6 @@ runtime plugin/grepper.vim
 " Highlight all matches of the search pattern
 let g:grepper.highlight = 1
 
-" Start searching from the project root (if any exists)
-" Use the directory of the current buffer as a fallback
-let g:grepper.dir = 'repo,file'
-
 " Use rg as a primary search tool, grep or findstr as a fallback
 let g:grepper.tools = ['rg', 'grep', 'findstr']
 
@@ -385,6 +384,11 @@ let g:localvimrc_sandbox = 0
 
 " Don't ask before sourcing local vimrc files
 let g:localvimrc_ask = 0
+
+" vim-rooter {{{2
+
+" Don't echo the current working directory
+let g:rooter_silent_chdir = 1
 
 " }}}2
 
