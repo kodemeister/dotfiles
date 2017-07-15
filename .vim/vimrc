@@ -216,8 +216,8 @@ set noshowmatch
 let mapleader = "\<Space>"
 
 " Edit/reload Vim configuration file
-nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader>vr :source $MYVIMRC<CR>
+nnoremap <silent> <expr> <Leader>ve ':edit ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
+nnoremap <silent> <expr> <Leader>vr ':source ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
 
 " Fast saving
 nnoremap <silent> <Leader>w :write<CR>
