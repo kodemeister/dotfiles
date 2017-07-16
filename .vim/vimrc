@@ -359,6 +359,17 @@ call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
 " Save all modified files and build the project
 nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
 
+" vim-fugitive {{{2
+
+" Mappings for the most common vim-fugitive commands
+nmap <silent> <Leader>gs :Gstatus<CR>gg<C-n>
+nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>gr :Gread<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gps :Gpush<CR>
+nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
+
 " vim-grepper {{{2
 
 " Initialize vim-grepper options
