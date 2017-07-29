@@ -109,7 +109,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Set font when running in GUI mode
 if has('gui_running')
   if has('gui_gtk')
-    set guifont=FuraMono\ Nerd\ Font\ 14,Monospace\ 14
+    set guifont=Literation\ Mono\ Nerd\ Font\ 14,Monospace\ 14
   elseif has('gui_macvim')
     set guifont=Menlo\ Regular:h18
   elseif has('gui_win32')
