@@ -57,6 +57,7 @@ make_symlink()
 {
   local relative_path="$(python -c "import os.path; print(os.path.relpath('$1', '${2%/*}'))")"
   if [[ ! -e "$2" ]]; then
+    mkdir -p "$(dirname "$2")"
     ln -s "$relative_path" "$2"
   elif [[ ! -L "$2" || "$(readlink "$2")" != "$relative_path" ]]; then
     echo "$(tput setaf 11)Warning:$(tput sgr 0) $2 already exists, skipping"
