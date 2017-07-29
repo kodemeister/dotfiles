@@ -9,11 +9,7 @@ if has('nvim')
 else
   let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
 endif
-let s:cache_dir = s:config_dir . '/.cache'
 let s:plugins_dir = s:config_dir . '/plugged'
-
-" Setup global variables
-let g:use_fzf = executable('fzf') && !has('gui_running') && !has('win32')
 
 " Functions {{{1
 
@@ -33,11 +29,9 @@ call plug#begin(s:plugins_dir)
 
 " List the required plugins
 Plug 'Valloric/ListToggle'
-Plug 'FelikZ/ctrlp-py-matcher', !g:use_fzf ? {} : {'on': []}
-Plug 'ctrlpvim/ctrlp.vim', !g:use_fzf ? {} : {'on': []}
 Plug 'Raimondi/delimitMate'
-Plug 'junegunn/fzf', g:use_fzf ? {} : {'on': []}
-Plug 'junegunn/fzf.vim', g:use_fzf ? {} : {'on': []}
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
@@ -260,39 +254,6 @@ nnoremap <Leader>X "_X
 
 " Plugin settings {{{1
 
-" ctrlp.vim {{{2
-
-if !g:use_fzf
-  " Set the directory to store cache files
-  let g:ctrlp_cache_dir = s:cache_dir . '/ctrlp'
-
-  " Don't jump to buffer if it's already opened in a window somewhere
-  " This is useful when opening the same buffer in different windows
-  let g:ctrlp_switch_buffer = 0
-
-  " Always start searching from the current working directory
-  let g:ctrlp_working_path_mode = 0
-
-  " Don't limit the maximum number of files to scan
-  let g:ctrlp_max_files = 0
-
-  " Use rg to speed up file indexing
-  if executable('rg')
-    let g:ctrlp_user_command = 'rg --files --hidden -g "!.git/*" %s'
-  endif
-
-  " Use Python-based matcher to speed up matching
-  if has('python') || has('python3')
-    let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
-  endif
-
-  " Search in files
-  let g:ctrlp_map = '<Leader>f'
-
-  " Search in the currently opened buffers
-  nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
-endif
-
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
@@ -300,21 +261,19 @@ let delimitMate_expand_cr = 1
 
 " fzf.vim {{{2
 
-if g:use_fzf
-  " Configure FZF window position and height
-  let g:fzf_layout = {'down': '12'}
+" Configure FZF window position and height
+let g:fzf_layout = {'down': '12'}
 
-  " Use rg to speed up file indexing
-  if executable('rg') && empty($FZF_DEFAULT_COMMAND)
-    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git/*"'
-  endif
-
-  " Search in files
-  nnoremap <silent> <Leader>f :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
-
-  " Search in the currently opened buffers
-  nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
+" Use rg to speed up file indexing
+if executable('rg') && empty($FZF_DEFAULT_COMMAND)
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git/*"'
 endif
+
+" Search in files
+nnoremap <silent> <Leader>f :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
+
+" Search in the currently opened buffers
+nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 
 " netrw {{{2
 

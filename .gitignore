@@ -1,6 +1,5 @@
 /.tmux
 
-/.vim/.cache
 /.vim/autoload/plug.vim
 /.vim/autoload/plug.vim.old
 /.vim/plugged
