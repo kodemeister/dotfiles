@@ -20,6 +20,11 @@ function! s:RunFZF(command) " {{{2
   execute a:command
 endfunction
 
+function! s:HasSpaceBefore() " {{{2
+  let col = col('.') - 1
+  return col == 0 || getline('.')[col - 1] =~ '\s'
+endfunction
+
 " }}}2
 
 " Plugins {{{1
@@ -271,7 +276,7 @@ nnoremap <Leader>X "_X
 let g:ycm_min_num_of_chars_for_completion = 3
 
 " Disable YouCompleteMe for certain file types
-let g:ycm_filetype_blacklist = {'tagbar': 1, 'qf': 1, 'unite': 1}
+let g:ycm_filetype_blacklist = {'nerdtree': 1, 'qf': 1, 'tagbar': 1, 'unite': 1}
 
 " Define symbols for errors and warnings displayed in the Vim gutter
 let g:ycm_error_symbol = '✘'
@@ -282,8 +287,16 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
+" Disable default key mappings used to select previous/next completion item
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+
 " Don't ask before loading .ycm_extra_conf.py files
 let g:ycm_confirm_extra_conf = 0
+
+" Remap Tab and S-Tab to gracefully work with auto-completion
+imap <expr> <Tab> pumvisible() ? "\<C-n>" : (<SID>HasSpaceBefore() ? "\<Tab>" : "\<C-Space>")
+imap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Plug>delimitMateS-Tab"
 
 " delimitMate {{{2
 
