@@ -82,22 +82,11 @@ set noundofile
 " without asking to save the current changes first
 set hidden
 
-" Filetype-specific settings
-augroup vimrc
-  autocmd!
-  autocmd FileType text setlocal wrap
-  autocmd FileType cpp setlocal commentstring=//\ %s
-  autocmd FileType vim,sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd FileType haskell,cabal setlocal expandtab
-augroup end
+" Disable mouse support
+set mouse=
 
-" UI settings {{{1
-
-" Use dark variation of color scheme
-set background=dark
-
-" Set some eye candy color scheme
-colorscheme hybrid
+" Make all yank, delete, change and put operations work with system clipboard
+set clipboard^=unnamedplus
 
 " Enable 24-bit colors in the terminal
 set termguicolors
@@ -110,6 +99,56 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
+
+" Reduce timeout for keyboard codes like <Esc> to minimal value
+" This eliminates annoying delays while exiting Insert/Visual modes in terminal
+set ttimeoutlen=0
+
+" Turn off annoying beeps/flashes on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+
+" Don't redraw the display while executing macros
+set lazyredraw
+
+" Highlight all matches of the search pattern
+set hlsearch
+
+" Ignore case in search patterns
+set ignorecase
+
+" When searching, wrap around the beginning or the end of the file
+set wrapscan
+
+" Keep the given number of lines above and below the cursor while scrolling
+set scrolloff=5
+
+" Keep the cursor column while jumping or switching between buffers
+set nostartofline
+
+" Don't jump to matching brackets while typing
+set noshowmatch
+
+" Don't show extra information about the currently selected completion
+set completeopt-=preview
+
+" Limit the number of items in completion popup menu
+set pumheight=10
+
+" Define an autocommand group for this vimrc
+augroup vimrc
+  autocmd!
+  autocmd FileType cpp setlocal commentstring=//\ %s
+augroup end
+
+" Look and feel {{{1
+
+" Use dark variation of color scheme
+set background=dark
+
+" Set some eye candy color scheme
+colorscheme hybrid
 
 " Set font when running in GUI mode
 if has('gui_running')
@@ -143,20 +182,6 @@ if has('gui_running') || has('nvim')
   set guicursor+=a:blinkon0
 endif
 
-" Turn off annoying beeps/flashes on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-
-" Don't redraw the display while executing macros
-set lazyredraw
-
-" Disable soft wrapping of long lines
-set nowrap
-
-" Disable hard wrapping of long lines
-set textwidth=0
-
 " Show absolute number for the current line and relative numbers for other lines
 set number
 set relativenumber
@@ -171,9 +196,6 @@ augroup vimrc
   autocmd BufEnter * if !&diff && &buftype != 'quickfix' | let &l:cursorline = 1 | endif
 augroup end
 
-" Keep the given number of lines above and below the cursor while scrolling
-set scrolloff=5
-
 " Enable list mode, show whitespace characters
 set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
@@ -184,48 +206,28 @@ set noshowmode
 " Show the current command in the bottom right corner
 set showcmd
 
-" Don't show extra information about the currently selected completion
-set completeopt-=preview
+" Editing and formatting {{{1
 
-" Limit the number of items in completion popup menu
-set pumheight=10
-
-" Edit settings {{{1
+" Always use tabs instead of spaces
+set noexpandtab
 
 " Set width of tabs and indents to 4 spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" Always use tabs instead of spaces
-set noexpandtab
+" Disable soft wrapping of long lines
+set nowrap
 
-" Make all yank, delete, change and put operations work with system clipboard
-set clipboard^=unnamedplus
+" Disable hard wrapping of long lines
+set textwidth=0
 
-" Disable mouse support
-set mouse=
-
-" Reduce timeout for keyboard codes like <Esc> to minimal value
-" This eliminates annoying delays while exiting Insert/Visual modes in terminal
-set ttimeoutlen=0
-
-" Keep the cursor column while jumping or switching between buffers
-set nostartofline
-
-" Search settings {{{1
-
-" Highlight all matches of the search pattern
-set hlsearch
-
-" Ignore case in search patterns
-set ignorecase
-
-" When searching, wrap around the beginning or the end of the file
-set wrapscan
-
-" Don't jump to matching brackets while typing
-set noshowmatch
+" Filetype-specific settings
+augroup vimrc
+  autocmd FileType text,markdown setlocal wrap
+  autocmd FileType vim,sh,xml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType haskell,cabal setlocal expandtab
+augroup end
 
 " Key mappings {{{1
 
