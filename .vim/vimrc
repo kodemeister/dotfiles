@@ -300,6 +300,10 @@ let g:ycm_confirm_extra_conf = 0
 imap <expr> <Tab> pumvisible() ? "\<C-n>" : (<SID>HasSpaceBefore() ? "\<Tab>" : "\<C-Space>")
 imap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Plug>delimitMateS-Tab"
 
+" Jump to definition/declaration of the symbol under the cursor
+nnoremap <silent> <Leader>j :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>J :YcmCompleter GoToDeclaration<CR>
+
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
