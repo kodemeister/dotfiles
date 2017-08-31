@@ -34,7 +34,6 @@ call plug#begin(s:plugins_dir)
 
 " List the required plugins
 Plug 'Valloric/ListToggle'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --system-libclang'}
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -274,38 +273,6 @@ nnoremap <Leader>X "_X
 
 " Plugin settings {{{1
 
-" YouCompleteMe {{{2
-
-" Type at least 3 characters to trigger the identifier-based completion
-let g:ycm_min_num_of_chars_for_completion = 3
-
-" Disable YouCompleteMe for certain file types
-let g:ycm_filetype_blacklist = {'nerdtree': 1, 'qf': 1, 'tagbar': 1, 'unite': 1}
-
-" Define symbols for errors and warnings displayed in the Vim gutter
-let g:ycm_error_symbol = '✘'
-let g:ycm_warning_symbol = '⚠'
-
-" Trigger the completion menu when typing inside comments and strings
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
-" Disable default key mappings used to select previous/next completion item
-let g:ycm_key_list_select_completion = []
-let g:ycm_key_list_previous_completion = []
-
-" Don't ask before loading .ycm_extra_conf.py files
-let g:ycm_confirm_extra_conf = 0
-
-" Remap Tab and S-Tab to gracefully work with auto-completion
-imap <expr> <Tab> pumvisible() ? "\<C-n>" : (<SID>HasSpaceBefore() ? "\<Tab>" : "\<C-Space>")
-imap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Plug>delimitMateS-Tab"
-
-" Jump to definition/declaration of the symbol under the cursor
-nnoremap <silent> <Leader>j :YcmCompleter GoTo<CR>
-nnoremap <silent> <Leader>J :YcmCompleter GoToDeclaration<CR>
-
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
@@ -353,7 +320,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
-let g:airline#extensions#ycm#enabled = 1
 
 " vim-altr {{{2
 
