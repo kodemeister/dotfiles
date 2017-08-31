@@ -83,7 +83,7 @@ main()
   done
 
   # Clone Prezto repository.
-  clone_repo "https://github.com/toiffel/prezto.git" "$DOTFILES_DIR/.zprezto"
+  clone_repo "https://github.com/kodemeister/prezto.git" "$DOTFILES_DIR/.zprezto"
 
   # Create symlinks from the home directory to files under the dotfiles directory.
   for key in "${!SYMLINKS[@]}"; do

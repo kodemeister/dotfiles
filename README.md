@@ -29,7 +29,7 @@ tar -xzf ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz -C ~/.local/bin --strip-
 
 4. Clone this repository into any directory under `$HOME`, e.g. `~/.dotfiles`:
 ```
-git clone https://github.com/toiffel/dotfiles.git ~/.dotfiles
+git clone https://github.com/kodemeister/dotfiles.git ~/.dotfiles
 ```
 
 5. Run the installation script:
@@ -47,7 +47,7 @@ Log out and log in to apply the changes.
 
 7. Configure the font and color scheme of your terminal emulator.
 * For correct display of Powerline symbols, you need to install a patched font. The installation script automatically installs patched Liberation Mono 1.07 font ("Literation Mono Nerd Font") into `~/.local/share/fonts`. Other patched fonts can be found in [powerline/fonts](https://github.com/powerline/fonts) or [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) repositories.
-* Change your terminal color scheme to match Vim color scheme. For URxvt use `~/.Xresources` configuration file that comes within this repository. For st you may check my custom `config.h` file located in a separate [repository](https://github.com/toiffel/st). For other terminals install a default color palette from [terminal.sexy](http://terminal.sexy) color scheme designer. Just open Export tab, pick your terminal from Format dropdown, press Export button and then Download. Finally, use the downloaded file to change color scheme in your terminal emulator.
+* Change your terminal color scheme to match Vim color scheme. For URxvt use `~/.Xresources` configuration file that comes within this repository. For st you may check my custom `config.h` file located in a separate [repository](https://github.com/kodemeister/st). For other terminals install a default color palette from [terminal.sexy](http://terminal.sexy) color scheme designer. Just open Export tab, pick your terminal from Format dropdown, press Export button and then Download. Finally, use the downloaded file to change color scheme in your terminal emulator.
 
 ### WSL (Windows Subsystem for Linux)
 
@@ -78,7 +78,7 @@ tar -xzf ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz -C ~/.local/bin --strip-
 
 6. Clone this repository into any directory under `$HOME`, e.g. `~/.dotfiles`:
 ```
-git clone https://github.com/toiffel/dotfiles.git ~/.dotfiles
+git clone https://github.com/kodemeister/dotfiles.git ~/.dotfiles
 ```
 
 7. Run the installation script:
