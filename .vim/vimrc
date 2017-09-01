@@ -35,6 +35,7 @@ call plug#begin(s:plugins_dir)
 " List the required plugins
 Plug 'Valloric/ListToggle'
 Plug 'Raimondi/delimitMate'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
@@ -277,6 +278,28 @@ nnoremap <Leader>X "_X
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
 let delimitMate_expand_cr = 1
+
+" deoplete.nvim {{{2
+
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
+
+" Disable 'around' source for all filetypes
+let g:deoplete#ignore_sources = {'_': ['around']}
+
+" Complete paths relative to the current file instead of the current directory
+let g:deoplete#file#enable_buffer_path = 1
+
+" Collect keywords from buffers of any filetype
+let g:deoplete#buffer#require_same_filetype = 0
+
+" Type at least 3 characters to trigger the completion
+call deoplete#custom#source('_', 'min_pattern_length', 3)
+
+" Remap Tab and S-Tab to gracefully work with auto-completion
+imap <silent> <expr> <Tab> pumvisible() ? "\<C-n>" :
+  \ (<SID>HasSpaceBefore() ? "\<Tab>" : deoplete#mappings#manual_complete())
+imap <silent> <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Plug>delimitMateS-Tab"
 
 " fzf.vim {{{2
 
