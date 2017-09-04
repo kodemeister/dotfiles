@@ -25,6 +25,16 @@ function! s:HasSpaceBefore() " {{{2
   return col == 0 || getline('.')[col - 1] =~ '\s'
 endfunction
 
+function! s:FindPath(base_paths, path, strip_components) " {{{2
+  for base_path in a:base_paths
+    let paths = glob(base_path . '/' . a:path, 1, 1)
+    if !empty(paths)
+      return fnamemodify(sort(paths)[-1], repeat(':h', a:strip_components))
+    endif
+  endfor
+  return ''
+endfunction
+
 " }}}2
 
 " Plugins {{{1
@@ -35,6 +45,7 @@ call plug#begin(s:plugins_dir)
 " List the required plugins
 Plug 'Valloric/ListToggle'
 Plug 'Raimondi/delimitMate'
+Plug 'kodemeister/deoplete-clang'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -278,6 +289,22 @@ nnoremap <Leader>X "_X
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
 let delimitMate_expand_cr = 1
+
+" deoplete-clang {{{2
+
+" Try to automatically find the path to Clang library
+let s:clang_library_paths = [
+  \ '/usr/lib'
+  \ ]
+let s:clang_library_name = 'libclang.so'
+let g:deoplete#sources#clang#libclang_path = s:FindPath(s:clang_library_paths, s:clang_library_name, 0)
+
+" Try to automatically find the path to Clang header
+let s:clang_header_paths = [
+  \ '/usr/lib/clang/*/include'
+  \ ]
+let s:clang_header_name = 'stddef.h'
+let g:deoplete#sources#clang#clang_header = s:FindPath(s:clang_header_paths, s:clang_header_name, 3)
 
 " deoplete.nvim {{{2
 
