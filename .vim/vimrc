@@ -74,9 +74,6 @@ Plug 'thinca/vim-visualstar'
 " Finish the plugin section, update runtimepath and initialize plugin system
 call plug#end()
 
-" Load vim-sensible plugin immediately in order to override some of its settings
-call plug#load('vim-sensible')
-
 " General settings {{{1
 
 " Set the default character encoding
@@ -451,6 +448,10 @@ let g:localvimrc_sandbox = 0
 
 " Don't ask before sourcing local vimrc files
 let g:localvimrc_ask = 0
+
+" Load vim-localvimrc here to fire its autocommands before other plugins
+" This is required to set up project-specific settings for other plugins
+runtime plugin/localvimrc.vim
 
 " vim-rooter {{{2
 
