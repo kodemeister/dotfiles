@@ -329,6 +329,9 @@ let g:deoplete#sources#clang#clang_header = s:FindPath(s:clang_header_paths, s:c
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
 
+" Specify regexp for keyword completion
+let g:deoplete#keyword_patterns = {'_': '[a-zA-Z_]\w*'}
+
 " Disable 'around' source for all filetypes
 let g:deoplete#ignore_sources = {'_': ['around']}
 
