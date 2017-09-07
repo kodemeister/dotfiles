@@ -44,6 +44,7 @@ call plug#begin(s:plugins_dir)
 
 " List the required plugins
 Plug 'Valloric/ListToggle'
+Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'kodemeister/deoplete-clang'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -284,6 +285,26 @@ vnoremap <Leader>x "_x
 nnoremap <Leader>X "_X
 
 " Plugin settings {{{1
+
+" ale {{{2
+
+" Run linters after some delay after text is changed
+let g:ale_lint_delay = 1000
+
+" Define a set of linters to be run when checking particular filetypes
+let g:ale_linters = {
+  \ 'c': ['clang'],
+  \ 'cpp': ['clang'],
+  \ 'python': ['flake8'],
+  \ 'sh': ['shell']
+  \ }
+
+" Always show the sign column
+let g:ale_sign_column_always = 1
+
+" Define symbols for errors and warnings displayed in the Vim gutter
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
 
 " delimitMate {{{2
 
