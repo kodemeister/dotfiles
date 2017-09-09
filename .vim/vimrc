@@ -47,6 +47,7 @@ Plug 'Valloric/ListToggle'
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'kodemeister/deoplete-clang'
+Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
