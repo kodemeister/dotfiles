@@ -264,6 +264,9 @@ nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> <Down> v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> <Up> v:count == 0 ? 'gk' : 'k'
 
+" Toggle between the current and the alternate file
+nnoremap <Tab> <C-^>
+
 " Make Y yank from the current cursor position to the end of line,
 " to be consistent with C and D
 nnoremap Y y$
