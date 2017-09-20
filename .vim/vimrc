@@ -293,8 +293,11 @@ let g:ale_lint_delay = 1000
 let g:ale_linters = {
   \ 'c': ['clang'],
   \ 'cpp': ['clang'],
+  \ 'objc': ['clang'],
+  \ 'objcpp': ['clang'],
   \ 'python': ['flake8'],
-  \ 'sh': ['shell']
+  \ 'sh': ['shell'],
+  \ 'vim': ['vint']
   \ }
 
 " Always show the sign column
