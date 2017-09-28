@@ -46,12 +46,12 @@ call plug#begin(s:plugins_dir)
 Plug 'Valloric/ListToggle'
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
-Plug 'kodemeister/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
+Plug 'kodemeister/deoplete-clang', {'for': ['c', 'cpp', 'objc', 'objcpp']}
+Plug 'zchee/deoplete-jedi', {'for': ['python']}
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
