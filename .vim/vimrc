@@ -51,6 +51,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
@@ -371,6 +372,18 @@ nnoremap <silent> <Leader>f :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<
 
 " Search in the currently opened buffers
 nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
+
+" jedi-vim {{{2
+
+" Disable Jedi completion in favor of another completion engine
+let g:jedi#completions_enabled = 0
+
+" Setup Jedi key mappings
+let g:jedi#goto_command = '<Leader>]'
+let g:jedi#goto_assignments_command = '<Leader>pd'
+let g:jedi#documentation_command = '<Leader>pi'
+let g:jedi#rename_command = '<Leader>pr'
+let g:jedi#usages_command = '<Leader>pu'
 
 " netrw {{{2
 
