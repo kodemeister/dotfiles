@@ -59,6 +59,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-grepper'
 Plug 'kodemeister/vim-hybrid'
 Plug 'embear/vim-localvimrc'
@@ -146,6 +147,9 @@ set completeopt-=preview
 
 " Limit the number of items in completion popup menu
 set pumheight=10
+
+" Reduce the timeout used for the CursorHold autocommand event
+set updatetime=250
 
 " Define an autocommand group for this vimrc
 augroup vimrc
