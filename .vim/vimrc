@@ -56,6 +56,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
 Plug 'tpope/vim-commentary'
+Plug 'chrisbra/vim-diff-enhanced'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -428,6 +429,11 @@ call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
   \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
 call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
   \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
+
+" vim-diff-enhanced {{{2
+
+" Use the Patience Diff algorithm by default to generate better diffs
+let &diffexpr = 'EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 
 " vim-dispatch {{{2
 
