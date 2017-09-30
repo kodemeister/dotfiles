@@ -1,8 +1,5 @@
 " Variables {{{1
 
-" Disable compability with old fashioned Vi
-set nocompatible
-
 " Setup directory paths
 if has('nvim')
   let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
@@ -14,22 +11,22 @@ let s:plugins_dir = s:config_dir . '/plugged'
 " Functions {{{1
 
 function! s:RunFZF(command) " {{{2
-  if &buftype == 'quickfix' || &buftype == 'help'
+  if &buftype ==# 'quickfix' || &buftype ==# 'help'
     wincmd p
   endif
   execute a:command
 endfunction
 
 function! s:HasSpaceBefore() " {{{2
-  let col = col('.') - 1
-  return col == 0 || getline('.')[col - 1] =~ '\s'
+  let l:col = col('.') - 1
+  return l:col == 0 || getline('.')[l:col - 1] =~# '\s'
 endfunction
 
 function! s:FindPath(base_paths, path, strip_components) " {{{2
-  for base_path in a:base_paths
-    let paths = glob(base_path . '/' . a:path, 1, 1)
-    if !empty(paths)
-      return fnamemodify(sort(paths)[-1], repeat(':h', a:strip_components))
+  for l:base_path in a:base_paths
+    let l:paths = glob(l:base_path . '/' . a:path, 1, 1)
+    if !empty(l:paths)
+      return fnamemodify(sort(l:paths)[-1], repeat(':h', a:strip_components))
     endif
   endfor
   return ''
@@ -85,6 +82,9 @@ call plug#end()
 if !has('nvim')
   set encoding=utf-8
 endif
+
+" Set the character encoding used in the script
+scriptencoding utf-8
 
 " Don't clutter the filesystem with garbage files
 set nobackup
@@ -210,7 +210,7 @@ set cursorline
 augroup vimrc
   autocmd FileType qf setlocal nocursorline
   autocmd FilterWritePost * if &diff | let &l:cursorline = 0 | endif
-  autocmd BufEnter * if !&diff && &buftype != 'quickfix' | let &l:cursorline = 1 | endif
+  autocmd BufEnter * if !&diff && &buftype !=# 'quickfix' | let &l:cursorline = 1 | endif
 augroup end
 
 " Enable list mode, show whitespace characters
@@ -249,7 +249,7 @@ augroup end
 " Key mappings {{{1
 
 " Configure the <Leader> key
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " Edit/reload Vim configuration file
 nnoremap <silent> <expr> <Leader>ve ':edit ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
@@ -320,7 +320,7 @@ let g:ale_sign_warning = '⚠'
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
-let delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr = 1
 
 " deoplete-clang {{{2
 
@@ -468,8 +468,8 @@ let g:grepper.highlight = 1
 let g:grepper.tools = ['rg', 'grep', 'findstr']
 
 " Ignore case in search patterns
-for tool in g:grepper.tools
-  let g:grepper[tool].grepprg = substitute(g:grepper[tool].grepprg, ' ', ' -i ', '')
+for s:tool in g:grepper.tools
+  let g:grepper[s:tool].grepprg = substitute(g:grepper[s:tool].grepprg, ' ', ' -i ', '')
 endfor
 
 " Display Grepper prompt and wait for search pattern
