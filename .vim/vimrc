@@ -52,6 +52,7 @@ Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim', {'for': ['python']}
+Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
@@ -405,6 +406,10 @@ nnoremap <silent> - :Explore<CR>
 
 " Refresh file list with R since <C-L> is used for navigation between windows
 autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
+
+" python-syntax {{{2
+
+let g:python_highlight_all = 1
 
 " vim-airline {{{2
 
