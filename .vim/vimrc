@@ -49,6 +49,7 @@ Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {'on
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim', {'for': ['python']}
+Plug 'kodemeister/neofake'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
