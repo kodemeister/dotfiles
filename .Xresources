@@ -61,13 +61,10 @@ URxvt*.iso14755_52: false
 ! URxvt extensions
 ! ------------------------------------------------------------------------------
 
-URxvt*.perl-ext-common: default,url-select,clipboard
+URxvt*.perl-ext-common: default,matcher
 
-URxvt*.url-select.launcher: /usr/bin/xdg-open
-URxvt*.url-select.underline: true
-
-URxvt*.keysym.M-c: perl:clipboard:copy
-URxvt*.keysym.M-v: perl:clipboard:paste
+URxvt*.url-launcher: /usr/bin/xdg-open
+URxvt*.matcher.button: 2
 
 ! ------------------------------------------------------------------------------
 ! Xterm settings
