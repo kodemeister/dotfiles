@@ -61,7 +61,7 @@ URxvt*.iso14755_52: false
 ! URxvt extensions
 ! ------------------------------------------------------------------------------
 
-URxvt*.perl-ext-common: default,matcher
+URxvt*.perl-ext-common: default,matcher,resize-font,vtwheel
 
 URxvt*.url-launcher: /usr/bin/xdg-open
 URxvt*.matcher.button: 2
