@@ -1,0 +1,23 @@
+# Set custom "hybrid" colorscheme
+colorscheme hybrid
+
+# Display the current bitrate in the status line
+set show_current_bitrate=true
+
+# Modify default format string to not show play count in the playlist
+set format_playlist= %-21%a %3n. %t%= %y %d 
+set format_playlist_va= %-21%A %3n. %t (%a)%= %y %d 
+
+# Modify default format string to display codec name in the status line
+set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}- %{total} %{?volume>=0?vol: %{?lvolume!=rvolume?%{lvolume},%{rvolume} ?%{volume} }}%{?stream?buf: %{buffer} }%{?codec?%{codec}}%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%=%{?repeat_current?repeat current?%{?play_library?%{playlist_mode} from %{?play_sorted?sorted }library?playlist}} | %1{continue}%1{follow}%1{repeat}%1{shuffle} 
+
+# Use more Vim-like keybindings
+bind -f browser - browser-up
+bind -f browser r win-update
+bind -f common C clear
+
+# Set the starting directory for the music browser
+cd /media/storage/Music
+
+# Switch to the playlist view on cmus startup
+view 3

@@ -1,3 +1,10 @@
+/.config/cmus/autosave
+/.config/cmus/cache
+/.config/cmus/command-history
+/.config/cmus/lib.pl
+/.config/cmus/playlist.pl
+/.config/cmus/search-history
+
 /.tmux
 
 /.vim/autoload/plug.vim

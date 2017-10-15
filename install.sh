@@ -16,6 +16,7 @@ declare -r HOME_DIR="$HOME"
 
 # List of symlinks to be created in the form: ["symlink name"]="symlink target".
 declare -rA SYMLINKS=(
+  [".config/cmus"]=".config/cmus"
   [".config/fontconfig"]=".config/fontconfig"
   [".config/nvim"]=".vim"
   [".local/share/fonts"]=".local/share/fonts"
