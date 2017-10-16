@@ -18,6 +18,7 @@ declare -r HOME_DIR="$HOME"
 declare -rA SYMLINKS=(
   [".config/cmus"]=".config/cmus"
   [".config/fontconfig"]=".config/fontconfig"
+  [".config/mpv"]=".config/mpv"
   [".config/nvim"]=".vim"
   [".local/share/fonts"]=".local/share/fonts"
   [".tmux"]=".tmux"
