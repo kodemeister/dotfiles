@@ -20,6 +20,7 @@ declare -rA SYMLINKS=(
   [".config/fontconfig"]=".config/fontconfig"
   [".config/mpv"]=".config/mpv"
   [".config/nvim"]=".vim"
+  [".config/zathura"]=".config/zathura"
   [".local/share/fonts"]=".local/share/fonts"
   [".tmux"]=".tmux"
   [".vim"]=".vim"
