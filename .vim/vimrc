@@ -156,7 +156,9 @@ set pumheight=10
 set updatetime=250
 
 " Specify the Python version used for pyx* functions and commands
-set pyxversion=3
+if !has('nvim')
+  set pyxversion=3
+endif
 
 " Define an autocommand group for this vimrc
 augroup vimrc
