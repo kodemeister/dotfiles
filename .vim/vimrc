@@ -155,6 +155,9 @@ set pumheight=10
 " Reduce the timeout used for the CursorHold autocommand event
 set updatetime=250
 
+" Specify the Python version used for pyx* functions and commands
+set pyxversion=3
+
 " Define an autocommand group for this vimrc
 augroup vimrc
   autocmd!
