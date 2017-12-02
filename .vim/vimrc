@@ -230,19 +230,22 @@ set showcmd
 
 " Editing and formatting {{{1
 
-" Always use tabs instead of spaces
-set noexpandtab
+" Apply the default settings on startup (but not on vimrc reload)
+if has('vim_starting')
+  " Always use tabs instead of spaces
+  set noexpandtab
 
-" Set width of tabs and indents to 4 spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+  " Set width of tabs and indents to 4 spaces
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
 
-" Disable soft wrapping of long lines
-set nowrap
+  " Disable soft wrapping of long lines
+  set nowrap
 
-" Disable hard wrapping of long lines
-set textwidth=0
+  " Disable hard wrapping of long lines
+  set textwidth=0
+endif
 
 " Filetype-specific settings
 augroup vimrc
