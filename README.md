@@ -12,7 +12,7 @@ sudo apt-get install curl git python3 python3-neovim tmux vim-gtk xsel zsh
 ```
 For C/C++ development:
 ```
-sudo apt-get install clang
+sudo apt-get install clang cmake libclang-dev
 ```
 
 2. Download fzf and ripgrep binaries and install them into `~/.local/bin` directory. Don't blindly copy the commands below! Pick up the latest [fzf](https://github.com/junegunn/fzf-bin/releases) and [ripgrep](https://github.com/BurntSushi/ripgrep/releases) builds matching your system architecture and adjust the paths accordingly. For example:

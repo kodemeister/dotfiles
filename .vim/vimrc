@@ -337,14 +337,16 @@ let g:delimitMate_expand_cr = 1
 
 " Try to automatically find the path to Clang library
 let s:clang_library_paths = [
-  \ '/usr/lib'
+  \ '/usr/lib',
+  \ '/usr/lib/llvm-*/lib'
   \ ]
 let s:clang_library_name = 'libclang.so'
 let g:deoplete#sources#clang#libclang_path = s:FindPath(s:clang_library_paths, s:clang_library_name, 0)
 
 " Try to automatically find the path to Clang header
 let s:clang_header_paths = [
-  \ '/usr/lib/clang/*/include'
+  \ '/usr/lib/clang/*/include',
+  \ '/usr/lib/llvm-*/lib/clang/*/include'
   \ ]
 let s:clang_header_name = 'stddef.h'
 let g:deoplete#sources#clang#clang_header = s:FindPath(s:clang_header_paths, s:clang_header_name, 3)
