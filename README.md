@@ -4,7 +4,7 @@ This is a collection of my personal configuration files and scripts for GNU/Linu
 
 ## Installation
 
-### Ubuntu 17.10
+### Ubuntu 17.04
 
 1. Open terminal and install the required dependencies (replace `vim-gtk` with `neovim` if you want to use Neovim instead of Vim):
 ```
@@ -48,53 +48,41 @@ Log out and log in to apply the changes.
 
 ### WSL (Windows Subsystem for Linux)
 
+**Requirements:**
+* **Windows 10 Fall Creators Update or later.**
+* **Ubuntu 16.04 LTS installed from the Windows Store.**
+
 1. Install [WSLtty](https://github.com/mintty/wsltty/releases) terminal emulator.
 
-2. For clipboard support install [VcXsrv](https://sourceforge.net/projects/vcxsrv) and run it. To start VcXsrv automatically on boot, copy VcXSrv shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup` directory.
+2. For clipboard support in Vim and tmux install [VcXsrv](https://sourceforge.net/projects/vcxsrv) and run it. To start VcXsrv automatically on boot, copy VcXSrv shortcut to `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup` directory.
 
-3. Run WSLtty and add a few PPAs with recent versions of Vim and tmux. This may not be necessary in newer WSL updates.
+3. Run WSL Terminal and update Ubuntu 16.04 to 17.04. First, update all currently installed packages:
 ```
-sudo add-apt-repository ppa:jonathonf/vim
-sudo add-apt-repository ppa:sandvine/packages
 sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install update-manager-core
 ```
 
-4. Install the required dependencies:
+4. Next, edit `/etc/update-manager/release-upgrades` configuration file as root:
 ```
-sudo apt-get install curl git python tmux vim-gtk xsel zsh
+sudo vi /etc/update-manager/release-upgrades
+```
+At the bottom of this file replace `Prompt=lts` with `Prompt=normal` in order to upgrade from LTS release to newer non-LTS release.
+
+5. Finally, run `do-release-upgrade` command to upgrade your system:
+```
+sudo do-release-upgrade
+```
+During the installation, you may be presented with interactive dialogs for various questions. In most cases, it's safe to answer "y" to all questions.
+
+6. Fix `umask` value temporarily for the current shell session. See https://github.com/Microsoft/WSL/issues/352 for details.
+```
+umask 022
 ```
 
-5. Download fzf and ripgrep binaries and install them into `~/.local/bin` directory. Don't blindly copy the commands below! Pick up the latest [fzf](https://github.com/junegunn/fzf-bin/releases) and [ripgrep](https://github.com/BurntSushi/ripgrep/releases) 64-bit builds and adjust the paths accordingly. For example:
-```
-mkdir -p ~/.local/bin
-curl -fLO "https://github.com/junegunn/fzf-bin/releases/download/0.16.10/fzf-0.16.10-linux_amd64.tgz"
-curl -fLO "https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz"
-tar -xzf fzf-0.16.10-linux_amd64.tgz -C ~/.local/bin fzf
-tar -xzf ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz -C ~/.local/bin --strip-components=1 ripgrep-0.5.2-x86_64-unknown-linux-musl/rg
-```
+7. Now follow steps 1-5 from Ubuntu 17.04 installation instructions above to actually install dotfiles from this repository as you would normally do on real Ubuntu machine.
 
-6. Clone this repository into any directory under `$HOME`, e.g. `~/.dotfiles`:
-```
-git clone https://github.com/kodemeister/dotfiles.git ~/.dotfiles
-```
-
-7. Run the installation script:
-```
-cd ~/.dotfiles
-./install.sh
-```
-The script will download any additional stuff (Prezto, Vim plugins, tmux plugins) and create symlinks to dotfiles in your home directory. If you already have your own dotfiles in the home directory, the script will warn about conflicting files but won't overwrite them. **Check out for messages like "Warning: /home/user/.vimrc already exists, skipping"! If you see such warnings, backup and/or remove conflicting files and re-run the installation script.**
-
-8. Open `~/.bashrc` in Vim and add the following lines to start Zsh automatically when opening WSLtty:
-```
-# Launch Zsh
-if [ -t 1 ]; then
-    env SHELL=/bin/zsh DISPLAY=localhost:0.0 /bin/zsh
-fi
-```
-Restart WSLtty to apply the changes.
-
-9. Configure the font and color scheme of WSLtty.
+8. Configure the font and color scheme of WSLtty.
 * For correct display of Powerline symbols, you need to install a patched font. I use Powerline Consolas from [runsisi/consolas-font-for-powerline](https://github.com/runsisi/consolas-font-for-powerline) repository. Other patched fonts can be found in [powerline/fonts](https://github.com/powerline/fonts) or [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) repositories.
-* Change WSLtty color scheme to match Vim color scheme. To do this, install a default color palette from [terminal.sexy](http://terminal.sexy) color scheme designer. Just open Export tab, pick MinTTY from Format dropdown, press Export button and then Download. Finally, copy the downloaded file to `%APPDATA%\wsltty\themes` and select it in WSLtty Options -> Looks -> Theme setting.
-* Make sure to set Options -> Terminal -> Type setting to `xterm-256color` for correct display of 256-color palette.
+* Change WSLtty color scheme to match Vim color scheme. To do this, install a default color palette from [terminal.sexy](http://terminal.sexy) color scheme designer. Just open Export tab, pick MinTTY from Format dropdown, press Export button and then Download. Finally, copy the downloaded file to `%APPDATA%\wsltty\themes` and select it in WSLtty `Options -> Looks -> Theme` setting.
+* Make sure to set `Options -> Terminal -> Type` setting to `xterm-256color` for correct display of 256-color palette.
