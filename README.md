@@ -75,7 +75,7 @@ sudo do-release-upgrade
 ```
 During the installation, you may be presented with interactive dialogs for various questions. In most cases, it's safe to answer "y" to all questions.
 
-6. Fix `umask` value temporarily for the current shell session. See https://github.com/Microsoft/WSL/issues/352 for details.
+6. Fix `umask` value temporarily for the current shell session. See [Microsoft/WSL#352](https://github.com/Microsoft/WSL/issues/352) for details.
 ```
 umask 022
 ```
