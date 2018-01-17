@@ -304,8 +304,17 @@ let g:LanguageClient_serverCommands = {
   \ 'python': ['pyls']
   \ }
 
-" Disable diagnostic messages and signs in the gutter in favor of ALE plugin
-let g:LanguageClient_diagnosticsEnable = 0
+" Start language servers automatically when opening a file
+let g:LanguageClient_autoStart = 1
+
+" Populate location list with diagnostic messages from the language server
+let g:LanguageClient_diagnosticsList = 'location'
+
+" Turn on or off the sign column when starting or stopping the language server
+augroup vimrc
+  autocmd User LanguageClientStarted setlocal signcolumn=yes
+  autocmd User LanguageClientStopped setlocal signcolumn=auto
+augroup end
 
 " Mappings for the most common LanguageClient-neovim commands
 nnoremap <silent> <Leader>] :call LanguageClient_textDocument_definition()<CR>
@@ -322,12 +331,12 @@ let g:ale_lint_delay = 1000
 
 " Define a set of linters to be run when checking particular filetypes
 let g:ale_linters = {
-  \ 'c': ['clang'],
-  \ 'cpp': ['clang'],
+  \ 'c': [],
+  \ 'cpp': [],
   \ 'haskell': ['stack-ghc'],
-  \ 'objc': ['clang'],
-  \ 'objcpp': ['clang'],
-  \ 'python': ['flake8'],
+  \ 'objc': [],
+  \ 'objcpp': [],
+  \ 'python': [],
   \ 'sh': ['shell'],
   \ 'vim': ['vint']
   \ }
