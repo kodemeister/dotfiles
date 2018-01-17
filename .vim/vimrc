@@ -36,6 +36,7 @@ Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'fgrsnau/ncm-otherbuf'
 Plug 'roxma/nvim-completion-manager'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
@@ -144,7 +145,7 @@ set pumheight=10
 set updatetime=250
 
 " Specify the Python version used for pyx* functions and commands
-" This is used by nvim-completion-manager and vim-hug-neovim-rpc plugins
+" This is used by Python-based plugins like nvim-completion-manager
 if has('pythonx')
   set pyxversion=3
 endif
