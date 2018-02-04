@@ -298,18 +298,18 @@ nnoremap <Leader>X "_X
 
 " Define a set of language servers to be run for particular filetypes
 let g:LanguageClient_serverCommands = {
-  \ 'c': ['clangd'],
-  \ 'cpp': ['clangd'],
-  \ 'objc': ['clangd'],
-  \ 'objcpp': ['clangd'],
+  \ 'c': ['cquery', '--language-server'],
+  \ 'cpp': ['cquery', '--language-server'],
+  \ 'objc': ['cquery', '--language-server'],
+  \ 'objcpp': ['cquery', '--language-server'],
   \ 'python': ['pyls']
   \ }
 
-" Start language servers automatically when opening a file
-let g:LanguageClient_autoStart = 1
+" Specify the path to the system-wide language server settings
+let g:LanguageClient_settingsPath = s:config_dir . '/settings.json'
 
 " Populate location list with diagnostic messages from the language server
-let g:LanguageClient_diagnosticsList = 'location'
+let g:LanguageClient_diagnosticsList = 'Location'
 
 " Turn on or off the sign column when starting or stopping the language server
 augroup vimrc
