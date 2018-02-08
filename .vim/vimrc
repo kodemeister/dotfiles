@@ -303,6 +303,7 @@ nnoremap <Leader>X "_X
 let g:LanguageClient_serverCommands = {
   \ 'c': ['cquery', '--language-server'],
   \ 'cpp': ['cquery', '--language-server'],
+  \ 'haskell': ['hie', '--lsp'],
   \ 'objc': ['cquery', '--language-server'],
   \ 'objcpp': ['cquery', '--language-server'],
   \ 'python': ['pyls']
@@ -337,7 +338,7 @@ let g:ale_lint_delay = 1000
 let g:ale_linters = {
   \ 'c': [],
   \ 'cpp': [],
-  \ 'haskell': ['stack-ghc'],
+  \ 'haskell': [],
   \ 'objc': [],
   \ 'objcpp': [],
   \ 'python': [],
