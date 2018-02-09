@@ -459,13 +459,16 @@ runtime plugin/grepper.vim
 " Highlight all matches of the search pattern
 let g:grepper.highlight = 1
 
-" Use rg as a primary search tool, grep or findstr as a fallback
-let g:grepper.tools = ['rg', 'grep', 'findstr']
+" Apply tool settings on startup (but not on vimrc reload)
+if has('vim_starting')
+  " Use rg as the primary search tool, grep or findstr as a fallback
+  let g:grepper.tools = ['rg', 'grep', 'findstr']
 
-" Ignore case in search patterns
-for s:tool in g:grepper.tools
-  let g:grepper[s:tool].grepprg = substitute(g:grepper[s:tool].grepprg, ' ', ' -i ', '')
-endfor
+  " Ignore case in search patterns
+  for s:tool in g:grepper.tools
+    let g:grepper[s:tool].grepprg = substitute(g:grepper[s:tool].grepprg, ' ', ' -i ', '')
+  endfor
+endif
 
 " Display Grepper prompt and wait for search pattern
 nnoremap <Leader>/ :Grepper<CR>
