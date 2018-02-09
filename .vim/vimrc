@@ -414,6 +414,9 @@ let g:airline_theme = 'tomorrow'
 " Use fancy powerline symbols for better looking
 let g:airline_powerline_fonts = 1
 
+" Don't draw separators for empty sections
+let g:airline_skip_empty_sections = 1
+
 " Enable/disable certain airline extensions
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
