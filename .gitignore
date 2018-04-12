@@ -5,6 +5,8 @@
 /.config/cmus/playlist.pl
 /.config/cmus/search-history
 
+/.local/share/fonts/.uuid
+
 /.tmux
 
 /.vim/autoload/plug.vim
