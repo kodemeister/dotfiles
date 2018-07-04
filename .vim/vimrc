@@ -228,8 +228,8 @@ set showcmd
 
 " Apply the default settings on startup (but not on vimrc reload)
 if has('vim_starting')
-  " Always use tabs instead of spaces
-  set noexpandtab
+  " Use spaces instead of tabs
+  set expandtab
 
   " Set width of tabs and indents to 4 spaces
   set tabstop=4
@@ -246,8 +246,7 @@ endif
 " Filetype-specific settings
 augroup vimrc
   autocmd FileType text,markdown setlocal wrap
-  autocmd FileType vim,sh,xml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd FileType haskell,cabal setlocal expandtab
+  autocmd FileType vim,sh,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
 " Key mappings {{{1
