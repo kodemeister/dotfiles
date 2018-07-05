@@ -31,8 +31,8 @@ call plug#begin(s:plugins_dir)
 
 " List the required plugins
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-Plug 'Valloric/ListToggle'
 Plug 'w0rp/ale'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -45,7 +45,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
 Plug 'tpope/vim-commentary'
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -353,6 +352,33 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 
+" asyncrun.vim {{{2
+
+" Automatically open quickfix window when starting an asynchronous job.
+let g:asyncrun_open = 10
+
+" Close quickfix window if the asynchronous job has been successfully
+" completed.
+let g:asyncrun_exit = '
+    \ if g:asyncrun_code == 0 |
+    \   call asyncrun#quickfix_toggle(10, 0) |
+    \ endif
+    \ '
+
+" Force Qt applications to always log to stderr. This is required since Qt
+" suppresses debug output when stderr is not attached to a TTY.
+let $QT_LOGGING_TO_CONSOLE = 1
+
+" Force Python stdin, stdout and stderr to be unbuffered to see the realtime
+" output in quickfix window.
+let $PYTHONUNBUFFERED = 1
+
+" Save all modified files and build the project.
+nnoremap <silent> <Leader>m :AsyncRun -program=make -save=2<CR>
+
+" Toggle quickfix window.
+nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
+
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
@@ -437,11 +463,6 @@ call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
 " Use the Patience Diff algorithm by default to generate better diffs
 let &diffexpr = 'EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 
-" vim-dispatch {{{2
-
-" Save all modified files and build the project
-nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
-
 " vim-fugitive {{{2
 
 " Mappings for the most common vim-fugitive commands
@@ -488,10 +509,6 @@ let g:localvimrc_sandbox = 0
 
 " Don't ask before sourcing local vimrc files
 let g:localvimrc_ask = 0
-
-" Load vim-localvimrc here to fire its autocommands before other plugins
-" This is required to set up project-specific settings for other plugins
-runtime plugin/localvimrc.vim
 
 " vim-rooter {{{2
 
