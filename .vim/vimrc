@@ -33,6 +33,7 @@ call plug#begin(s:plugins_dir)
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'dyng/ctrlsf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -48,7 +49,6 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'mhinz/vim-grepper'
 Plug 'roxma/vim-hug-neovim-rpc', !has('nvim') ? {} : {'on': []}
 Plug 'kodemeister/vim-hybrid'
 Plug 'embear/vim-localvimrc'
@@ -379,6 +379,20 @@ nnoremap <silent> <Leader>m :AsyncRun -program=make -save=2<CR>
 " Toggle quickfix window.
 nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
 
+" ctrlsf.vim {{{2
+
+" Ignore case in search patterns.
+let g:ctrlsf_case_sensitive = 'no'
+
+" Display CtrlSF prompt and wait for search pattern.
+nmap <Leader>/ <Plug>CtrlSFPrompt
+
+" Search for currently selected text.
+xmap <Leader>* <Plug>CtrlSFVwordExec
+
+" Search for a word under the cursor.
+nmap <Leader>* <Plug>CtrlSFCCwordExec
+
 " delimitMate {{{2
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
@@ -473,34 +487,6 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gps :Gpush<CR>
 nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
-
-" vim-grepper {{{2
-
-" Initialize vim-grepper options
-runtime plugin/grepper.vim
-
-" Highlight all matches of the search pattern
-let g:grepper.highlight = 1
-
-" Apply tool settings on startup (but not on vimrc reload)
-if has('vim_starting')
-  " Use rg as the primary search tool, grep or findstr as a fallback
-  let g:grepper.tools = ['rg', 'grep', 'findstr']
-
-  " Ignore case in search patterns
-  for s:tool in g:grepper.tools
-    let g:grepper[s:tool].grepprg = substitute(g:grepper[s:tool].grepprg, ' ', ' -i ', '')
-  endfor
-endif
-
-" Display Grepper prompt and wait for search pattern
-nnoremap <Leader>/ :Grepper<CR>
-
-" Search for currently selected text
-xmap <Leader>* <Plug>(GrepperOperator)
-
-" Search for word under the cursor
-nnoremap <silent> <Leader>* :Grepper -cword -noprompt<CR>
 
 " vim-localvimrc {{{2
 
