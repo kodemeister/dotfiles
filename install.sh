@@ -21,6 +21,7 @@ declare -rA SYMLINKS=(
   [".config/mpv"]=".config/mpv"
   [".config/nvim"]=".vim"
   [".config/zathura"]=".config/zathura"
+  [".config/compton.conf"]=".config/compton.conf"
   [".local/share/fonts"]=".local/share/fonts"
   [".tmux"]=".tmux"
   [".vim"]=".vim"
