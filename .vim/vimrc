@@ -30,7 +30,6 @@ endfunction
 call plug#begin(s:plugins_dir)
 
 " List the required plugins
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'dyng/ctrlsf.vim'
@@ -38,8 +37,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
-Plug 'fgrsnau/ncm-otherbuf'
-Plug 'kodemeister/nvim-completion-manager'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -148,7 +145,6 @@ set pumheight=10
 set updatetime=250
 
 " Specify the Python version used for pyx* functions and commands
-" This is used by Python-based plugins like nvim-completion-manager
 if has('pythonx')
   set pyxversion=3
 endif
@@ -296,61 +292,35 @@ nnoremap <Leader>X "_X
 
 " Plugin settings {{{1
 
-" LanguageClient-neovim {{{2
-
-" Define a set of language servers to be run for particular filetypes
-let g:LanguageClient_serverCommands = {
-  \ 'c': ['cquery', '--language-server'],
-  \ 'cpp': ['cquery', '--language-server'],
-  \ 'haskell': ['hie', '--lsp'],
-  \ 'objc': ['cquery', '--language-server'],
-  \ 'objcpp': ['cquery', '--language-server'],
-  \ 'python': ['pyls']
-  \ }
-
-" Specify the path to the system-wide language server settings
-let g:LanguageClient_settingsPath = s:config_dir . '/settings.json'
-
-" Populate location list with diagnostic messages from the language server
-let g:LanguageClient_diagnosticsList = 'Location'
-
-" Turn on or off the sign column when starting or stopping the language server
-augroup vimrc
-  autocmd User LanguageClientStarted setlocal signcolumn=yes
-  autocmd User LanguageClientStopped setlocal signcolumn=auto
-augroup end
-
-" Mappings for the most common LanguageClient-neovim commands
-nnoremap <silent> <Leader>] :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <Leader>K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <Leader>pr :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> <Leader>ps :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <silent> <Leader>pS :call LanguageClient_workspace_symbol()<CR>
-nnoremap <silent> <Leader>pu :call LanguageClient_textDocument_references()<CR>
-
 " ale {{{2
 
-" Run linters after some delay after text is changed
-let g:ale_lint_delay = 1000
+" Enable built-in ALE completion.
+let g:ale_completion_enabled = 1
 
-" Define a set of linters to be run when checking particular filetypes
+" Define a set of linters to be run when checking particular filetypes.
 let g:ale_linters = {
-  \ 'c': [],
-  \ 'cpp': [],
-  \ 'haskell': [],
-  \ 'objc': [],
-  \ 'objcpp': [],
-  \ 'python': [],
-  \ 'sh': ['shell'],
-  \ 'vim': ['vint']
-  \ }
+    \ 'c': ['cquery'],
+    \ 'cpp': ['cquery'],
+    \ 'haskell': ['hie'],
+    \ 'objc': ['clang'],
+    \ 'objcpp': ['clang'],
+    \ 'python': ['pyls'],
+    \ 'sh': ['shell'],
+    \ 'vim': ['vint']
+    \ }
 
-" Always show the sign column
+" Always show the sign column.
 let g:ale_sign_column_always = 1
 
-" Define symbols for errors and warnings displayed in the Vim gutter
+" Define symbols displayed in the Vim gutter.
 let g:ale_sign_error = '✖'
+let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = '⚠'
+
+" Mappings for the most common ALE commands.
+nnoremap <silent> <Leader>] :ALEGoToDefinition<CR>
+nnoremap <silent> <Leader>K :ALEHover<CR>
+nnoremap <silent> <Leader>pu :ALEFindReferences<CR>
 
 " asyncrun.vim {{{2
 
@@ -427,19 +397,6 @@ nnoremap <silent> - :Explore<CR>
 
 " Refresh file list with R since <C-L> is used for navigation between windows
 autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
-
-" nvim-completion-manager {{{2
-
-" Choose a matcher module for filtering and sorting completion candidates
-let g:cm_matcher = {'module': 'cm_matchers.prefix_matcher', 'case': 'icase'}
-
-" Type at least 3 characters to trigger the completion
-let g:cm_refresh_length = 3
-
-" Remap Tab and S-Tab to gracefully work with auto-completion
-imap <silent> <expr> <Tab> pumvisible() ? "\<C-n>" :
-  \ (<SID>HasSpaceBefore() ? "\<Tab>" : "\<Plug>(cm_force_refresh)")
-imap <silent> <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Plug>delimitMateS-Tab"
 
 " python-syntax {{{2
 
