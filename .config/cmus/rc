@@ -17,7 +17,7 @@ bind -f browser r win-update
 bind -f common C clear
 
 # Set the starting directory for the music browser
-cd /media/storage/Music
+cd ~/Music
 
 # Switch to the playlist view on cmus startup
 view 3
