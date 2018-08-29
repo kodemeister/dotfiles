@@ -308,6 +308,11 @@ let g:ale_linters = {
     \ 'vim': ['vint']
     \ }
 
+" Don't lint vim-fugitive buffers.
+let g:ale_pattern_options = {
+    \ '^fugitive://': {'ale_enabled': 0}
+    \ }
+
 " Always show the sign column.
 let g:ale_sign_column_always = 1
 
