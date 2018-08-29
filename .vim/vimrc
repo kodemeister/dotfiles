@@ -298,11 +298,11 @@ nnoremap <Leader>X "_X
 
 " Define a set of linters to be run when checking particular filetypes.
 let g:ale_linters = {
-    \ 'c': ['cquery'],
-    \ 'cpp': ['cquery'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
     \ 'haskell': ['hie'],
-    \ 'objc': ['clang'],
-    \ 'objcpp': ['clang'],
+    \ 'objc': ['clangd'],
+    \ 'objcpp': ['clangd'],
     \ 'python': ['pyls'],
     \ 'sh': ['shell'],
     \ 'vim': ['vint']
