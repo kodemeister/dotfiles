@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# This script downloads any additional stuff (Prezto, Vim plugins, tmux plugins)
-# and creates symlinks to all configuration files to user's home directory.
+# This script downloads any additional stuff (Prezto, Vim plugins) and creates
+# symlinks to all configuration files in user's home directory.
 #
 # Usage: ./install.sh
 #
@@ -24,12 +24,10 @@ declare -rA SYMLINKS=(
   [".config/zathura"]=".config/zathura"
   [".config/compton.conf"]=".config/compton.conf"
   [".local/share/fonts"]=".local/share/fonts"
-  [".tmux"]=".tmux"
   [".vim"]=".vim"
   [".zprezto"]=".zprezto"
   [".Xmodmap"]=".Xmodmap"
   [".inputrc"]=".inputrc"
-  [".tmux.conf"]=".tmux.conf"
   [".vimrc"]=".vim/vimrc"
   [".zlogin"]=".zprezto/runcoms/zlogin"
   [".zlogout"]=".zprezto/runcoms/zlogout"
@@ -78,12 +76,6 @@ main()
   local vim_plugins="$(sed -n "s/^Plug '\([^']\+\)'.*$/\1/p" "$DOTFILES_DIR/.vim/vimrc")"
   for plugin in $vim_plugins; do
     clone_repo "https://github.com/$plugin.git" "$DOTFILES_DIR/.vim/plugged/${plugin##*/}"
-  done
-
-  # Install tmux plugins.
-  local tmux_plugins="$(sed -n "s/^set -g @plugin '\([^']\+\)'.*$/\1/p" "$DOTFILES_DIR/.tmux.conf")"
-  for plugin in $tmux_plugins; do
-    clone_repo "https://github.com/$plugin.git" "$DOTFILES_DIR/.tmux/plugins/${plugin##*/}"
   done
 
   # Clone Prezto repository.
