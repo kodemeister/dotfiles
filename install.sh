@@ -28,7 +28,6 @@ declare -rA SYMLINKS=(
   [".vim"]=".vim"
   [".zprezto"]=".zprezto"
   [".Xmodmap"]=".Xmodmap"
-  [".Xresources"]=".Xresources"
   [".inputrc"]=".inputrc"
   [".tmux.conf"]=".tmux.conf"
   [".vimrc"]=".vim/vimrc"
