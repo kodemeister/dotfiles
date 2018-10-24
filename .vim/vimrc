@@ -44,6 +44,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -456,13 +457,27 @@ let g:airline#extensions#wordcount#enabled = 0
 " vim-altr {{{2
 
 " Switch between associated files, e.g. C++ header and implementation
-nmap <Leader>a <Plug>(altr-forward)
+nmap <Leader><Tab> <Plug>(altr-forward)
 
 " Define additional vim-altr rules
 call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
   \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
 call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
   \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
+
+" vim-easy-align {{{2
+
+" Define additional alignment rules.
+let g:easy_align_delimiters = {
+    \ ':': {'pattern': '::\|:', 'left_margin': 0, 'stick_to_left': 1},
+    \ '>': {'pattern': '->\|=>\|>'}
+    \ }
+
+" Start interactive EasyAlign in visual mode.
+xmap <Leader>a <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object.
+nmap <Leader>a <Plug>(EasyAlign)
 
 " vim-fugitive {{{2
 
