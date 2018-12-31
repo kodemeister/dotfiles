@@ -205,7 +205,7 @@ set cursorline
 " Disable highlighting of current line in quickfix and vimdiff windows
 augroup vimrc
   autocmd FileType qf setlocal nocursorline
-  autocmd FilterWritePost * if &diff | let &l:cursorline = 0 | endif
+  autocmd OptionSet diff let &l:cursorline = !v:option_new
   autocmd BufEnter * if !&diff && &buftype !=# 'quickfix' | let &l:cursorline = 1 | endif
 augroup end
 
