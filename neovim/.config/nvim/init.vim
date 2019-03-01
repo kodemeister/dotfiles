@@ -34,11 +34,9 @@ Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do': ':UpdateRemotePlugins'} : {}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
-Plug 'roxma/nvim-yarp', !has('nvim') ? {} : {'on': []}
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -48,7 +46,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'roxma/vim-hug-neovim-rpc', !has('nvim') ? {} : {'on': []}
 Plug 'kodemeister/vim-hybrid'
 Plug 'embear/vim-localvimrc'
 Plug 'tpope/vim-repeat'
@@ -143,11 +140,6 @@ set pumheight=10
 " Reduce the timeout used for the CursorHold autocommand event
 " This is used by vim-gitgutter plugin to update signs in the gutter
 set updatetime=250
-
-" Specify the Python version used for pyx* functions and commands
-if has('pythonx')
-  set pyxversion=3
-endif
 
 " Define an autocommand group for this vimrc
 augroup vimrc
@@ -375,34 +367,6 @@ nmap <Leader>* <Plug>CtrlSFCCwordExec
 
 " Insert an indent when pressing <CR> inside empty pair of matching characters
 let g:delimitMate_expand_cr = 1
-
-" deoplete.nvim {{{2
-
-" Enable deoplete at startup.
-let g:deoplete#enable_at_startup = 1
-
-" Disable 'around' source for all filetypes.
-call deoplete#custom#option('ignore_sources', {'_': ['around']})
-
-" Specify regexp for keyword completion.
-call deoplete#custom#option('keyword_patterns', {'_': '[a-zA-Z_]\w*'})
-
-" Type at least 3 characters to trigger the completion.
-call deoplete#custom#source('_', 'min_pattern_length', 3)
-
-" Collect keywords from buffers of any filetype.
-call deoplete#custom#var('buffer', 'require_same_filetype', 0)
-
-" Complete paths relative to the current file.
-call deoplete#custom#var('file', 'enable_buffer_path', 1)
-
-" Remap Tab and S-Tab to gracefully work with auto-completion.
-imap <silent> <expr> <Tab> pumvisible()
-    \ ? "\<C-n>"
-    \ : <SID>HasSpaceBefore() ? "\<Tab>" : deoplete#manual_complete()
-imap <silent> <expr> <S-Tab> pumvisible()
-    \ ? "\<C-p>"
-    \ : "\<Plug>delimitMateS-Tab"
 
 " fzf.vim {{{2
 
