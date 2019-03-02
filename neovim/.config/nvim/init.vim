@@ -292,14 +292,20 @@ nnoremap <Leader>X "_X
 
 " ale {{{2
 
+" Lint in Normal mode but not in Insert mode.
+let g:ale_lint_on_text_changed = 'normal'
+
+" Lint when leaving Insert mode.
+let g:ale_lint_on_insert_leave = 1
+
 " Define a set of linters to be run when checking particular filetypes.
 let g:ale_linters = {
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'haskell': ['hie'],
-    \ 'objc': ['clangd'],
-    \ 'objcpp': ['clangd'],
-    \ 'python': ['pyls'],
+    \ 'c': [],
+    \ 'cpp': [],
+    \ 'haskell': [],
+    \ 'objc': [],
+    \ 'objcpp': [],
+    \ 'python': [],
     \ 'sh': ['shell'],
     \ 'vim': ['vint']
     \ }
@@ -316,11 +322,6 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = '⚠'
-
-" Mappings for the most common ALE commands.
-nnoremap <silent> <Leader>] :ALEGoToDefinition<CR>
-nnoremap <silent> <Leader>K :ALEHover<CR>
-nnoremap <silent> <Leader>pu :ALEFindReferences<CR>
 
 " asyncrun.vim {{{2
 
