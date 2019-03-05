@@ -32,6 +32,7 @@ call plug#begin(s:plugins_dir)
 " List the required plugins
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {-> coc#util#install()}}
 Plug 'dyng/ctrlsf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
@@ -232,8 +233,9 @@ endif
 
 " Filetype-specific settings
 augroup vimrc
-  autocmd FileType text,markdown setlocal wrap
-  autocmd FileType vim,sh,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType markdown,text setlocal wrap
+  autocmd FileType json,sh,vim,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType c,cpp,haskell,objc,objcpp,python setlocal signcolumn=yes
 augroup end
 
 " Key mappings {{{1
@@ -349,6 +351,38 @@ nnoremap <silent> <Leader>m :AsyncRun -program=make -save=2<CR>
 
 " Toggle quickfix window.
 nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
+
+" coc.nvim {{{2
+
+" Remap Tab and S-Tab to gracefully work with auto-completion.
+imap <silent> <expr> <Tab>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>HasSpaceBefore() ? "\<Tab>" :
+    \ coc#refresh()
+imap <silent> <expr> <S-Tab>
+    \ pumvisible() ? "\<C-p>" :
+    \ "\<Plug>delimitMateS-Tab"
+
+" Confirm current completion with CR.
+inoremap <silent> <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+" Define mappings for the most common Coc functions.
+nmap <silent> <Leader>] <Plug>(coc-definition)
+nmap <silent> <Leader>K :call CocAction('doHover')<CR>
+nmap <silent> <Leader>pt <Plug>(coc-type-definition)
+nmap <silent> <Leader>pi <Plug>(coc-implementation)
+nmap <silent> <Leader>pu <Plug>(coc-references)
+nmap <silent> <Leader>pr <Plug>(coc-rename)
+nmap <silent> <Leader>pf <Plug>(coc-format-selected)
+vmap <silent> <Leader>pf <Plug>(coc-format-selected)
+
+" Define mappings for the most common Coc list commands.
+nnoremap <silent> <Leader>ps :CocList outline<CR>
+nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
+
+" Display diagnostic information in the status line.
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(), 0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(), 0)}'
 
 " ctrlsf.vim {{{2
 

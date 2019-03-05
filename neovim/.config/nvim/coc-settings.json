@@ -1,0 +1,21 @@
+{
+  "coc.preferences.hoverTarget": "echo",
+  "suggest.minTriggerInputLength": 3,
+  "diagnostic.locationlist": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤",
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": ["compile_commands.json", ".ccls"]
+    },
+    "haskell": {
+      "command": "hie-wrapper",
+      "filetypes": ["haskell"],
+      "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"]
+    }
+  }
+}
