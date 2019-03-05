@@ -30,6 +30,7 @@ endfunction
 call plug#begin(s:plugins_dir)
 
 " List the required plugins
+Plug 'Valloric/ListToggle'
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {-> coc#util#install()}}
@@ -348,9 +349,6 @@ let $PYTHONUNBUFFERED = 1
 
 " Save all modified files and build the project.
 nnoremap <silent> <Leader>m :AsyncRun -program=make -save=2<CR>
-
-" Toggle quickfix window.
-nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
 
 " coc.nvim {{{2
 
