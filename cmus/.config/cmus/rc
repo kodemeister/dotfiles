@@ -20,4 +20,4 @@ bind -f common C clear
 cd ~/Music
 
 # Switch to the playlist view on cmus startup
-view 3
+set start_view=playlist
