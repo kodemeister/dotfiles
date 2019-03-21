@@ -320,6 +320,9 @@ nnoremap <silent> <Leader>m :AsyncRun -program=make -save=2<CR>
 " Toggle quickfix window.
 nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
 
+" Run Gpush and Gfetch commands from vim-fugitive with AsyncRun.
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
 " coc.nvim {{{2
 
 " Remap Tab and S-Tab to gracefully work with auto-completion.
