@@ -195,7 +195,9 @@ set number
 set relativenumber
 
 " Highlight the line containing the cursor
-set cursorline
+if !&diff
+  set cursorline
+endif
 
 " Disable highlighting of current line in quickfix and vimdiff windows
 augroup vimrc
