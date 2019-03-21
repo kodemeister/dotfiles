@@ -30,7 +30,6 @@ endfunction
 call plug#begin(s:plugins_dir)
 
 " List the required plugins
-Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {-> coc#util#install()}}
 Plug 'dyng/ctrlsf.vim'
@@ -291,39 +290,6 @@ vnoremap <Leader>x "_x
 nnoremap <Leader>X "_X
 
 " Plugin settings {{{1
-
-" ale {{{2
-
-" Lint in Normal mode but not in Insert mode.
-let g:ale_lint_on_text_changed = 'normal'
-
-" Lint when leaving Insert mode.
-let g:ale_lint_on_insert_leave = 1
-
-" Define a set of linters to be run when checking particular filetypes.
-let g:ale_linters = {
-    \ 'c': [],
-    \ 'cpp': [],
-    \ 'haskell': [],
-    \ 'objc': [],
-    \ 'objcpp': [],
-    \ 'python': [],
-    \ 'sh': ['shell'],
-    \ 'vim': ['vint']
-    \ }
-
-" Don't lint vim-fugitive buffers.
-let g:ale_pattern_options = {
-    \ '^fugitive://': {'ale_enabled': 0}
-    \ }
-
-" Always show the sign column.
-let g:ale_sign_column_always = 1
-
-" Define symbols displayed in the Vim gutter.
-let g:ale_sign_error = '✖'
-let g:ale_sign_info = 'ℹ'
-let g:ale_sign_warning = '⚠'
 
 " asyncrun.vim {{{2
 
