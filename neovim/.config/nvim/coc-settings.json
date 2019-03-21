@@ -1,7 +1,6 @@
 {
   "coc.preferences.hoverTarget": "echo",
   "suggest.minTriggerInputLength": 3,
-  "diagnostic.locationlist": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "ℹ",

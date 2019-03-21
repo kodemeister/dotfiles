@@ -332,6 +332,10 @@ imap <silent> <expr> <S-Tab>
 " Confirm current completion with CR.
 inoremap <silent> <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
+" Jump to previous or next diagnostic message.
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+
 " Define mappings for the most common Coc functions.
 nmap <silent> <Leader>] <Plug>(coc-definition)
 nmap <silent> <Leader>K :call CocAction('doHover')<CR>
@@ -343,6 +347,7 @@ nmap <silent> <Leader>pf <Plug>(coc-format-selected)
 vmap <silent> <Leader>pf <Plug>(coc-format-selected)
 
 " Define mappings for the most common Coc list commands.
+nnoremap <silent> <Leader>pd :CocList diagnostics<CR>
 nnoremap <silent> <Leader>ps :CocList outline<CR>
 nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
 
