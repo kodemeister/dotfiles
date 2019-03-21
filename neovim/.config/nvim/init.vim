@@ -187,6 +187,9 @@ if has('gui_running') || has('nvim')
   set guicursor+=a:blinkon0
 endif
 
+" Always show the signcolumn
+set signcolumn=yes
+
 " Show absolute number for the current line and relative numbers for other lines
 set number
 set relativenumber
@@ -234,7 +237,6 @@ endif
 augroup vimrc
   autocmd FileType markdown,text setlocal wrap
   autocmd FileType json,sh,vim,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd FileType c,cpp,haskell,objc,objcpp,python setlocal signcolumn=yes
 augroup end
 
 " Key mappings {{{1
