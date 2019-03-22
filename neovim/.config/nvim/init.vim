@@ -1,10 +1,14 @@
 " Variables {{{1
 
-" Setup directory paths
+" Setup directory paths.
 if has('nvim')
-  let s:config_dir = expand(has('win32') ? '$LOCALAPPDATA/nvim' : '~/.config/nvim')
+  let s:config_dir = expand(has('win32') ?
+      \ '$LOCALAPPDATA/nvim' :
+      \ '~/.config/nvim')
 else
-  let s:config_dir = expand(has('win32') ? '$USERPROFILE/vimfiles' : '~/.vim')
+  let s:config_dir = expand(has('win32') ?
+      \ '$USERPROFILE/vimfiles' :
+      \ '~/.vim')
 endif
 let s:plugins_dir = s:config_dir . '/plugged'
 
@@ -26,10 +30,10 @@ endfunction
 
 " Plugins {{{1
 
-" Begin the plugin section
+" Begin the plugin section.
 call plug#begin(s:plugins_dir)
 
-" List the required plugins
+" List the required plugins.
 Plug 'skywind3000/asyncrun.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {-> coc#util#install()}}
 Plug 'dyng/ctrlsf.vim'
@@ -57,91 +61,89 @@ Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-unimpaired'
 Plug 'thinca/vim-visualstar'
 
-" Finish the plugin section, update runtimepath and initialize plugin system
+" Finish the plugin section, update runtimepath and initialize plugin system.
 call plug#end()
 
 " General settings {{{1
 
-" Set the default character encoding
-if !has('nvim')
-  set encoding=utf-8
-endif
+" Set the default character encoding.
+set encoding=utf-8
 
-" Set the character encoding used in the script
+" Set the character encoding used in the script.
 scriptencoding utf-8
 
-" Don't clutter the filesystem with garbage files
+" Don't clutter the filesystem with garbage files.
 set nobackup
 set nowritebackup
 set noswapfile
 set noundofile
 
-" Put unsaved buffers to background when loading new buffers
-" without asking to save the current changes first
+" Put unsaved buffers to background when loading new buffers without asking to
+" save the current changes first.
 set hidden
 
-" Disable mouse support
+" Disable mouse support.
 set mouse=
 
-" Make all yank, delete, change and put operations work with system clipboard
+" Make all yank, delete, change and put operations work with system clipboard.
 set clipboard^=unnamedplus
 
-" Enable 24-bit colors in the terminal
+" Enable 24-bit colors in the terminal.
 set termguicolors
 
-" Define 24-bit TrueColor RGB escape sequences
+" Define 24-bit TrueColor RGB escape sequences.
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" Define escape sequences to change the cursor shape
+" Define escape sequences to change the cursor shape.
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
-" Reduce timeout for keyboard codes like <Esc> to minimal value
-" This eliminates annoying delays while exiting Insert/Visual modes in terminal
+" Reduce timeout for keyboard codes like <Esc> to minimal value. This
+" eliminates annoying delays while exiting Insert/Visual modes in terminal.
 set ttimeoutlen=0
 
-" Turn off annoying beeps/flashes on errors
+" Turn off annoying beeps/flashes on errors.
 set noerrorbells
 set novisualbell
 set t_vb=
 
-" Don't redraw the display while executing macros
+" Don't redraw the display while executing macros.
 set lazyredraw
 
-" Highlight all matches of the search pattern
+" Highlight all matches of the search pattern.
 set hlsearch
 
-" Ignore case in search patterns
+" Ignore case in search patterns.
 set ignorecase
 
-" When searching, wrap around the beginning or the end of the file
+" When searching, wrap around the beginning or the end of the file.
 set wrapscan
 
-" Keep the given number of lines above and below the cursor while scrolling
+" Keep the given number of lines above and below the cursor while scrolling.
 set scrolloff=5
 
-" Keep the cursor column while jumping or switching between buffers
+" Keep the cursor column while jumping or switching between buffers.
 set nostartofline
 
-" Don't jump to matching brackets while typing
+" Don't jump to matching brackets while typing.
 set noshowmatch
 
-" Don't show extra information about the currently selected completion
+" Don't show extra information about the currently selected completion.
 set completeopt-=preview
 
-" Suppress the annoying completion messages like 'match 1 of 2'
+" Suppress the annoying completion messages like 'match 1 of 2'.
 set shortmess+=c
 
-" Limit the number of items in completion popup menu
+" Limit the number of items in completion popup menu.
 set pumheight=10
 
-" Reduce the timeout used for the CursorHold autocommand event
-" This is used by vim-gitgutter plugin to update signs in the gutter
+" Reduce the timeout used for the CursorHold autocommand event. This is used
+" by vim-gitgutter plugin to update signs in the gutter.
 set updatetime=250
 
-" Define an autocommand group for this vimrc
+" Define an autocommand group for this script.
 augroup vimrc
   autocmd!
   autocmd FileType cpp setlocal commentstring=//\ %s
@@ -149,13 +151,13 @@ augroup end
 
 " Look and feel {{{1
 
-" Use dark variation of color scheme
+" Use dark variation of color scheme.
 set background=dark
 
-" Set some eye candy color scheme
+" Set some eye candy color scheme.
 colorscheme hybrid
 
-" Set font when running in GUI mode
+" Set font when running in GUI mode.
 if has('gui_running')
   if has('gui_gtk')
     set guifont=Literation\ Mono\ Nerd\ Font\ 14,Monospace\ 14
@@ -166,7 +168,7 @@ if has('gui_running')
   endif
 endif
 
-" Remove menu bar, toolbar and scrollbars
+" Remove menu bar, toolbar and scrollbars.
 if has('gui_running')
   set guioptions-=m
   set guioptions-=T
@@ -177,7 +179,7 @@ if has('gui_running')
   set guioptions-=b
 endif
 
-" Configure the cursor shape
+" Configure the cursor shape.
 if has('gui_running') || has('nvim')
   set guicursor=
   set guicursor+=n-v-c:block-Cursor/lCursor
@@ -187,99 +189,106 @@ if has('gui_running') || has('nvim')
   set guicursor+=a:blinkon0
 endif
 
-" Always show the signcolumn
+" Always show the signcolumn.
 set signcolumn=yes
 
-" Show absolute number for the current line and relative numbers for other lines
+" Show absolute number for the current line and relative numbers for all other
+" lines.
 set number
 set relativenumber
 
-" Highlight the line containing the cursor
+" Highlight the line containing the cursor.
 if !&diff
   set cursorline
 endif
 
-" Disable highlighting of current line in quickfix and vimdiff windows
+" Disable highlighting of current line in quickfix and vimdiff windows.
 augroup vimrc
   autocmd FileType qf setlocal nocursorline
   autocmd OptionSet diff let &l:cursorline = !v:option_new
-  autocmd BufEnter * if !&diff && &buftype !=# 'quickfix' | let &l:cursorline = 1 | endif
+  autocmd BufEnter *
+      \ if !&diff && &buftype !=# 'quickfix' |
+      \   let &l:cursorline = 1 |
+      \ endif
 augroup end
 
-" Enable list mode, show whitespace characters
+" Enable list mode, show whitespace characters.
 set listchars=tab:»\ ,space:·,trail:·,extends:>,precedes:<
 set list
 
-" Don't show the current mode on the last line
+" Don't show the current mode on the last line.
 set noshowmode
 
-" Show the current command in the bottom right corner
+" Show the current command in the bottom right corner.
 set showcmd
 
 " Editing and formatting {{{1
 
-" Apply the default settings on startup (but not on vimrc reload)
+" Apply the default settings on startup (but not on vimrc reload).
 if has('vim_starting')
-  " Use spaces instead of tabs
+  " Use spaces instead of tabs.
   set expandtab
 
-  " Set width of tabs and indents to 4 spaces
+  " Set width of tabs and indents to 4 spaces.
   set tabstop=4
   set softtabstop=4
   set shiftwidth=4
 
-  " Disable soft wrapping of long lines
+  " Disable soft wrapping of long lines.
   set nowrap
 
-  " Disable hard wrapping of long lines
+  " Disable hard wrapping of long lines.
   set textwidth=0
 endif
 
-" Filetype-specific settings
+" Filetype-specific settings.
 augroup vimrc
   autocmd FileType markdown,text setlocal wrap
-  autocmd FileType json,sh,vim,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType json,sh,vim,xml
+      \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
 " Key mappings {{{1
 
-" Configure the <Leader> key
+" Configure the <Leader> key.
 let g:mapleader = "\<Space>"
 
-" Edit/reload Vim configuration file
-nnoremap <silent> <expr> <Leader>ve ':edit ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
-nnoremap <silent> <expr> <Leader>vr ':source ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
+" Edit/reload Vim configuration file.
+nnoremap <silent> <expr> <Leader>ve
+    \ ':edit ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
+nnoremap <silent> <expr> <Leader>vr
+    \ ':source ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
 
-" Fast saving
+" Fast saving.
 nnoremap <silent> <Leader>w :write<CR>
 
-" Clear the last search highlighting
+" Clear the last search highlighting.
 nnoremap <silent> <Leader><Space> :nohlsearch<CR>
 
-" Jump to the current error in quickfix or location list
+" Jump to the current error in quickfix or location list.
 nnoremap <silent> =q :cc<CR>
 nnoremap <silent> =l :ll<CR>
 
-" Move cursor up/down by screen lines when wrapping the text
+" Move cursor up/down by screen lines when wrapping the text.
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> <Down> v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> <Up> v:count == 0 ? 'gk' : 'k'
 
-" Easy navigation between windows
+" Easy navigation between windows.
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
-" Toggle between the current and the alternate file
+" Toggle between the current and the alternate file.
 nnoremap <Tab> <C-^>
 
-" Make Y yank from the current cursor position to the end of line,
-" to be consistent with C and D
+" Make Y yank from the current cursor position to the end of line in order to
+" be consistent with C and D.
 nnoremap Y y$
 
-" Define a set of mappings to work with black hole register
+" Define a set of mappings to work with black hole register.
 nnoremap <Leader>c "_c
 vnoremap <Leader>c "_c
 nnoremap <Leader>C "_C
@@ -359,8 +368,10 @@ nnoremap <silent> <Leader>ps :CocList outline<CR>
 nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
 
 " Display diagnostic information in the status line.
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(), 0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(), 0)}'
+let g:airline_section_error =
+    \ '%{airline#util#wrap(airline#extensions#coc#get_error(), 0)}'
+let g:airline_section_warning =
+    \ '%{airline#util#wrap(airline#extensions#coc#get_warning(), 0)}'
 
 " ctrlsf.vim {{{2
 
@@ -378,69 +389,72 @@ nmap <Leader>* <Plug>CtrlSFCCwordExec
 
 " delimitMate {{{2
 
-" Insert an indent when pressing <CR> inside empty pair of matching characters
+" Insert an indent when pressing <CR> inside empty pair of matching
+" characters.
 let g:delimitMate_expand_cr = 1
 
 " fzf.vim {{{2
 
-" Configure FZF window position and height
+" Configure FZF window position and height.
 let g:fzf_layout = {'down': '12'}
 
-" Use rg to speed up file indexing
+" Use rg to speed up file indexing.
 if executable('rg') && empty($FZF_DEFAULT_COMMAND)
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git/*"'
 endif
 
-" Search in files
-nnoremap <silent> <Leader>f :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
+" Search in files.
+nnoremap <silent> <Leader>f
+    \ :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
 
-" Search in the currently opened buffers
+" Search in the currently opened buffers.
 nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 
 " netrw {{{2
 
-" Hide annoying banner at the top of the window
+" Hide annoying banner at the top of the window.
 let g:netrw_banner = 0
 
-" Sort directories first, then files
+" Sort directories first, then files.
 let g:netrw_sort_sequence = '[\/]$,*'
 
-" Show the directory listing in the current window
+" Show the directory listing in the current window.
 nnoremap <silent> - :Explore<CR>
 
-" Refresh file list with R since <C-L> is used for navigation between windows
+" Refresh file list with R since <C-L> is used for navigation between windows.
 autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
 
 " python-syntax {{{2
 
+" Enable all Python syntax highlighting features.
 let g:python_highlight_all = 1
 
 " vim-airline {{{2
 
-" Pick a good airline theme matching current Vim color scheme
+" Pick a good airline theme matching current Vim color scheme.
 let g:airline_theme = 'tomorrow'
 
-" Use fancy powerline symbols for better looking
+" Use fancy powerline symbols for better looking.
 let g:airline_powerline_fonts = 1
 
-" Don't draw separators for empty sections
+" Don't draw separators for empty sections.
 let g:airline_skip_empty_sections = 1
 
-" Enable/disable certain airline extensions
+" Enable/disable certain airline extensions.
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
 
 " vim-altr {{{2
 
-" Switch between associated files, e.g. C++ header and implementation
+" Switch between associated files, e.g. C++ header and implementation.
 nmap <Leader><Tab> <Plug>(altr-forward)
 
-" Define additional vim-altr rules
+" Define additional vim-altr rules.
 call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
-  \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
+    \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
 call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
-  \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
+    \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
 
 " vim-easy-align {{{2
 
@@ -458,7 +472,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 
 " vim-fugitive {{{2
 
-" Mappings for the most common vim-fugitive commands
+" Mappings for the most common vim-fugitive commands.
 nmap <silent> <Leader>gs :Gstatus<CR>gg<C-n>
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
@@ -469,15 +483,15 @@ nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
 
 " vim-localvimrc {{{2
 
-" Don't load local vimrc files in a sandbox
+" Don't load local vimrc files in a sandbox.
 let g:localvimrc_sandbox = 0
 
-" Don't ask before sourcing local vimrc files
+" Don't ask before sourcing local vimrc files.
 let g:localvimrc_ask = 0
 
 " vim-rooter {{{2
 
-" Don't echo the current working directory
+" Don't echo the current working directory.
 let g:rooter_silent_chdir = 1
 
 " }}}2
