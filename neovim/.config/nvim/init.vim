@@ -50,7 +50,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'kodemeister/vim-hybrid'
 Plug 'embear/vim-localvimrc'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
@@ -155,7 +154,7 @@ augroup end
 set background=dark
 
 " Set some eye candy color scheme.
-colorscheme hybrid
+colorscheme hybrid-dark
 
 " Set font when running in GUI mode.
 if has('gui_running')
