@@ -43,6 +43,47 @@ let s:numberfg   = ['#626262', '241' ]
 let s:none       = ['NONE',    'NONE']
 
 " }}}
+" Terminal Colors {{{
+
+if has('nvim')
+  let g:terminal_color_0  = s:black[0]
+  let g:terminal_color_1  = s:darkred[0]
+  let g:terminal_color_2  = s:darkgreen[0]
+  let g:terminal_color_3  = s:orange[0]
+  let g:terminal_color_4  = s:darkblue[0]
+  let g:terminal_color_5  = s:darkpurple[0]
+  let g:terminal_color_6  = s:darkcyan[0]
+  let g:terminal_color_7  = s:gray[0]
+  let g:terminal_color_8  = s:darkgray[0]
+  let g:terminal_color_9  = s:red[0]
+  let g:terminal_color_10 = s:green[0]
+  let g:terminal_color_11 = s:yellow[0]
+  let g:terminal_color_12 = s:blue[0]
+  let g:terminal_color_13 = s:purple[0]
+  let g:terminal_color_14 = s:cyan[0]
+  let g:terminal_color_15 = s:white[0]
+else
+  let g:terminal_ansi_colors = [
+      \ s:black[0],
+      \ s:darkred[0],
+      \ s:darkgreen[0],
+      \ s:orange[0],
+      \ s:darkblue[0],
+      \ s:darkpurple[0],
+      \ s:darkcyan[0],
+      \ s:gray[0],
+      \ s:darkgray[0],
+      \ s:red[0],
+      \ s:green[0],
+      \ s:yellow[0],
+      \ s:blue[0],
+      \ s:purple[0],
+      \ s:cyan[0],
+      \ s:white[0]
+      \ ]
+endif
+
+" }}}
 " Highlighting Function {{{
 
 function! s:Highlight(group, fg, bg, ...)
