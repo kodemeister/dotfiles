@@ -196,6 +196,17 @@ set signcolumn=yes
 set number
 set relativenumber
 
+" Disable signcolumn, line numbers and cursorline in Neovim terminal.
+if has('nvim')
+  augroup vimrc
+    autocmd TermOpen *
+        \ setlocal signcolumn=no nonumber norelativenumber nocursorline |
+        \ startinsert
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+  augroup end
+endif
+
 " Highlight the line containing the cursor.
 if !&diff
   set cursorline
@@ -206,7 +217,7 @@ augroup vimrc
   autocmd FileType qf setlocal nocursorline
   autocmd OptionSet diff let &l:cursorline = !v:option_new
   autocmd BufEnter *
-      \ if !&diff && &buftype !=# 'quickfix' |
+      \ if !&diff && &buftype !=# 'quickfix' && &buftype !=# 'terminal' |
       \   let &l:cursorline = 1 |
       \ endif
 augroup end
@@ -279,6 +290,17 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
+if has('nvim')
+  tnoremap <C-H> <C-\><C-N><C-W>h
+  tnoremap <C-J> <C-\><C-N><C-W>j
+  tnoremap <C-K> <C-\><C-N><C-W>k
+  tnoremap <C-L> <C-\><C-N><C-W>l
+else
+  tnoremap <C-H> <C-W>h
+  tnoremap <C-J> <C-W>j
+  tnoremap <C-K> <C-W>k
+  tnoremap <C-L> <C-W>l
+endif
 
 " Toggle between the current and the alternate file.
 nnoremap <Tab> <C-^>
