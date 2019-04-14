@@ -323,6 +323,15 @@ nnoremap <Leader>x "_x
 vnoremap <Leader>x "_x
 nnoremap <Leader>X "_X
 
+" Open a new terminal in a horizontal or vertical split.
+if has('nvim')
+  nnoremap <silent> <Leader>tsp :belowright split \| terminal<CR>
+  nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
+else
+  nnoremap <silent> <Leader>tsp :belowright terminal<CR>
+  nnoremap <silent> <Leader>tvs :belowright vertical terminal<CR>
+endif
+
 " Plugin settings {{{1
 
 " asyncrun.vim {{{2
