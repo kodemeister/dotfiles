@@ -120,6 +120,11 @@ set ignorecase
 " When searching, wrap around the beginning or the end of the file.
 set wrapscan
 
+" Enable live substitution in Neovim.
+if has('nvim')
+  set inccommand=nosplit
+endif
+
 " Keep the given number of lines above and below the cursor while scrolling.
 set scrolloff=5
 
