@@ -15,7 +15,7 @@ let s:plugins_dir = s:config_dir . '/plugged'
 " Functions {{{1
 
 function! s:RunFZF(command) " {{{2
-  if &buftype ==# 'quickfix' || &buftype ==# 'help'
+  if &buftype ==# 'quickfix' || &buftype ==# 'help' || &buftype ==# 'terminal'
     wincmd p
   endif
   execute a:command
@@ -430,9 +430,9 @@ nmap <Leader>* <Plug>CtrlSFCCwordExec
 " Configure FZF window position and height.
 let g:fzf_layout = {'down': '12'}
 
-" Use rg to speed up file indexing.
-if executable('rg') && empty($FZF_DEFAULT_COMMAND)
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git/*"'
+" Use ripgrep to speed up fuzzy search.
+if empty($FZF_DEFAULT_COMMAND) && executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 endif
 
 " Search in files.
