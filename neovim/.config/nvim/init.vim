@@ -259,7 +259,7 @@ endif
 " Filetype-specific settings.
 augroup vimrc
   autocmd FileType markdown,text setlocal wrap
-  autocmd FileType json,sh,vim,xml
+  autocmd FileType json,sh,vim,xml,zsh
       \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
