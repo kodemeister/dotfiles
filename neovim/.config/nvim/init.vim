@@ -35,9 +35,9 @@ call plug#begin(s:plugins_dir)
 
 " List the required plugins.
 Plug 'skywind3000/asyncrun.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': {-> coc#util#install()}}
 Plug 'dyng/ctrlsf.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
@@ -369,19 +369,22 @@ nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
 " Run Gpush and Gfetch commands from vim-fugitive with AsyncRun.
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
+" auto-pairs {{{2
+
+" Don't automatically center the current line after expanding CR key.
+let g:AutoPairsCenterLine = 0
+
 " coc.nvim {{{2
 
 " Remap Tab and S-Tab to gracefully work with auto-completion.
-imap <silent> <expr> <Tab>
-    \ pumvisible() ? "\<C-n>" :
+inoremap <silent> <expr> <Tab>
+    \ pumvisible() ? "\<C-N>" :
     \ <SID>HasSpaceBefore() ? "\<Tab>" :
     \ coc#refresh()
-imap <silent> <expr> <S-Tab>
-    \ pumvisible() ? "\<C-p>" :
-    \ "\<Plug>delimitMateS-Tab"
+inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 
 " Confirm current completion with CR.
-inoremap <silent> <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent> <expr> <CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
 
 " Jump to previous or next diagnostic message.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
@@ -421,12 +424,6 @@ xmap <Leader>* <Plug>CtrlSFVwordExec
 
 " Search for a word under the cursor.
 nmap <Leader>* <Plug>CtrlSFCCwordExec
-
-" delimitMate {{{2
-
-" Insert an indent when pressing <CR> inside empty pair of matching
-" characters.
-let g:delimitMate_expand_cr = 1
 
 " fzf.vim {{{2
 
@@ -508,7 +505,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 " vim-fugitive {{{2
 
 " Mappings for the most common vim-fugitive commands.
-nmap <silent> <Leader>gs :Gstatus<CR>gg<C-n>
+nmap <silent> <Leader>gs :Gstatus<CR>gg<C-N>
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
