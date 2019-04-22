@@ -1,6 +1,3 @@
-[submodule "neovim/.config/nvim/autoload"]
-	path = neovim/.config/nvim/autoload
-	url = https://github.com/junegunn/vim-plug.git
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
 	url = https://github.com/kodemeister/prezto.git

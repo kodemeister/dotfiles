@@ -9,5 +9,6 @@ __pycache__/
 
 /fontconfig/.local/share/fonts/.uuid
 
+/neovim/.config/nvim/autoload/plug.vim.old
 /neovim/.config/nvim/plugged/
 /neovim/.config/nvim/.netrwhist
