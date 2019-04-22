@@ -1,3 +1,5 @@
+__pycache__/
+
 /cmus/.config/cmus/playlists/
 /cmus/.config/cmus/autosave
 /cmus/.config/cmus/cache
