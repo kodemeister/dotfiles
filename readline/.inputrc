@@ -1,5 +1,5 @@
-# Use vi-style key bindings
+# Use vi-style key bindings.
 set editing-mode vi
 
-# Eliminate delay when switching to Normal mode
+# Eliminate delay when switching to Normal mode.
 set keyseq-timeout 0

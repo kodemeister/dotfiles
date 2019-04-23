@@ -1,7 +1,7 @@
-# Set font used for Zathura GUI
+# Set font used for Zathura GUI.
 set font "Liberation Mono 14"
 
-# Set "hybrid"-like colorscheme
+# Set "hybrid"-like colorscheme.
 set completion-bg "#282a2e"
 set completion-fg "#c5c8c6"
 set completion-group-bg "#1d1f21"
@@ -31,16 +31,16 @@ set tabbar-focus-fg "#f0c674"
 set statusbar-bg "#1d1f21"
 set statusbar-fg "#ffffff"
 
-# Define the maximum number of pages kept in the page cache
-# This is needed to reduce Zathura memory consumption
+# Define the maximum number of pages kept in the page cache.
+# This is needed to reduce Zathura memory consumption.
 set page-cache-size 3
 
-# When opening a new document, fit it to the window width
+# When opening a new document, fit it to the window width.
 set adjust-open "width"
 
-# Display a small gap between pages
+# Display a small gap between pages.
 set page-padding 8
 
-# Don't show the full path in window title and status bar
+# Don't show the full path in window title and status bar.
 set window-title-basename true
 set statusbar-basename true
