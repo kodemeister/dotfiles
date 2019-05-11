@@ -36,7 +36,7 @@ call plug#begin(s:plugins_dir)
 " List the required plugins.
 Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
