@@ -11,6 +11,6 @@ __pycache__/
 
 /ghci/.ghc/ghci_history
 
-/neovim/.config/nvim/autoload/plug.vim.old
-/neovim/.config/nvim/plugged/
-/neovim/.config/nvim/.netrwhist
+/vim/.vim/autoload/plug.vim.old
+/vim/.vim/plugged/
+/vim/.vim/.netrwhist
