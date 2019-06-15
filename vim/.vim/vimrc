@@ -405,12 +405,6 @@ nnoremap <silent> <Leader>pd :CocList diagnostics<CR>
 nnoremap <silent> <Leader>ps :CocList outline<CR>
 nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
 
-" Display diagnostic information in the status line.
-let g:airline_section_error =
-    \ '%{airline#util#wrap(airline#extensions#coc#get_error(), 0)}'
-let g:airline_section_warning =
-    \ '%{airline#util#wrap(airline#extensions#coc#get_warning(), 0)}'
-
 " ctrlsf.vim {{{2
 
 " Ignore case in search patterns.
