@@ -9,6 +9,7 @@ __pycache__/
 
 /fontconfig/.local/share/fonts/.uuid
 
+/ghci/.ghc/*/package.conf.d/
 /ghci/.ghc/ghci_history
 
 /vim/.vim/autoload/plug.vim.old
