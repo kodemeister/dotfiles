@@ -234,8 +234,8 @@ set list
 " Don't show the current mode on the last line.
 set noshowmode
 
-" Show the current command in the bottom right corner.
-set showcmd
+" Don't show the current command in the bottom right corner.
+set noshowcmd
 
 " Editing and formatting {{{1
 
