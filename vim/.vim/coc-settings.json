@@ -1,6 +1,5 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.hoverTarget": "echo",
   "suggest.minTriggerInputLength": 3,
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
@@ -15,7 +14,12 @@
     "haskell": {
       "command": "hie-wrapper",
       "filetypes": ["haskell"],
-      "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"]
+      "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"],
+      "settings": {
+        "languageServerHaskell": {
+          "completionSnippetsOn": false
+        }
+      }
     }
   }
 }
