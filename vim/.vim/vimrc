@@ -386,6 +386,11 @@ inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 " Confirm current completion with CR.
 inoremap <silent> <expr> <CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
 
+" Update signature help when jumping to placeholder.
+augroup vimrc
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
 " Jump to previous or next diagnostic message.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
