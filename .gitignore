@@ -1,6 +1,6 @@
 /ghci/.ghc/*/package.conf.d/
 /ghci/.ghc/ghci_history
 
-/vim/.vim/autoload/plug.vim.old
-/vim/.vim/plugged/
-/vim/.vim/.netrwhist
+/neovim/.config/nvim/autoload/plug.vim.old
+/neovim/.config/nvim/plugged/
+/neovim/.config/nvim/.netrwhist
