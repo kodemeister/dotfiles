@@ -1,14 +1,3 @@
-__pycache__/
-
-/cmus/.config/cmus/playlists/
-/cmus/.config/cmus/autosave
-/cmus/.config/cmus/cache
-/cmus/.config/cmus/command-history
-/cmus/.config/cmus/lib.pl
-/cmus/.config/cmus/search-history
-
-/fontconfig/.local/share/fonts/.uuid
-
 /ghci/.ghc/*/package.conf.d/
 /ghci/.ghc/ghci_history
 
