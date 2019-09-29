@@ -1,15 +1,9 @@
 " Variables {{{1
 
 " Setup directory paths.
-if has('nvim')
-  let s:config_dir = expand(has('win32') ?
-      \ '$LOCALAPPDATA/nvim' :
-      \ '~/.config/nvim')
-else
-  let s:config_dir = expand(has('win32') ?
-      \ '$USERPROFILE/vimfiles' :
-      \ '~/.vim')
-endif
+let s:config_dir = expand(has('win32') ?
+    \ '$LOCALAPPDATA/nvim' :
+    \ '~/.config/nvim')
 let s:plugins_dir = s:config_dir . '/plugged'
 
 " Functions {{{1
@@ -65,74 +59,38 @@ call plug#end()
 
 " General settings {{{1
 
-" Set the default character encoding.
-set encoding=utf-8
-
-" Set the character encoding used in the script.
-scriptencoding utf-8
-
 " Don't clutter the filesystem with garbage files.
-set nobackup
 set nowritebackup
 set noswapfile
-set noundofile
 
 " Put unsaved buffers to background when loading new buffers without asking to
 " save the current changes first.
 set hidden
 
-" Disable mouse support.
-set mouse=
-
 " Make all yank, delete, change and put operations work with system clipboard.
-set clipboard^=unnamed,unnamedplus
+set clipboard+=unnamedplus
 
 " Enable 24-bit colors in the terminal.
 set termguicolors
-
-" Define 24-bit TrueColor RGB escape sequences.
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" Define escape sequences to change the cursor shape.
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
 
 " Reduce timeout for keyboard codes like <Esc> to minimal value. This
 " eliminates annoying delays while exiting Insert/Visual modes in terminal.
 set ttimeoutlen=0
 
-" Turn off annoying beeps/flashes on errors.
-set noerrorbells
-set novisualbell
-set t_vb=
-
 " Don't redraw the display while executing macros.
 set lazyredraw
-
-" Highlight all matches of the search pattern.
-set hlsearch
 
 " Ignore case in search patterns.
 set ignorecase
 
-" When searching, wrap around the beginning or the end of the file.
-set wrapscan
-
-" Enable live substitution in Neovim.
-if has('nvim')
-  set inccommand=nosplit
-endif
+" Enable live substitution.
+set inccommand=nosplit
 
 " Keep the given number of lines above and below the cursor while scrolling.
 set scrolloff=5
 
 " Keep the cursor column while jumping or switching between buffers.
 set nostartofline
-
-" Don't jump to matching brackets while typing.
-set noshowmatch
 
 " Don't show extra information about the currently selected completion.
 set completeopt-=preview
@@ -143,8 +101,8 @@ set shortmess+=c
 " Limit the number of items in completion popup menu.
 set pumheight=10
 
-" Reduce the timeout used for the CursorHold autocommand event. This is used
-" by vim-gitgutter plugin to update signs in the gutter.
+" Reduce the timeout used for the CursorHold autocommand event. This option
+" is used by coc.nvim and vim-gitgutter plugins.
 set updatetime=250
 
 " Define an autocommand group for this script.
@@ -155,43 +113,11 @@ augroup end
 
 " Look and feel {{{1
 
-" Use dark variation of color scheme.
-set background=dark
-
 " Set some eye candy color scheme.
 colorscheme hybrid-dark
 
-" Set font when running in GUI mode.
-if has('gui_running')
-  if has('gui_gtk')
-    set guifont=Literation\ Mono\ Nerd\ Font\ 14,Monospace\ 14
-  elseif has('gui_macvim')
-    set guifont=Menlo\ Regular:h18
-  elseif has('gui_win32')
-    set guifont=Powerline\ Consolas:h14:cANSI,Consolas:h14:cANSI
-  endif
-endif
-
-" Remove menu bar, toolbar and scrollbars.
-if has('gui_running')
-  set guioptions-=m
-  set guioptions-=T
-  set guioptions-=l
-  set guioptions-=L
-  set guioptions-=r
-  set guioptions-=R
-  set guioptions-=b
-endif
-
 " Configure the cursor shape.
-if has('gui_running') || has('nvim')
-  set guicursor=
-  set guicursor+=n-v-c:block-Cursor/lCursor
-  set guicursor+=i-ci:ver25-Cursor/lCursor
-  set guicursor+=r-cr:hor20-Cursor/lCursor
-  set guicursor+=ve-o-sm:block-Cursor
-  set guicursor+=a:blinkon0
-endif
+set guicursor=n-v-c-sm-o:block,i-ci-ve:ver25,r-cr:hor20,a:blinkon0
 
 " Always show the signcolumn.
 set signcolumn=yes
@@ -201,23 +127,21 @@ set signcolumn=yes
 set number
 set relativenumber
 
-" Disable signcolumn, line numbers and cursorline in Neovim terminal.
-if has('nvim')
-  augroup vimrc
-    autocmd TermOpen *
-        \ setlocal signcolumn=no nonumber norelativenumber nocursorline |
-        \ startinsert
-    autocmd BufWinEnter,WinEnter term://* startinsert
-    autocmd BufLeave term://* stopinsert
-  augroup end
-endif
+" Disable signcolumn, line numbers and cursorline in the terminal.
+augroup vimrc
+  autocmd TermOpen *
+      \ setlocal signcolumn=no nonumber norelativenumber nocursorline |
+      \ startinsert
+  autocmd BufWinEnter,WinEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
+augroup end
 
 " Highlight the line containing the cursor.
 if !&diff
   set cursorline
 endif
 
-" Disable highlighting of current line in quickfix and vimdiff windows.
+" Disable highlighting of current line in quickfix and diff windows.
 augroup vimrc
   autocmd FileType qf setlocal nocursorline
   autocmd OptionSet diff let &l:cursorline = !v:option_new
@@ -234,12 +158,9 @@ set list
 " Don't show the current mode on the last line.
 set noshowmode
 
-" Don't show the current command in the bottom right corner.
-set noshowcmd
-
 " Editing and formatting {{{1
 
-" Apply the default settings on startup (but not on vimrc reload).
+" Apply the default settings on startup (but not on script reload).
 if has('vim_starting')
   " Use spaces instead of tabs.
   set expandtab
@@ -251,9 +172,6 @@ if has('vim_starting')
 
   " Disable soft wrapping of long lines.
   set nowrap
-
-  " Disable hard wrapping of long lines.
-  set textwidth=0
 endif
 
 " Filetype-specific settings.
@@ -268,7 +186,7 @@ augroup end
 " Configure the <Leader> key.
 let g:mapleader = "\<Space>"
 
-" Edit/reload Vim configuration file.
+" Edit/reload the configuration file.
 nnoremap <silent> <expr> <Leader>ve
     \ ':edit ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
 nnoremap <silent> <expr> <Leader>vr
@@ -295,17 +213,10 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
-if has('nvim')
-  tnoremap <C-H> <C-\><C-N><C-W>h
-  tnoremap <C-J> <C-\><C-N><C-W>j
-  tnoremap <C-K> <C-\><C-N><C-W>k
-  tnoremap <C-L> <C-\><C-N><C-W>l
-else
-  tnoremap <C-H> <C-W>h
-  tnoremap <C-J> <C-W>j
-  tnoremap <C-K> <C-W>k
-  tnoremap <C-L> <C-W>l
-endif
+tnoremap <C-H> <C-\><C-N><C-W>h
+tnoremap <C-J> <C-\><C-N><C-W>j
+tnoremap <C-K> <C-\><C-N><C-W>k
+tnoremap <C-L> <C-\><C-N><C-W>l
 
 " Toggle between the current and the alternate file.
 nnoremap <Tab> <C-^>
@@ -329,13 +240,8 @@ vnoremap <Leader>x "_x
 nnoremap <Leader>X "_X
 
 " Open a new terminal in a horizontal or vertical split.
-if has('nvim')
-  nnoremap <silent> <Leader>tsp :belowright split \| terminal<CR>
-  nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
-else
-  nnoremap <silent> <Leader>tsp :belowright terminal<CR>
-  nnoremap <silent> <Leader>tvs :belowright vertical terminal<CR>
-endif
+nnoremap <silent> <Leader>tsp :belowright split \| terminal<CR>
+nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " Plugin settings {{{1
 
@@ -484,8 +390,6 @@ nmap <Leader><Tab> <Plug>(altr-forward)
 " Define additional vim-altr rules.
 call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
     \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
-call altr#define('%/Sources/%.c', '%/Sources/%.cpp', '%/Sources/%.cc',
-    \ '%/Sources/%.m', '%/Sources/%.mm', '%/Include/%.h', '%/Include/%.hpp')
 
 " vim-easy-align {{{2
 
