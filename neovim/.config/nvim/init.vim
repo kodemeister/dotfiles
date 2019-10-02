@@ -47,7 +47,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'embear/vim-localvimrc'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
@@ -88,6 +87,10 @@ set inccommand=nosplit
 
 " Keep the given number of lines above and below the cursor while scrolling.
 set scrolloff=5
+
+" Keep the given number of columns to the left and to the right of the cursor
+" while scrolling.
+set sidescrolloff=10
 
 " Keep the cursor column while jumping or switching between buffers.
 set nostartofline
