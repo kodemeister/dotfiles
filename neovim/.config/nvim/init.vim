@@ -28,18 +28,19 @@ endfunction
 call plug#begin(s:plugins_dir)
 
 " List the required plugins.
-Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
+Plug 'Valloric/ListToggle'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kana/vim-altr'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -248,36 +249,6 @@ nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " Plugin settings {{{1
 
-" asyncrun.vim {{{2
-
-" Automatically open quickfix window when starting an asynchronous job.
-let g:asyncrun_open = 10
-
-" Close quickfix window if the asynchronous job has been successfully
-" completed.
-let g:asyncrun_exit = '
-    \ if g:asyncrun_code == 0 |
-    \   call asyncrun#quickfix_toggle(10, 0) |
-    \ endif
-    \ '
-
-" Force Qt applications to always log to stderr. This is required since Qt
-" suppresses debug output when stderr is not attached to a TTY.
-let $QT_LOGGING_TO_CONSOLE = 1
-
-" Force Python stdin, stdout and stderr to be unbuffered to see the realtime
-" output in quickfix window.
-let $PYTHONUNBUFFERED = 1
-
-" Save all modified files and build the project.
-nnoremap <silent> <Leader>m :AsyncRun -program=make -save=2<CR>
-
-" Toggle quickfix window.
-nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
-
-" Run Gpush and Gfetch commands from vim-fugitive with AsyncRun.
-command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-
 " auto-pairs {{{2
 
 " Don't automatically center the current line after expanding CR key.
@@ -393,6 +364,24 @@ nmap <Leader><Tab> <Plug>(altr-forward)
 " Define additional vim-altr rules.
 call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
     \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
+
+" vim-dispatch {{{2
+
+" Force Qt applications to always log to stderr. This is required since Qt
+" suppresses debug output when stderr is not attached to a TTY.
+let $QT_ASSUME_STDERR_HAS_CONSOLE = 1
+
+" Force Python stdin, stdout and stderr to be unbuffered to see the realtime
+" output in quickfix window.
+let $PYTHONUNBUFFERED = 1
+
+" Save all modified files and build the project.
+nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
+
+" Run the program specified in b:dispatch. The option -compiler=none is needed
+" to force vim-dispatch to automatically close the quickfix window after
+" running the program.
+nnoremap <silent> <Leader>r :Dispatch -compiler=none<CR>
 
 " vim-easy-align {{{2
 
