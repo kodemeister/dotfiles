@@ -38,14 +38,13 @@ Plug 'Valloric/ListToggle'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kana/vim-altr'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'embear/vim-localvimrc'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-surround'
@@ -356,15 +355,6 @@ let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
 
-" vim-altr {{{2
-
-" Switch between associated files, e.g. C++ header and implementation.
-nmap <Leader><Tab> <Plug>(altr-forward)
-
-" Define additional vim-altr rules.
-call altr#define('%/src/%.c', '%/src/%.cpp', '%/src/%.cc',
-    \ '%/src/%.m', '%/src/%.mm', '%/include/%.h', '%/include/%.hpp')
-
 " vim-dispatch {{{2
 
 " Force Qt applications to always log to stderr. This is required since Qt
@@ -387,8 +377,8 @@ nnoremap <silent> <Leader>r :Dispatch -compiler=none<CR>
 
 " Define additional alignment rules.
 let g:easy_align_delimiters = {
-    \ ':': {'pattern': '::\|:', 'left_margin': 0, 'stick_to_left': 1},
-    \ '>': {'pattern': '->\|=>\|>'}
+    \   ':': {'pattern': '::\|:', 'left_margin': 0, 'stick_to_left': 1},
+    \   '>': {'pattern': '->\|=>\|>'}
     \ }
 
 " Start interactive EasyAlign in visual mode.
@@ -408,13 +398,24 @@ nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gps :Gpush<CR>
 nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
 
-" vim-localvimrc {{{2
+" vim-projectionist {{{2
 
-" Don't load local vimrc files in a sandbox.
-let g:localvimrc_sandbox = 0
+" Setup global vim-projectionist settings.
+let g:projectionist_heuristics = {
+    \   "*.cpp|*.h": {
+    \     "*.cpp": {
+    \       "type": "source",
+    \       "alternate": "{}.h"
+    \     },
+    \     "*.h": {
+    \       "type": "header",
+    \       "alternate": "{}.cpp"
+    \     }
+    \   }
+    \ }
 
-" Don't ask before sourcing local vimrc files.
-let g:localvimrc_ask = 0
+" Switch between alternate files, e.g. C++ source and header.
+nnoremap <silent> <Leader><Tab> :A<CR>
 
 " vim-rooter {{{2
 
