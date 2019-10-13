@@ -48,8 +48,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-surround'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-unimpaired'
 Plug 'thinca/vim-visualstar'
 
