@@ -48,7 +48,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'inkarkat/vim-ReplaceWithRegister'
-Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'thinca/vim-visualstar'
@@ -294,6 +293,12 @@ nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
 " Ignore case in search patterns.
 let g:ctrlsf_case_sensitive = 'no'
 
+" Perform searches from the project root directory.
+let g:ctrlsf_default_root = 'project'
+
+" Define custom project root markers.
+let g:ctrlsf_extra_root_markers = ['.projections.json']
+
 " Display CtrlSF prompt and wait for search pattern.
 nmap <Leader>/ <Plug>CtrlSFPrompt
 
@@ -314,8 +319,8 @@ if empty($FZF_DEFAULT_COMMAND) && executable('rg')
 endif
 
 " Search in files.
-nnoremap <silent> <Leader>f
-    \ :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
+nnoremap <silent> <Leader>e
+    \ :call <SID>RunFZF('Files ' . fnameescape(projectionist#path()))<CR>
 
 " Search in the currently opened buffers.
 nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
@@ -400,27 +405,8 @@ nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
 
 " vim-projectionist {{{2
 
-" Setup global vim-projectionist settings.
-let g:projectionist_heuristics = {
-    \   "*.cpp|*.h": {
-    \     "*.cpp": {
-    \       "type": "source",
-    \       "alternate": "{}.h"
-    \     },
-    \     "*.h": {
-    \       "type": "header",
-    \       "alternate": "{}.cpp"
-    \     }
-    \   }
-    \ }
-
 " Switch between alternate files, e.g. C++ source and header.
 nnoremap <silent> <Leader><Tab> :A<CR>
-
-" vim-rooter {{{2
-
-" Don't echo the current working directory.
-let g:rooter_silent_chdir = 1
 
 " }}}2
 
