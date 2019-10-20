@@ -41,6 +41,7 @@ Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
+Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
