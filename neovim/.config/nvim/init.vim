@@ -9,7 +9,8 @@ let s:plugins_dir = s:config_dir . '/plugged'
 " Functions {{{1
 
 function! s:RunFZF(command) " {{{2
-  if &buftype ==# 'quickfix' || &buftype ==# 'help' || &buftype ==# 'terminal'
+  if &buftype ==# 'quickfix' || &buftype ==# 'help' ||
+      \ &buftype ==# 'terminal' || &filetype ==# 'nerdtree'
     wincmd p
   endif
   execute a:command
@@ -35,6 +36,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 Plug 'Valloric/ListToggle'
+Plug 'scrooloose/nerdtree'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -325,19 +327,32 @@ nnoremap <silent> <Leader>e
 " Search in the currently opened buffers.
 nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 
-" netrw {{{2
+" nerdtree {{{2
 
-" Hide annoying banner at the top of the window.
-let g:netrw_banner = 0
+" Always show all files, don't ignore anything.
+let g:NERDTreeIgnore = []
+
+" Set the path to bookmarks file.
+let g:NERDTreeBookmarksFile = s:config_dir . '/.NERDTreeBookmarks'
+
+" Display hidden files by default.
+let g:NERDTreeShowHidden = 1
 
 " Sort directories first, then files.
-let g:netrw_sort_sequence = '[\/]$,*'
+let g:NERDTreeSortOrder = ['\/$', '*']
 
-" Show the directory listing in the current window.
-nnoremap <silent> - :Explore<CR>
+" Don't show annoying 'Press ? for help' banner.
+let g:NERDTreeMinimalUI = 1
 
-" Refresh file list with R since <C-L> is used for navigation between windows.
-autocmd vimrc FileType netrw nmap <buffer> r <Plug>NetrwRefresh
+" Disable cascade displaying/opening of directories that have only one child.
+let g:NERDTreeCascadeSingleChildDir = 0
+let g:NERDTreeCascadeOpenSingleChildDir = 0
+
+" Quickly toggle NERDTree window.
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+
+" Reveal the current file in NERDTree window.
+nnoremap <silent> =n :NERDTreeFind<CR>
 
 " python-syntax {{{2
 

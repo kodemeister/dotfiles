@@ -5,4 +5,5 @@
 
 /neovim/.config/nvim/autoload/plug.vim.old
 /neovim/.config/nvim/plugged/
+/neovim/.config/nvim/.NERDTreeBookmarks
 /neovim/.config/nvim/.netrwhist
