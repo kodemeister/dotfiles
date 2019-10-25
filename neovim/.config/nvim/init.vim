@@ -268,17 +268,20 @@ inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 inoremap <silent> <expr> <CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
 
 " Update signature help when jumping to placeholder.
-augroup vimrc
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+autocmd vimrc User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " Jump to previous or next diagnostic message.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
+" Define mappings for function text objects.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
 " Define mappings for the most common Coc functions.
 nmap <silent> <Leader>] <Plug>(coc-definition)
-nmap <silent> <Leader>K :call CocAction('doHover')<CR>
 nmap <silent> <Leader>pt <Plug>(coc-type-definition)
 nmap <silent> <Leader>pi <Plug>(coc-implementation)
 nmap <silent> <Leader>pu <Plug>(coc-references)
@@ -286,8 +289,16 @@ nmap <silent> <Leader>pr <Plug>(coc-rename)
 nmap <silent> <Leader>pf <Plug>(coc-format-selected)
 vmap <silent> <Leader>pf <Plug>(coc-format-selected)
 
+" Define mappings for the most common Coc commands.
+nnoremap <silent> <Leader>K :call CocAction('doHover')<CR>
+nnoremap <silent> <Leader>pF :call CocAction('format')<CR>
+nnoremap <silent> <Leader>po
+    \ :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+
 " Define mappings for the most common Coc list commands.
 nnoremap <silent> <Leader>pd :CocList diagnostics<CR>
+nnoremap <silent> <Leader>pe :CocList extensions<CR>
+nnoremap <silent> <Leader>pc :CocList commands<CR>
 nnoremap <silent> <Leader>ps :CocList outline<CR>
 nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
 

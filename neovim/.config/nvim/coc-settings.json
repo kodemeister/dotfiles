@@ -1,6 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
-  "suggest.minTriggerInputLength": 3,
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "ℹ",
@@ -9,17 +9,20 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": ["compile_commands.json", ".ccls"]
+      "rootPatterns": [".ccls", "compile_commands.json"]
     },
-    "haskell": {
+    "gopls": {
+      "command": "gopls",
+      "filetypes": ["go"],
+      "rootPatterns": ["go.mod"]
+    },
+    "hie-wrapper": {
       "command": "hie-wrapper",
-      "filetypes": ["haskell"],
-      "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"],
-      "settings": {
-        "languageServerHaskell": {
-          "completionSnippetsOn": false
-        }
-      }
+      "filetypes": ["chaskell", "haskell", "lhaskell"],
+      "rootPatterns": ["cabal.config", "package.yaml", "stack.yaml"]
     }
-  }
+  },
+  "python.autoUpdateLanguageServer": false,
+  "python.jediEnabled": false,
+  "suggest.minTriggerInputLength": 3
 }
