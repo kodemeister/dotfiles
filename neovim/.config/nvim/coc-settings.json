@@ -24,5 +24,6 @@
   },
   "python.autoUpdateLanguageServer": false,
   "python.jediEnabled": false,
+  "suggest.enablePreselect": false,
   "suggest.minTriggerInputLength": 3
 }
