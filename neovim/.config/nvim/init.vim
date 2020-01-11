@@ -29,7 +29,6 @@ endfunction
 call plug#begin(s:plugins_dir)
 
 " List the required plugins.
-Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
@@ -37,6 +36,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 Plug 'Valloric/ListToggle'
 Plug 'scrooloose/nerdtree'
+Plug 'tmsvg/pear-tree'
 Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -251,11 +251,6 @@ nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " Plugin settings {{{1
 
-" auto-pairs {{{2
-
-" Don't automatically center the current line after expanding CR key.
-let g:AutoPairsCenterLine = 0
-
 " coc.nvim {{{2
 
 " Remap Tab and S-Tab to gracefully work with auto-completion.
@@ -266,7 +261,8 @@ inoremap <silent> <expr> <Tab>
 inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 
 " Confirm current completion with CR.
-inoremap <silent> <expr> <CR> pumvisible() ? "\<C-Y>" : "\<C-G>u\<CR>"
+imap <silent> <expr> <CR>
+    \ pumvisible() ? "\<C-Y>" : "\<C-G>u\<Plug>(PearTreeExpand)"
 
 " Update signature help when jumping to placeholder.
 autocmd vimrc User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
@@ -366,6 +362,21 @@ nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
 " Reveal the current file in NERDTree window.
 nnoremap <silent> =n :NERDTreeFind<CR>
+
+" pear-tree {{{2
+
+" Disable repeating of brace expansion via dot command. Enabling this option
+" will erase closing braces after pressing CR.
+let g:pear_tree_repeatable_expand = 0
+
+" Try to maintain pair balance instead of always inserting opening and closing
+" characters in pairs.
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
+
+" Insert a space after the opening character and before the closing one.
+imap <Space> <Plug>(PearTreeSpace)
 
 " python-syntax {{{2
 
