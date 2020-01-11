@@ -33,11 +33,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 Plug 'Valloric/ListToggle'
 Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree'
-Plug 'vim-python/python-syntax', {'for': ['python']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
@@ -48,6 +46,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'inkarkat/vim-ReplaceWithRegister'
@@ -377,11 +376,6 @@ let g:pear_tree_smart_backspace = 1
 
 " Insert a space after the opening character and before the closing one.
 imap <Space> <Plug>(PearTreeSpace)
-
-" python-syntax {{{2
-
-" Enable all Python syntax highlighting features.
-let g:python_highlight_all = 1
 
 " vim-airline {{{2
 
