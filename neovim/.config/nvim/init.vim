@@ -252,6 +252,11 @@ nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " coc.nvim {{{2
 
+" Automatically install the following extensions upon startup.
+let g:coc_global_extensions = [
+    \   'coc-python'
+    \ ]
+
 " Remap Tab and S-Tab to gracefully work with auto-completion.
 inoremap <silent> <expr> <Tab>
     \ pumvisible() ? "\<C-N>" :

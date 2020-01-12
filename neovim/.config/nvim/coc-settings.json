@@ -24,6 +24,9 @@
   },
   "python.autoUpdateLanguageServer": false,
   "python.jediEnabled": false,
+  "python.linting.pep8Enabled": true,
+  "python.linting.pep8Path": "pycodestyle",
+  "python.linting.pylintEnabled": true,
   "suggest.enablePreselect": false,
   "suggest.minTriggerInputLength": 3
 }
