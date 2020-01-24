@@ -254,7 +254,8 @@ nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " Automatically install the following extensions upon startup.
 let g:coc_global_extensions = [
-    \   'coc-python'
+    \   'coc-css', 'coc-eslint', 'coc-html', 'coc-json', 'coc-prettier',
+    \   'coc-python', 'coc-tsserver', 'coc-yaml'
     \ ]
 
 " Remap Tab and S-Tab to gracefully work with auto-completion.
