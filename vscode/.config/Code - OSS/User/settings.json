@@ -20,6 +20,13 @@
     "files.insertFinalNewline": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
+    "vim.hlsearch": true,
+    "vim.leader": "<Space>",
+    "vim.replaceWithRegister": true,
+    "vim.smartcase": false,
+    "vim.startofline": false,
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.enableExperiments": false,
     "workbench.settings.enableNaturalLanguageSearch": false
