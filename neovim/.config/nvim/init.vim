@@ -1,10 +1,7 @@
 " Variables {{{1
 
-" Setup directory paths.
-let s:config_dir = expand(has('win32') ?
-    \ '$LOCALAPPDATA/nvim' :
-    \ '~/.config/nvim')
-let s:plugins_dir = s:config_dir . '/plugged'
+" Setup path to the configuration directory.
+let g:config_dir = stdpath('config')
 
 " Functions {{{1
 
@@ -26,7 +23,7 @@ endfunction
 " Plugins {{{1
 
 " Begin the plugin section.
-call plug#begin(s:plugins_dir)
+call plug#begin(g:config_dir . '/plugged')
 
 " List the required plugins.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -347,7 +344,7 @@ nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
 let g:NERDTreeIgnore = []
 
 " Set the path to bookmarks file.
-let g:NERDTreeBookmarksFile = s:config_dir . '/.NERDTreeBookmarks'
+let g:NERDTreeBookmarksFile = g:config_dir . '/.NERDTreeBookmarks'
 
 " Display hidden files by default.
 let g:NERDTreeShowHidden = 1
