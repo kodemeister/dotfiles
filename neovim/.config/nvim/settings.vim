@@ -1,25 +1,3 @@
-" Variables {{{1
-
-" Setup path to the configuration directory.
-let g:config_dir = stdpath('config')
-
-" Functions {{{1
-
-function! s:RunFZF(command) " {{{2
-  if &buftype ==# 'quickfix' || &buftype ==# 'help' ||
-      \ &buftype ==# 'terminal' || &filetype ==# 'nerdtree'
-    wincmd p
-  endif
-  execute a:command
-endfunction
-
-function! s:HasSpaceBefore() " {{{2
-  let l:col = col('.') - 1
-  return l:col == 0 || getline('.')[l:col - 1] =~# '\s'
-endfunction
-
-" }}}2
-
 " Plugins {{{1
 
 " Begin the plugin section.
@@ -54,6 +32,23 @@ Plug 'thinca/vim-visualstar'
 " Finish the plugin section, update runtimepath and initialize plugin system.
 call plug#end()
 
+" Functions {{{1
+
+function! s:RunFZF(command) " {{{2
+  if &buftype ==# 'quickfix' || &buftype ==# 'help' ||
+      \ &buftype ==# 'terminal' || &filetype ==# 'nerdtree'
+    wincmd p
+  endif
+  execute a:command
+endfunction
+
+function! s:HasSpaceBefore() " {{{2
+  let l:col = col('.') - 1
+  return l:col == 0 || getline('.')[l:col - 1] =~# '\s'
+endfunction
+
+" }}}2
+
 " General settings {{{1
 
 " Don't clutter the filesystem with garbage files.
@@ -80,9 +75,6 @@ set lazyredraw
 " Ignore case in search patterns.
 set ignorecase
 
-" Enable live substitution.
-set inccommand=nosplit
-
 " Keep the given number of lines above and below the cursor while scrolling.
 set scrolloff=5
 
@@ -106,12 +98,6 @@ set pumheight=10
 " is used by coc.nvim and vim-gitgutter plugins.
 set updatetime=250
 
-" Define an autocommand group for this script.
-augroup vimrc
-  autocmd!
-  autocmd FileType cpp setlocal commentstring=//\ %s
-augroup end
-
 " Look and feel {{{1
 
 " Set some eye candy color scheme.
@@ -127,15 +113,6 @@ set signcolumn=yes
 " lines.
 set number
 set relativenumber
-
-" Disable signcolumn, line numbers and cursorline in the terminal.
-augroup vimrc
-  autocmd TermOpen *
-      \ setlocal signcolumn=no nonumber norelativenumber nocursorline |
-      \ startinsert
-  autocmd BufWinEnter,WinEnter term://* startinsert
-  autocmd BufLeave term://* stopinsert
-augroup end
 
 " Highlight the line containing the cursor.
 if !&diff
@@ -181,12 +158,10 @@ augroup vimrc
   autocmd FileType json,sh,vim,xml,zsh
       \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType markdown,text setlocal wrap
+  autocmd FileType cpp setlocal commentstring=//\ %s
 augroup end
 
 " Key mappings {{{1
-
-" Configure the <Leader> key.
-let g:mapleader = "\<Space>"
 
 " Edit/reload the configuration file.
 nnoremap <silent> <expr> <Leader>ve
@@ -215,10 +190,6 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
-tnoremap <C-H> <C-\><C-N><C-W>h
-tnoremap <C-J> <C-\><C-N><C-W>j
-tnoremap <C-K> <C-\><C-N><C-W>k
-tnoremap <C-L> <C-\><C-N><C-W>l
 
 " Toggle between the current and the alternate file.
 nnoremap <Tab> <C-^>
@@ -240,10 +211,6 @@ nnoremap <Leader>S "_S
 nnoremap <Leader>x "_x
 vnoremap <Leader>x "_x
 nnoremap <Leader>X "_X
-
-" Open a new terminal in a horizontal or vertical split.
-nnoremap <silent> <Leader>tsp :belowright split \| terminal<CR>
-nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " Plugin settings {{{1
 
