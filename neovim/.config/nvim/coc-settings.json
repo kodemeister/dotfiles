@@ -18,8 +18,9 @@
     },
     "hie-wrapper": {
       "command": "hie-wrapper",
+      "args": ["--lsp"],
       "filetypes": ["chaskell", "haskell", "lhaskell"],
-      "rootPatterns": ["cabal.config", "package.yaml", "stack.yaml"]
+      "rootPatterns": ["*.cabal", "cabal.project", "package.yaml", "stack.yaml"]
     }
   },
   "python.autoUpdateLanguageServer": false,
