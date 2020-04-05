@@ -60,7 +60,7 @@ set noswapfile
 set hidden
 
 " Make all yank, delete, change and put operations work with system clipboard.
-set clipboard+=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " Enable 24-bit colors in the terminal.
 set termguicolors
