@@ -16,8 +16,8 @@
       "filetypes": ["go"],
       "rootPatterns": ["go.mod"]
     },
-    "hie-wrapper": {
-      "command": "hie-wrapper",
+    "haskell-language-server-wrapper": {
+      "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
       "filetypes": ["chaskell", "haskell", "lhaskell"],
       "rootPatterns": ["*.cabal", "cabal.project", "package.yaml", "stack.yaml"]
