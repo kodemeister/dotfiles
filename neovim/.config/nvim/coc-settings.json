@@ -20,7 +20,12 @@
       "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
       "filetypes": ["chaskell", "haskell", "lhaskell"],
-      "rootPatterns": ["*.cabal", "cabal.project", "package.yaml", "stack.yaml"]
+      "rootPatterns": ["*.cabal", "cabal.project", "package.yaml", "stack.yaml"],
+      "initializationOptions": {
+        "haskell": {
+          "formattingProvider": "ormolu"
+        }
+      }
     }
   },
   "python.autoUpdateLanguageServer": false,
