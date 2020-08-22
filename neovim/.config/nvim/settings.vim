@@ -16,7 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-dispatch'
-Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -381,20 +380,6 @@ nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
 " to force vim-dispatch to automatically close the quickfix window after
 " running the program.
 nnoremap <silent> <Leader>r :Dispatch -compiler=none<CR>
-
-" vim-easy-align {{{2
-
-" Define additional alignment rules.
-let g:easy_align_delimiters = {
-    \   ':': {'pattern': '::\|:', 'left_margin': 0, 'stick_to_left': 1},
-    \   '>': {'pattern': '->\|=>\|>'}
-    \ }
-
-" Start interactive EasyAlign in visual mode.
-xmap <Leader>a <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object.
-nmap <Leader>a <Plug>(EasyAlign)
 
 " vim-fugitive {{{2
 
