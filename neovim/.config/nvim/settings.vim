@@ -164,10 +164,11 @@ augroup end
 " Key mappings {{{1
 
 " Edit/reload the configuration file.
-nnoremap <silent> <expr> <Leader>ve
-    \ ':edit ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
-nnoremap <silent> <expr> <Leader>vr
-    \ ':source ' . fnameescape(resolve($MYVIMRC)) . "\<CR>"
+let g:vimrc_path = fnameescape(resolve($MYVIMRC))
+let g:settings_path = fnameescape(resolve(g:config_dir . '/settings.vim'))
+nnoremap <silent> <expr> <Leader>ve ':edit ' . g:vimrc_path . "\<CR>"
+nnoremap <silent> <expr> <Leader>vs ':edit ' . g:settings_path . "\<CR>"
+nnoremap <silent> <expr> <Leader>vr ':source ' . g:vimrc_path . "\<CR>"
 
 " Fast saving.
 nnoremap <silent> <Leader>w :write<CR>
