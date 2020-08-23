@@ -233,35 +233,59 @@ inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 imap <silent> <expr> <CR>
     \ pumvisible() ? "\<C-Y>" : "\<C-G>u\<Plug>(PearTreeExpand)"
 
-" Update signature help when jumping to placeholder.
-autocmd vimrc User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-
 " Jump to previous or next diagnostic message.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
-" Define mappings for function text objects.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Define mappings for the most common Coc functions.
+" Define mappings for code navigation.
 nmap <silent> <Leader>] <Plug>(coc-definition)
 nmap <silent> <Leader>pt <Plug>(coc-type-definition)
 nmap <silent> <Leader>pi <Plug>(coc-implementation)
 nmap <silent> <Leader>pu <Plug>(coc-references)
-nmap <silent> <Leader>pr <Plug>(coc-rename)
-nmap <silent> <Leader>pf <Plug>(coc-format-selected)
-vmap <silent> <Leader>pf <Plug>(coc-format-selected)
 
-" Define mappings for the most common Coc commands.
+" Show documentation popup about symbol under the cursor.
 nnoremap <silent> <Leader>K :call CocAction('doHover')<CR>
+
+" Rename symbol under the cursor.
+nmap <silent> <Leader>pr <Plug>(coc-rename)
+
+" Format the selected code.
+nmap <silent> <Leader>pf <Plug>(coc-format-selected)
+xmap <silent> <Leader>pf <Plug>(coc-format-selected)
+
+" Update signature help when jumping to placeholder.
+autocmd vimrc User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+" Apply code action to the selected code.
+nmap <silent> <Leader>pa <Plug>(coc-codeaction-selected)
+xmap <silent> <Leader>pa <Plug>(coc-codeaction-selected)
+
+" Apply code action to the entire buffer.
+nmap <silent> <Leader>pA <Plug>(coc-codeaction)
+
+" Apply auto fix to the problem on the current line.
+nmap <silent> <Leader>pq <Plug>(coc-fix-current)
+
+" Define mappings for function text objects.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+
+" Define mappings for class text objects.
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Format the entire buffer.
 nnoremap <silent> <Leader>pF :call CocAction('format')<CR>
-nnoremap <silent> <Leader>po
+
+" Organize imports in the current buffer.
+nnoremap <silent> <Leader>pO
     \ :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 
-" Define mappings for the most common Coc list commands.
+" Define mappings for Coc list commands.
 nnoremap <silent> <Leader>pd :CocList diagnostics<CR>
 nnoremap <silent> <Leader>pe :CocList extensions<CR>
 nnoremap <silent> <Leader>pc :CocList commands<CR>
