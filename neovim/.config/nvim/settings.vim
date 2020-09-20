@@ -382,6 +382,11 @@ let g:airline_powerline_fonts = 1
 " Don't draw separators for empty sections.
 let g:airline_skip_empty_sections = 1
 
+" Left pad numbers in the bottom right section with spaces.
+let g:airline_section_z = '%3p%% %#__accent_bold#' .
+    \ '%{g:airline_symbols.linenr}%3l/%3L' .
+    \ '%{g:airline_symbols.maxlinenr}%#__restore__#:%3v'
+
 " Enable/disable certain airline extensions.
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
