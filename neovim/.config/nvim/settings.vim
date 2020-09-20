@@ -24,6 +24,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'inkarkat/vim-ReplaceWithRegister'
+Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'thinca/vim-visualstar'
@@ -333,12 +334,6 @@ nnoremap <silent> <Leader>pS :CocList -I symbols<CR>
 " Ignore case in search patterns.
 let g:ctrlsf_case_sensitive = 'no'
 
-" Perform searches from the project root directory.
-let g:ctrlsf_default_root = 'project'
-
-" Define custom project root markers.
-let g:ctrlsf_extra_root_markers = ['.projections.json']
-
 " Display CtrlSF prompt and wait for search pattern.
 nmap <Leader>/ <Plug>CtrlSFPrompt
 
@@ -360,7 +355,7 @@ endif
 
 " Search in files.
 nnoremap <silent> <Leader>e
-    \ :call <SID>RunFZF('Files ' . fnameescape(projectionist#path()))<CR>
+    \ :call <SID>RunFZF('Files ' . fnameescape(getcwd()))<CR>
 
 " Search in the currently opened buffers.
 nnoremap <silent> <Leader>b :call <SID>RunFZF('Buffers')<CR>
@@ -443,6 +438,11 @@ nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
 
 " Switch between alternate files, e.g. C++ source and header.
 nnoremap <silent> <Leader><Tab> :A<CR>
+
+" vim-rooter {{{2
+
+" Don't echo the current working directory.
+let g:rooter_silent_chdir = 1
 
 " }}}2
 
