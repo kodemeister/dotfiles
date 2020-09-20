@@ -255,8 +255,8 @@ nnoremap <silent> <Leader>r :AsyncTask project-run<CR>
 
 " Automatically install the following extensions upon startup.
 let g:coc_global_extensions = [
-    \   'coc-css', 'coc-eslint', 'coc-html', 'coc-json', 'coc-prettier',
-    \   'coc-python', 'coc-tsserver', 'coc-yaml'
+    \   'coc-clangd', 'coc-css', 'coc-eslint', 'coc-html', 'coc-json',
+    \   'coc-prettier', 'coc-python', 'coc-tsserver', 'coc-yaml'
     \ ]
 
 " Remap Tab and S-Tab to gracefully work with auto-completion.
@@ -289,6 +289,9 @@ nmap <silent> <Leader>pr <Plug>(coc-rename)
 " Format the selected code.
 nmap <silent> <Leader>pf <Plug>(coc-format-selected)
 xmap <silent> <Leader>pf <Plug>(coc-format-selected)
+
+" Show signature help.
+nnoremap <silent> <S-Tab> :call CocAction('showSignatureHelp')<CR>
 
 " Update signature help when jumping to placeholder.
 autocmd vimrc User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')

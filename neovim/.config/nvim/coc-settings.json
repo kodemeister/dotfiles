@@ -6,11 +6,6 @@
   "diagnostic.infoSign": "ℹ",
   "diagnostic.hintSign": "➤",
   "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json"]
-    },
     "gopls": {
       "command": "gopls",
       "filetypes": ["go"],
