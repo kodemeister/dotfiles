@@ -4,18 +4,18 @@
 call plug#begin(g:config_dir . '/plugged')
 
 " List the required plugins.
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/ListToggle'
 Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -44,6 +44,12 @@ endfunction
 function! s:HasSpaceBefore() " {{{2
   let l:col = col('.') - 1
   return l:col == 0 || getline('.')[l:col - 1] =~# '\s'
+endfunction
+
+function! g:CloseAsyncRunWindow() " {{{2
+  if g:asyncrun_code == 0
+    cclose
+  endif
 endfunction
 
 " }}}2
@@ -213,6 +219,36 @@ vnoremap <Leader>x "_x
 nnoremap <Leader>X "_X
 
 " Plugin settings {{{1
+
+" asyncrun.vim {{{2
+
+" Automatically open quickfix window when starting an asynchronous job.
+let g:asyncrun_open = 10
+
+" Automatically close quickfix window if the asynchronous job has been
+" successfully completed.
+let g:asyncrun_exit = 'call CloseAsyncRunWindow()'
+
+" Toggle quickfix window.
+nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
+
+" Run Gpush and Gfetch commands from vim-fugitive with AsyncRun.
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
+" asynctasks.vim {{{2
+
+" Open Vim/Neovim terminal under the current window.
+let g:asynctasks_term_pos = 'bottom'
+
+" Specify the terminal height in lines.
+let g:asynctasks_term_rows = 10
+
+" Reuse the terminal window if previous task has been already finished.
+let g:asynctasks_term_reuse = 1
+
+" Define mappings for common tasks.
+nnoremap <silent> <Leader>m :AsyncTask project-build<CR>
+nnoremap <silent> <Leader>r :AsyncTask project-run<CR>
 
 " coc.nvim {{{2
 
@@ -391,24 +427,6 @@ let g:airline_section_z = '%3p%% %#__accent_bold#' .
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
-
-" vim-dispatch {{{2
-
-" Force Qt applications to always log to stderr. This is required since Qt
-" suppresses debug output when stderr is not attached to a TTY.
-let $QT_ASSUME_STDERR_HAS_CONSOLE = 1
-
-" Force Python stdin, stdout and stderr to be unbuffered to see the realtime
-" output in quickfix window.
-let $PYTHONUNBUFFERED = 1
-
-" Save all modified files and build the project.
-nnoremap <silent> <Leader>m :wall <Bar> Make<CR>
-
-" Run the program specified in b:dispatch. The option -compiler=none is needed
-" to force vim-dispatch to automatically close the quickfix window after
-" running the program.
-nnoremap <silent> <Leader>r :Dispatch -compiler=none<CR>
 
 " vim-fugitive {{{2
 
