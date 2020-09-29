@@ -324,6 +324,9 @@ nnoremap <silent> <Leader>pF :call CocAction('format')<CR>
 nnoremap <silent> <Leader>pO
     \ :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 
+" Switch between C/C++ source and header files.
+nnoremap <silent> <Leader><Tab> :CocCommand clangd.switchSourceHeader<CR>
+
 " Define mappings for Coc list commands.
 nnoremap <silent> <Leader>pd :CocList diagnostics<CR>
 nnoremap <silent> <Leader>pe :CocList extensions<CR>
