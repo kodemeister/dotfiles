@@ -21,7 +21,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'airblade/vim-rooter'
@@ -436,11 +435,6 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gps :Gpush<CR>
 nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
-
-" vim-projectionist {{{2
-
-" Switch between alternate files, e.g. C++ source and header.
-nnoremap <silent> <Leader><Tab> :A<CR>
 
 " vim-rooter {{{2
 
