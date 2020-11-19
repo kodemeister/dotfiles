@@ -46,6 +46,16 @@ function! s:HasSpaceBefore() " {{{2
   return l:col == 0 || getline('.')[l:col - 1] =~# '\s'
 endfunction
 
+function! s:ShowHover() " {{{2
+  if &filetype ==# 'vim' || &filetype ==# 'help'
+    execute 'help ' . expand('<cword>')
+  elseif coc#rpc#ready()
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . ' ' . expand('<cword>')
+  endif
+endfunction
+
 function! g:CloseAsyncRunWindow() " {{{2
   if g:asyncrun_code == 0
     cclose
@@ -267,20 +277,20 @@ inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 
 " Confirm current completion with CR.
 imap <silent> <expr> <CR>
-    \ pumvisible() ? "\<C-Y>" : "\<C-G>u\<Plug>(PearTreeExpand)"
+    \ pumvisible() ? coc#_select_confirm() : "\<C-G>u\<Plug>(PearTreeExpand)"
 
 " Jump to previous or next diagnostic message.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
 " Define mappings for code navigation.
-nmap <silent> <Leader>] <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <Leader>pt <Plug>(coc-type-definition)
 nmap <silent> <Leader>pi <Plug>(coc-implementation)
 nmap <silent> <Leader>pu <Plug>(coc-references)
 
 " Show documentation popup about symbol under the cursor.
-nnoremap <silent> <Leader>K :call CocAction('doHover')<CR>
+nnoremap <silent> K :call <SID>ShowHover()<CR>
 
 " Rename symbol under the cursor.
 nmap <silent> <Leader>pr <Plug>(coc-rename)
