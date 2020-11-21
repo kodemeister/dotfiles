@@ -31,7 +31,10 @@ tnoremap <C-L> <C-\><C-N><C-W>l
 nnoremap <silent> <Leader>tsp :belowright split \| terminal<CR>
 nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
-" Load common Vim/Neovim settings.
+" Load the configuration files.
+runtime functions.vim
 runtime settings.vim
+runtime mappings.vim
+runtime plugins.vim
 
 " vim: fen fdm=marker fmr={{{,}}} fdc=3 et ts=2 sts=2 sw=2
