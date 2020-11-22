@@ -30,6 +30,7 @@
     "vim.startofline": false,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.enableExperiments": false,
     "workbench.settings.enableNaturalLanguageSearch": false
