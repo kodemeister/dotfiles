@@ -1,3 +1,6 @@
+" Configure the <Leader> key.
+let g:mapleader = "\<Space>"
+
 " Quickly open configuration files.
 let g:vimrc_path = fnameescape($MYVIMRC)
 let g:functions_path = fnameescape(g:config_dir . '/functions.vim')
@@ -34,6 +37,16 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
+
+" Easy navigation between terminal windows.
+tnoremap <C-H> <C-\><C-N><C-W>h
+tnoremap <C-J> <C-\><C-N><C-W>j
+tnoremap <C-K> <C-\><C-N><C-W>k
+tnoremap <C-L> <C-\><C-N><C-W>l
+
+" Open a new terminal in a horizontal or vertical split.
+nnoremap <silent> <Leader>tsp :belowright split \| terminal<CR>
+nnoremap <silent> <Leader>tvs :belowright vsplit \| terminal<CR>
 
 " Toggle between the current and the alternate file.
 nnoremap <Tab> <C-^>

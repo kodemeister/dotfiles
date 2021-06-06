@@ -24,6 +24,9 @@ set lazyredraw
 " Ignore case in search patterns.
 set ignorecase
 
+" Enable live substitution.
+set inccommand=nosplit
+
 " Keep the given number of lines above and below the cursor while scrolling.
 set scrolloff=5
 
@@ -76,6 +79,15 @@ augroup vimrc
       \ if !&diff && &buftype !=# 'quickfix' && &buftype !=# 'terminal' |
       \   let &l:cursorline = 1 |
       \ endif
+augroup end
+
+" Disable signcolumn, line numbers and cursorline in the terminal.
+augroup vimrc
+  autocmd TermOpen *
+      \ setlocal signcolumn=no nonumber norelativenumber nocursorline |
+      \ startinsert
+  autocmd BufWinEnter,WinEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
 augroup end
 
 " Enable list mode, show whitespace characters.
