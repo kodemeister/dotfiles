@@ -43,6 +43,10 @@ nnoremap <silent> <Leader>q :call asyncrun#quickfix_toggle(10)<CR>
 
 " Run Gpush and Gfetch commands from vim-fugitive with AsyncRun.
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+command! -bang -bar -nargs=* Gpush execute 'AsyncRun<bang> -cwd=' .
+    \ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+command! -bang -bar -nargs=* Gfetch execute 'AsyncRun<bang> -cwd=' .
+    \ fnameescape(FugitiveGitDir()) 'git fetch' <q-args>
 
 " asynctasks.vim
 
@@ -240,13 +244,13 @@ let g:airline#extensions#wordcount#enabled = 0
 " vim-fugitive
 
 " Mappings for the most common vim-fugitive commands.
-nmap <silent> <Leader>gs :Gstatus<CR>gg<C-N>
-nnoremap <silent> <Leader>gd :Gdiff<CR>
+nmap <silent> <Leader>gs :Git<CR>gg<C-N>
+nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
-nnoremap <silent> <Leader>gc :Gcommit<CR>
-nnoremap <silent> <Leader>gps :Gpush<CR>
-nnoremap <silent> <Leader>gpl :Gpull --rebase<CR>
+nnoremap <silent> <Leader>gc :Git commit<CR>
+nnoremap <silent> <Leader>gps :Git push<CR>
+nnoremap <silent> <Leader>gpl :Git pull --rebase<CR>
 
 " vim-rooter
 
