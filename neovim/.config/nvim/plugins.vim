@@ -68,7 +68,7 @@ nnoremap <silent> <Leader>r :AsyncTask project-run<CR>
 " Automatically install the following extensions upon startup.
 let g:coc_global_extensions = [
     \   'coc-clangd', 'coc-css', 'coc-eslint', 'coc-go', 'coc-html',
-    \   'coc-json', 'coc-prettier', 'coc-python', 'coc-tsserver', 'coc-yaml'
+    \   'coc-json', 'coc-prettier', 'coc-pyright', 'coc-tsserver', 'coc-yaml'
     \ ]
 
 " Remap Tab and S-Tab to gracefully work with auto-completion.

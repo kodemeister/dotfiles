@@ -1,6 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.formatOnSaveFiletypes": ["chaskell", "go", "haskell", "lhaskell"],
+  "coc.preferences.formatOnSaveFiletypes": ["chaskell", "go", "haskell", "lhaskell", "python"],
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "ℹ",
@@ -18,10 +18,9 @@
       }
     }
   },
-  "python.autoUpdateLanguageServer": false,
-  "python.jediEnabled": false,
-  "python.linting.pep8Enabled": true,
-  "python.linting.pep8Path": "pycodestyle",
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "79"],
+  "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": true,
   "suggest.enablePreselect": false,
   "suggest.minTriggerInputLength": 3
