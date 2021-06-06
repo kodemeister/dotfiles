@@ -116,7 +116,7 @@ endif
 " Filetype-specific settings.
 augroup vimrc
   autocmd FileType go setlocal noexpandtab
-  autocmd FileType json,sh,vim,xml,zsh
+  autocmd FileType cabal,haskell,json,lhaskell,sh,vim,xml,yaml,zsh
       \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType markdown,text setlocal wrap
   autocmd FileType cpp setlocal commentstring=//\ %s
