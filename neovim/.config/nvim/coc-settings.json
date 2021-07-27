@@ -1,6 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.formatOnSaveFiletypes": ["go", "haskell", "lhaskell", "python"],
+  "coc.preferences.formatOnSaveFiletypes": ["cpp", "go", "haskell", "lhaskell", "python"],
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "ℹ",
