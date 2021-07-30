@@ -106,20 +106,10 @@ if has('vim_starting')
 
   " Set width of tabs and indents to 4 spaces.
   set tabstop=4
-  set softtabstop=4
   set shiftwidth=4
 
   " Disable soft wrapping of long lines.
   set nowrap
 endif
-
-" Filetype-specific settings.
-augroup vimrc
-  autocmd FileType go setlocal noexpandtab
-  autocmd FileType cabal,haskell,json,lhaskell,sh,vim,xml,yaml,zsh
-      \ setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  autocmd FileType markdown,text setlocal wrap
-  autocmd FileType cpp setlocal commentstring=//\ %s
-augroup end
 
 " vim: fen fdm=marker fmr={{{,}}} fdc=3 et ts=2 sts=2 sw=2
