@@ -10,10 +10,6 @@ augroup end
 runtime functions.vim
 runtime settings.vim
 runtime mappings.vim
-if exists('g:vscode')
-runtime vscode.vim
-else
 runtime plugins.vim
-endif
 
 " vim: fen fdm=marker fmr={{{,}}} fdc=3 et ts=2 sts=2 sw=2
