@@ -18,10 +18,13 @@
       }
     }
   },
+  "Lua.telemetry.enable": false,
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["--line-length", "79"],
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": true,
   "suggest.enablePreselect": false,
-  "suggest.minTriggerInputLength": 3
+  "suggest.minTriggerInputLength": 3,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "sumneko-lua.checkUpdate": false
 }
