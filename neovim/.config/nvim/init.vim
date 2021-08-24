@@ -9,7 +9,7 @@ augroup end
 " Load the configuration files.
 runtime functions.vim
 lua require('settings')
-runtime mappings.vim
+lua require('mappings')
 runtime plugins.vim
 
 " vim: fen fdm=marker fmr={{{,}}} fdc=3 et ts=2 sts=2 sw=2
