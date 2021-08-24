@@ -8,7 +8,7 @@ augroup end
 
 " Load the configuration files.
 runtime functions.vim
-runtime settings.vim
+lua require('settings')
 runtime mappings.vim
 runtime plugins.vim
 
