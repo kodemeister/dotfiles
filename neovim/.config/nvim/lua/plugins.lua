@@ -10,4 +10,11 @@ end
 -- Declare the required plugins.
 require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
+
+  use({
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('plugins.toggleterm')
+    end
+  })
 end)
