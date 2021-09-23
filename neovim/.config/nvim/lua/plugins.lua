@@ -12,6 +12,14 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('plugins.nvim-tree')
+    end
+  })
+
+  use({
     'akinsho/toggleterm.nvim',
     config = function()
       require('plugins.toggleterm')

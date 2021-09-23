@@ -8,12 +8,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'tmsvg/pear-tree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
-Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -178,33 +176,6 @@ nnoremap <silent> <Leader>e
 
 " Search in the currently opened buffers.
 nnoremap <silent> <Leader>b :call g:RunFZF('Buffers')<CR>
-
-" nerdtree
-
-" Always show all files, don't ignore anything.
-let g:NERDTreeIgnore = []
-
-" Set the path to bookmarks file.
-let g:NERDTreeBookmarksFile = g:config_dir . '/.NERDTreeBookmarks'
-
-" Display hidden files by default.
-let g:NERDTreeShowHidden = 1
-
-" Sort directories first, then files.
-let g:NERDTreeSortOrder = ['\/$', '*']
-
-" Don't show annoying 'Press ? for help' banner.
-let g:NERDTreeMinimalUI = 1
-
-" Disable cascade displaying/opening of directories that have only one child.
-let g:NERDTreeCascadeSingleChildDir = 0
-let g:NERDTreeCascadeOpenSingleChildDir = 0
-
-" Quickly toggle NERDTree window.
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
-
-" Reveal the current file in NERDTree window.
-nnoremap <silent> =n :NERDTreeFind<CR>
 
 " pear-tree
 
