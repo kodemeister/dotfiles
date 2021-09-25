@@ -9,7 +9,7 @@ require('toggleterm').setup({
   end,
 
   -- Define key mapping to toggle the terminal window.
-  open_mapping = [[<C-\><C-\>]],
+  open_mapping = '<C-\\><C-\\>',
 
   -- Don't make terminal windows darker than regular windows.
   shade_terminals = false,

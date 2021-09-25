@@ -21,6 +21,8 @@ require('packer').startup(function(use)
 
   use({
     'akinsho/toggleterm.nvim',
+    cmd = 'ToggleTerm',
+    keys = '<C-\\><C-\\>',
     config = function()
       require('plugins.toggleterm')
     end
