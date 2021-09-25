@@ -8,7 +8,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'tmsvg/pear-tree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
@@ -78,8 +77,9 @@ inoremap <silent> <expr> <Tab>
 inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 
 " Confirm current completion with CR.
-imap <silent> <expr> <CR>
-    \ pumvisible() ? coc#_select_confirm() : "\<C-G>u\<Plug>(PearTreeExpand)"
+inoremap <silent> <expr> <CR>
+    \ pumvisible() ? coc#_select_confirm() :
+    \ luaeval("require('nvim-autopairs').autopairs_cr()")
 
 " Jump to previous or next diagnostic message.
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
@@ -176,21 +176,6 @@ nnoremap <silent> <Leader>e
 
 " Search in the currently opened buffers.
 nnoremap <silent> <Leader>b :call g:RunFZF('Buffers')<CR>
-
-" pear-tree
-
-" Disable repeating of brace expansion via dot command. Enabling this option
-" will erase closing braces after pressing CR.
-let g:pear_tree_repeatable_expand = 0
-
-" Try to maintain pair balance instead of always inserting opening and closing
-" characters in pairs.
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
-let g:pear_tree_smart_backspace = 1
-
-" Insert a space after the opening character and before the closing one.
-imap <Space> <Plug>(PearTreeSpace)
 
 " vim-airline
 
