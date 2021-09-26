@@ -1,13 +1,21 @@
--- Don't highlight any files with special color.
-vim.g.nvim_tree_special_files = {}
+local M = {}
 
--- Move cursor up and down as usual, don't jump to the beginning of file name.
-vim.g.nvim_tree_hijack_cursor = false
+function M.setup_settings()
+  -- Don't highlight any files with special color.
+  vim.g.nvim_tree_special_files = {}
 
--- Quickly toggle NvimTree window.
-vim.api.nvim_set_keymap('n', '<Leader>t', ':NvimTreeToggle<CR>',
-  {noremap = true, silent = true})
+  -- Initialize the plugin.
+  require('nvim-tree').setup({})
+end
 
--- Reveal currently opened file in NvimTree window.
-vim.api.nvim_set_keymap('n', '=t', ':NvimTreeFindFile<CR>',
-  {noremap = true, silent = true})
+function M.setup_mappings()
+  -- Quickly toggle NvimTree window.
+  vim.api.nvim_set_keymap('n', '<Leader>t', ':NvimTreeToggle<CR>',
+    {noremap = true, silent = true})
+
+  -- Reveal currently opened file in NvimTree window.
+  vim.api.nvim_set_keymap('n', '=t', ':NvimTreeFindFile<CR>',
+    {noremap = true, silent = true})
+end
+
+return M
