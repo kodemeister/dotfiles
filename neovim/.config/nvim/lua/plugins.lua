@@ -12,6 +12,13 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
+    'b3nj5m1n/kommentary',
+    config = function()
+      require('plugins.kommentary')
+    end
+  })
+
+  use({
     'windwp/nvim-autopairs',
     config = function()
       require('plugins.nvim-autopairs')
