@@ -45,4 +45,28 @@ require('packer').startup(function(use)
       require('plugins.toggleterm')
     end
   })
+
+  use('michaeljsmith/vim-indent-object')
+
+  use({
+    'inkarkat/vim-ReplaceWithRegister',
+    requires = 'tpope/vim-repeat'
+  })
+
+  use({
+    'tpope/vim-surround',
+    requires = 'tpope/vim-repeat'
+  })
+
+  use({
+    'kana/vim-textobj-entire',
+    requires = 'kana/vim-textobj-user'
+  })
+
+  use({
+    'tpope/vim-unimpaired',
+    requires = 'tpope/vim-repeat'
+  })
+
+  use('nelstrom/vim-visual-star-search')
 end)

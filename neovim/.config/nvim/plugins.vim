@@ -10,17 +10,10 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-repeat'
-Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'airblade/vim-rooter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'thinca/vim-visualstar'
 
 " Finish the plugin section, update runtimepath and initialize plugin system.
 call plug#end()
