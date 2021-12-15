@@ -193,7 +193,7 @@ let g:airline#extensions#wordcount#enabled = 0
 " vim-fugitive
 
 " Mappings for the most common vim-fugitive commands.
-nmap <silent> <Leader>gs :Git<CR>gg<C-N>
+nmap <silent> <Leader>gs :Git<CR>gg)
 nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
