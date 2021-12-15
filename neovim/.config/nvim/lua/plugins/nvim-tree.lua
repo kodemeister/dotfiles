@@ -5,7 +5,11 @@ function M.setup_settings()
   vim.g.nvim_tree_special_files = {}
 
   -- Initialize the plugin.
-  require('nvim-tree').setup({})
+  require('nvim-tree').setup({
+    git = {
+      ignore = false
+    }
+  })
 end
 
 function M.setup_mappings()
