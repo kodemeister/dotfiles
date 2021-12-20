@@ -2,10 +2,6 @@
 vim.o.writebackup = false
 vim.o.swapfile = false
 
--- Put unsaved buffers to background when loading new buffers without asking to
--- save the current changes first.
-vim.o.hidden = true
-
 -- Make all yank, delete, change and put operations work with system clipboard.
 vim.opt.clipboard = {'unnamedplus'}
 
@@ -17,9 +13,6 @@ vim.o.lazyredraw = true
 
 -- Ignore case in search patterns.
 vim.o.ignorecase = true
-
--- Enable live substitution.
-vim.o.inccommand = 'nosplit'
 
 -- Keep the given number of lines above and below the cursor while scrolling.
 vim.o.scrolloff = 5

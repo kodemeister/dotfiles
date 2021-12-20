@@ -47,6 +47,3 @@ vim.api.nvim_set_keymap('t', '<C-L>', '<C-\\><C-N><C-W>l', options)
 
 -- Toggle between the current and the alternate file.
 vim.api.nvim_set_keymap('n', '<Tab>', '<C-^>', options)
-
--- Make Y yank from the current cursor position to the end of the line.
-vim.api.nvim_set_keymap('n', 'Y', 'y$', options)
