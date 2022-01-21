@@ -46,6 +46,13 @@ require('packer').startup(function(use)
     end
   })
 
+  use({
+    'tpope/vim-fugitive',
+    config = function()
+      require('plugins.vim-fugitive')
+    end
+  })
+
   use('michaeljsmith/vim-indent-object')
 
   use({

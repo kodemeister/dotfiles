@@ -10,7 +10,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-rooter'
@@ -189,17 +188,6 @@ let g:airline_section_z = '%3p%% %#__accent_bold#' .
 let g:airline#extensions#po#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
-
-" vim-fugitive
-
-" Mappings for the most common vim-fugitive commands.
-nmap <silent> <Leader>gs :Git<CR>gg)
-nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
-nnoremap <silent> <Leader>gr :Gread<CR>
-nnoremap <silent> <Leader>gw :Gwrite<CR>
-nnoremap <silent> <Leader>gc :Git commit<CR>
-nnoremap <silent> <Leader>gps :Git push<CR>
-nnoremap <silent> <Leader>gpl :Git pull --rebase<CR>
 
 " vim-rooter
 
