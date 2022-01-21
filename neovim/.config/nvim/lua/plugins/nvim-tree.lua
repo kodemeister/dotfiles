@@ -7,7 +7,7 @@ function M.setup_settings()
   -- Initialize the plugin.
   require('nvim-tree').setup({
     git = {
-      ignore = false
+      enable = false
     }
   })
 end
