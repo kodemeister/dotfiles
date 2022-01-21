@@ -28,19 +28,13 @@ require('packer').startup(function(use)
   use({
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    cmd = {'NvimTreeToggle', 'NvimTreeFindFile'},
     config = function()
-      require('plugins.nvim-tree').setup_settings()
-    end,
-    setup = function()
-      require('plugins.nvim-tree').setup_mappings()
+      require('plugins.nvim-tree')
     end
   })
 
   use({
     'akinsho/toggleterm.nvim',
-    cmd = 'ToggleTerm',
-    keys = '<C-\\><C-\\>',
     config = function()
       require('plugins.toggleterm')
     end
