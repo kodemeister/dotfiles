@@ -12,9 +12,9 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
-    'b3nj5m1n/kommentary',
+    'numToStr/Comment.nvim',
     config = function()
-      require('plugins.kommentary')
+      require('plugins.Comment')
     end
   })
 
