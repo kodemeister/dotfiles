@@ -14,7 +14,7 @@ require('packer').startup(function(use)
   use({
     'numToStr/Comment.nvim',
     config = function()
-      require('plugins.Comment')
+      require('plugins.Comment-config')
     end
   })
 
@@ -22,14 +22,14 @@ require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require('plugins.gitsigns')
+      require('plugins.gitsigns-config')
     end
   })
 
   use({
     'windwp/nvim-autopairs',
     config = function()
-      require('plugins.nvim-autopairs')
+      require('plugins.nvim-autopairs-config')
     end
   })
 
@@ -37,21 +37,21 @@ require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('plugins.nvim-tree')
+      require('plugins.nvim-tree-config')
     end
   })
 
   use({
     'akinsho/toggleterm.nvim',
     config = function()
-      require('plugins.toggleterm')
+      require('plugins.toggleterm-config')
     end
   })
 
   use({
     'tpope/vim-fugitive',
     config = function()
-      require('plugins.vim-fugitive')
+      require('plugins.vim-fugitive-config')
     end
   })
 
@@ -69,7 +69,8 @@ require('packer').startup(function(use)
 
   use({
     'kana/vim-textobj-entire',
-    requires = 'kana/vim-textobj-user'
+    requires = 'kana/vim-textobj-user',
+    after = 'vim-textobj-user'
   })
 
   use({
