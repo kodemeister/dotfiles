@@ -1,49 +1,47 @@
 -- Configure the <Leader> key.
 vim.g.mapleader = ' '
 
+-- Sets a global mapping for the given mode.
+local function map(mode, lhs, rhs, opts)
+  local default_opts = {noremap = true, silent = true}
+  opts = vim.tbl_extend('force', default_opts, opts or {})
+  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+end
+
 -- Quickly open configuration files.
 local config_dir = vim.fn.fnameescape(vim.fn.stdpath('config'))
-local options = {noremap = true, silent = true}
-vim.api.nvim_set_keymap('n', '<Leader>ve', ':edit ' .. config_dir ..
-  '/init.lua<CR>', options)
-vim.api.nvim_set_keymap('n', '<Leader>vm', ':edit ' .. config_dir ..
-  '/lua/mappings.lua<CR>', options)
-vim.api.nvim_set_keymap('n', '<Leader>vp', ':edit ' .. config_dir ..
-  '/lua/plugins.lua<CR>', options)
-vim.api.nvim_set_keymap('n', '<Leader>vs', ':edit ' .. config_dir ..
-  '/lua/settings.lua<CR>', options)
+map('n', '<Leader>ve', ':edit ' .. config_dir .. '/init.lua<CR>')
+map('n', '<Leader>vm', ':edit ' .. config_dir .. '/lua/mappings.lua<CR>')
+map('n', '<Leader>vp', ':edit ' .. config_dir .. '/lua/plugins.lua<CR>')
+map('n', '<Leader>vs', ':edit ' .. config_dir .. '/lua/settings.lua<CR>')
 
 -- Fast saving.
-vim.api.nvim_set_keymap('n', '<Leader>w', ':write<CR>', options)
+map('n', '<Leader>w', ':write<CR>')
 
 -- Clear the last search highlighting.
-vim.api.nvim_set_keymap('n', '<Leader><Space>', ':nohlsearch<CR>', options)
+map('n', '<Leader><Space>', ':nohlsearch<CR>')
 
 -- Jump to the current error in quickfix or location list.
-vim.api.nvim_set_keymap('n', '=q', ':cc<CR>', options)
-vim.api.nvim_set_keymap('n', '=l', ':ll<CR>', options)
+map('n', '=q', ':cc<CR>')
+map('n', '=l', ':ll<CR>')
 
 -- Move cursor up/down by screen lines when wrapping the text.
-vim.api.nvim_set_keymap('n', 'j', [[v:count == 0 ? 'gj' : 'j']],
-  {noremap = true, expr = true})
-vim.api.nvim_set_keymap('n', 'k', [[v:count == 0 ? 'gk' : 'k']],
-  {noremap = true, expr = true})
-vim.api.nvim_set_keymap('n', '<Down>', [[v:count == 0 ? 'gj' : 'j']],
-  {noremap = true, expr = true})
-vim.api.nvim_set_keymap('n', '<Up>', [[v:count == 0 ? 'gk' : 'k']],
-  {noremap = true, expr = true})
+map('n', 'j', [[v:count == 0 ? 'gj' : 'j']], {expr = true})
+map('n', 'k', [[v:count == 0 ? 'gk' : 'k']], {expr = true})
+map('n', '<Down>', [[v:count == 0 ? 'gj' : 'j']], {expr = true})
+map('n', '<Up>', [[v:count == 0 ? 'gk' : 'k']], {expr = true})
 
 -- Easy navigation between windows.
-vim.api.nvim_set_keymap('n', '<C-H>', '<C-W>h', options)
-vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>j', options)
-vim.api.nvim_set_keymap('n', '<C-K>', '<C-W>k', options)
-vim.api.nvim_set_keymap('n', '<C-L>', '<C-W>l', options)
+map('n', '<C-H>', '<C-W>h')
+map('n', '<C-J>', '<C-W>j')
+map('n', '<C-K>', '<C-W>k')
+map('n', '<C-L>', '<C-W>l')
 
 -- Easy navigation between terminal windows.
-vim.api.nvim_set_keymap('t', '<C-H>', '<C-\\><C-N><C-W>h', options)
-vim.api.nvim_set_keymap('t', '<C-J>', '<C-\\><C-N><C-W>j', options)
-vim.api.nvim_set_keymap('t', '<C-K>', '<C-\\><C-N><C-W>k', options)
-vim.api.nvim_set_keymap('t', '<C-L>', '<C-\\><C-N><C-W>l', options)
+map('t', '<C-H>', '<C-\\><C-N><C-W>h')
+map('t', '<C-J>', '<C-\\><C-N><C-W>j')
+map('t', '<C-K>', '<C-\\><C-N><C-W>k')
+map('t', '<C-L>', '<C-\\><C-N><C-W>l')
 
 -- Toggle between the current and the alternate file.
-vim.api.nvim_set_keymap('n', '<Tab>', '<C-^>', options)
+map('n', '<Tab>', '<C-^>')
