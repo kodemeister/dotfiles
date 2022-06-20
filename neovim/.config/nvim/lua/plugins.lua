@@ -13,28 +13,27 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
-    'numToStr/Comment.nvim',
+    'echasnovski/mini.nvim',
     config = function()
-      require('plugins.Comment-config')
+      require('mini.comment').setup({})
+      require('mini.pairs').setup({})
+      require('mini.statusline').setup({})
+      require('mini.surround').setup({
+        mappings = {
+          add = 'ys',
+          delete = 'ds',
+          find = '',
+          find_left = '',
+          highlight = '',
+          replace = 'cs',
+          update_n_lines = ''
+        }
+      })
     end
   })
-
-  use({
-    'windwp/nvim-autopairs',
-    config = function()
-      require('plugins.nvim-autopairs-config')
-    end
-  })
-
-  use('michaeljsmith/vim-indent-object')
 
   use({
     'inkarkat/vim-ReplaceWithRegister',
-    requires = 'tpope/vim-repeat'
-  })
-
-  use({
-    'tpope/vim-surround',
     requires = 'tpope/vim-repeat'
   })
 
