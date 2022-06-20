@@ -50,6 +50,8 @@ require('packer').startup(function(use)
 
   use('nelstrom/vim-visual-star-search')
 
+  use('Mofiqul/vscode.nvim')
+
   if packer_bootstrap then
     require('packer').sync()
   end

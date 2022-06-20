@@ -35,7 +35,7 @@ vim.o.pumheight = 10
 vim.o.updatetime = 250
 
 -- Set some eye candy color scheme.
-vim.cmd('colorscheme hybrid-dark')
+vim.cmd('colorscheme vscode')
 
 -- Configure the cursor shape.
 vim.opt.guicursor = {
