@@ -13,11 +13,22 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
+    'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('lualine').setup({
+        options = {
+          theme = 'codedark'
+        }
+      })
+    end
+  })
+
+  use({
     'echasnovski/mini.nvim',
     config = function()
       require('mini.comment').setup({})
       require('mini.pairs').setup({})
-      require('mini.statusline').setup({})
       require('mini.surround').setup({
         mappings = {
           add = 'ys',
