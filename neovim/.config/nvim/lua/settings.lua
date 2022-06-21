@@ -34,9 +34,6 @@ vim.o.pumheight = 10
 -- Reduce the timeout used for the CursorHold autocommand event.
 vim.o.updatetime = 250
 
--- Set some eye candy color scheme.
-vim.cmd('colorscheme vscode')
-
 -- Configure the cursor shape.
 vim.opt.guicursor = {
   'n-v-c-sm-o:block',

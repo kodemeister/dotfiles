@@ -50,8 +50,7 @@ require('packer').startup(function(use)
 
   use({
     'kana/vim-textobj-entire',
-    requires = 'kana/vim-textobj-user',
-    after = 'vim-textobj-user'
+    requires = 'kana/vim-textobj-user'
   })
 
   use({
@@ -61,7 +60,12 @@ require('packer').startup(function(use)
 
   use('nelstrom/vim-visual-star-search')
 
-  use('Mofiqul/vscode.nvim')
+  use({
+    'Mofiqul/vscode.nvim',
+    config = function()
+      vim.cmd('colorscheme vscode')
+    end
+  })
 
   if packer_bootstrap then
     require('packer').sync()
