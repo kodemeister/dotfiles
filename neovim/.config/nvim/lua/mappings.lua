@@ -3,9 +3,9 @@ vim.g.mapleader = ' '
 
 -- Sets a global mapping for the given mode.
 local function map(mode, lhs, rhs, opts)
-  local default_opts = {noremap = true, silent = true}
+  local default_opts = {silent = true}
   opts = vim.tbl_extend('force', default_opts, opts or {})
-  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- Quickly open configuration files.
@@ -20,10 +20,6 @@ map('n', '<Leader>w', ':write<CR>')
 
 -- Clear the last search highlighting.
 map('n', '<Leader><Space>', ':nohlsearch<CR>')
-
--- Jump to the current error in quickfix or location list.
-map('n', '=q', ':cc<CR>')
-map('n', '=l', ':ll<CR>')
 
 -- Move cursor up/down by screen lines when wrapping the text.
 map('n', 'j', [[v:count == 0 ? 'gj' : 'j']], {expr = true})
