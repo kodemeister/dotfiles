@@ -1,3 +1,11 @@
+-- Disable annoying terminal bells.
 bellStyle: NoBell
+
+-- Increase the maximum history size.
+maxHistorySize: Just 1000
+
+-- Use vi-style key bindings.
 editMode: Vi
+
+-- Remove duplicated lines from the history.
 historyDuplicates: IgnoreAll
