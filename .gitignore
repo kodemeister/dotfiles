@@ -1,6 +1,3 @@
-/fonts/.local/share/fonts/.uuid
-
 /ghci/.ghc/*/package.conf.d/
 /ghci/.ghc/ghci_history
-
 /neovim/.config/nvim/plugin/packer_compiled.lua
