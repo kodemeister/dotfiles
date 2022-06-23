@@ -1,5 +1,6 @@
 /fish/.config/fish/functions/fundle.fish
 /fish/.config/fish/fundle/
+/fish/.config/fish/fish_variables
 
 /ghci/.ghc/*/package.conf.d/
 /ghci/.ghc/ghci_history
