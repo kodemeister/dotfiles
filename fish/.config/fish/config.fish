@@ -17,4 +17,6 @@ if not functions -q fundle
 end
 
 # Declare the required plugins.
+fundle plugin jorgebucaran/autopair.fish
+fundle plugin patrickf1/colored_man_pages.fish
 fundle init
