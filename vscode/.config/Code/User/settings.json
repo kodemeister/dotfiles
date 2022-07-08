@@ -1,5 +1,4 @@
 {
-    "C_Cpp.autocompleteAddParentheses": true,
     "cmake.configureOnOpen": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.copyWithSyntaxHighlighting": false,
@@ -19,7 +18,6 @@
     "files.hotExit": "off",
     "files.insertFinalNewline": true,
     "git.allowForcePush": true,
-    "python.analysis.completeFunctionParens": true,
     "python.formatting.provider": "black",
     "python.linting.pylintEnabled": true,
     "telemetry.telemetryLevel": "off",
