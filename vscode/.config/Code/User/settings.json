@@ -18,6 +18,8 @@
     "files.hotExit": "off",
     "files.insertFinalNewline": true,
     "git.allowForcePush": true,
+    "haskell.manageHLS": "GHCup",
+    "haskell.plugin.ghcide-completions.config.snippetsOn": false,
     "python.formatting.provider": "black",
     "python.linting.pylintEnabled": true,
     "telemetry.telemetryLevel": "off",
