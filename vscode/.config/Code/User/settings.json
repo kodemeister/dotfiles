@@ -1,202 +1,202 @@
 {
-    "cmake.configureOnOpen": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.copyWithSyntaxHighlighting": false,
-    "editor.cursorBlinking": "solid",
-    "editor.cursorSurroundingLines": 5,
-    "editor.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.fontSize": 19,
-    "editor.formatOnSave": true,
-    "editor.guides.indentation": false,
-    "editor.lineHeight": 24,
-    "editor.lineNumbers": "relative",
-    "editor.minimap.enabled": false,
-    "editor.parameterHints.cycle": true,
-    "editor.renderWhitespace": "all",
-    "extensions.ignoreRecommendations": true,
-    "files.enableTrash": false,
-    "files.hotExit": "off",
-    "files.insertFinalNewline": true,
-    "git.allowForcePush": true,
-    "haskell.manageHLS": "GHCup",
-    "haskell.plugin.ghcide-completions.config.snippetsOn": false,
-    "python.formatting.provider": "black",
-    "python.linting.pylintEnabled": true,
-    "telemetry.telemetryLevel": "off",
-    "terminal.integrated.defaultProfile.linux": "fish",
-    "typescript.surveys.enabled": false,
-    "vim.hlsearch": true,
-    "vim.leader": "<Space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "Y"
-            ],
-            "after": [
-                "y",
-                "$"
-            ]
-        },
-        {
-            "before": [
-                "<Tab>"
-            ],
-            "after": [
-                "C-^"
-            ]
-        },
-        {
-            "before": [
-                "[",
-                "<Space>"
-            ],
-            "after": [
-                "O",
-                "<Esc>",
-                "j",
-                "0"
-            ]
-        },
-        {
-            "before": [
-                "]",
-                "<Space>"
-            ],
-            "after": [
-                "o",
-                "<Esc>",
-                "k",
-                "0"
-            ]
-        },
-        {
-            "before": [
-                "[",
-                "b"
-            ],
-            "commands": [
-                "workbench.action.previousEditor"
-            ]
-        },
-        {
-            "before": [
-                "]",
-                "b"
-            ],
-            "commands": [
-                "workbench.action.nextEditor"
-            ]
-        },
-        {
-            "before": [
-                "[",
-                "e"
-            ],
-            "commands": [
-                "editor.action.moveLinesUpAction"
-            ]
-        },
-        {
-            "before": [
-                "]",
-                "e"
-            ],
-            "commands": [
-                "editor.action.moveLinesDownAction"
-            ]
-        },
-        {
-            "before": [
-                "<Leader>",
-                "<Leader>"
-            ],
-            "commands": [
-                ":nohl",
-            ]
-        },
-        {
-            "before": [
-                "<Leader>",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.files.save"
-            ]
-        },
-        {
-            "before": [
-                "<Leader>",
-                "<Tab>"
-            ],
-            "commands": [
-                "C_Cpp.SwitchHeaderSource"
-            ]
-        }
-    ],
-    "vim.replaceWithRegister": true,
-    "vim.smartcase": false,
-    "vim.startofline": false,
-    "vim.useSystemClipboard": true,
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "[",
-                "e"
-            ],
-            "commands": [
-                "editor.action.moveLinesUpAction"
-            ]
-        },
-        {
-            "before": [
-                "]",
-                "e"
-            ],
-            "commands": [
-                "editor.action.moveLinesDownAction"
-            ]
-        }
-    ],
-    "vim.visualstar": true,
-    "workbench.enableExperiments": false,
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "[cabal]": {
-        "editor.tabSize": 2
+  "cmake.configureOnOpen": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSurroundingLines": 5,
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.fontSize": 19,
+  "editor.formatOnSave": true,
+  "editor.guides.indentation": false,
+  "editor.lineHeight": 24,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.parameterHints.cycle": true,
+  "editor.renderWhitespace": "all",
+  "extensions.ignoreRecommendations": true,
+  "files.enableTrash": false,
+  "files.hotExit": "off",
+  "files.insertFinalNewline": true,
+  "git.allowForcePush": true,
+  "haskell.manageHLS": "GHCup",
+  "haskell.plugin.ghcide-completions.config.snippetsOn": false,
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": true,
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "typescript.surveys.enabled": false,
+  "vim.hlsearch": true,
+  "vim.leader": "<Space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
     },
-    "[css]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "<Tab>"
+      ],
+      "after": [
+        "C-^"
+      ]
     },
-    "[haskell]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "[",
+        "<Space>"
+      ],
+      "after": [
+        "O",
+        "<Esc>",
+        "j",
+        "0"
+      ]
     },
-    "[html]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "]",
+        "<Space>"
+      ],
+      "after": [
+        "o",
+        "<Esc>",
+        "k",
+        "0"
+      ]
     },
-    "[javascript]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "[",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
     },
-    "[javascriptreact]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "]",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
     },
-    "[json]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "[",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
     },
-    "[jsonc]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "]",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
     },
-    "[shellscript]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "<Leader>",
+        "<Leader>"
+      ],
+      "commands": [
+        ":nohl",
+      ]
     },
-    "[toml]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "<Leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
     },
-    "[typescript]": {
-        "editor.tabSize": 2
-    },
-    "[typescriptreact]": {
-        "editor.tabSize": 2
-    },
-    "[xml]": {
-        "editor.tabSize": 2
+    {
+      "before": [
+        "<Leader>",
+        "<Tab>"
+      ],
+      "commands": [
+        "C_Cpp.SwitchHeaderSource"
+      ]
     }
+  ],
+  "vim.replaceWithRegister": true,
+  "vim.smartcase": false,
+  "vim.startofline": false,
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "[",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
+    }
+  ],
+  "vim.visualstar": true,
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "[cabal]": {
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.tabSize": 2
+  },
+  "[haskell]": {
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2
+  },
+  "[shellscript]": {
+    "editor.tabSize": 2
+  },
+  "[toml]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
+  "[xml]": {
+    "editor.tabSize": 2
+  }
 }
