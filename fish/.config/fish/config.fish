@@ -4,7 +4,7 @@ set -x VISUAL nvim
 set -x PAGER less
 
 # Add user-wide bin directories to $fish_user_paths if they exist.
-fish_add_path -g ~/.cabal/bin ~/.ghcup/bin ~/.local/bin ~/bin
+fish_add_path -g ~/.local/bin ~/bin
 
 # Suppress the greeting message.
 set fish_greeting
@@ -33,3 +33,19 @@ fundle plugin jorgebucaran/autopair.fish
 fundle plugin patrickf1/colored_man_pages.fish
 fundle plugin IlanCosman/tide@v5
 fundle init
+
+# Define XDG variables.
+set -q XDG_CONFIG_HOME || set -g XDG_CONFIG_HOME ~/.config
+set -q XDG_CACHE_HOME || set -g XDG_CACHE_HOME ~/.cache
+set -q XDG_DATA_HOME || set -g XDG_DATA_HOME ~/.local/share
+set -q XDG_STATE_HOME || set -g XDG_STATE_HOME ~/.local/state
+
+# Force GHCup to use XDG style directories.
+set -x GHCUP_USE_XDG_DIRS 1
+
+# Force Cabal to use XDG style directories.
+set -x CABAL_CONFIG $XDG_CONFIG_HOME/cabal/config
+set -x CABAL_DIR $XDG_DATA_HOME/cabal
+
+# Force Stack to use XDG style directories.
+set -x STACK_ROOT $XDG_DATA_HOME/stack
