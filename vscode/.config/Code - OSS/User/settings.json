@@ -1,5 +1,4 @@
 {
-  "cmake.configureOnOpen": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorBlinking": "solid",
@@ -121,15 +120,6 @@
       ],
       "commands": [
         "workbench.action.files.save"
-      ]
-    },
-    {
-      "before": [
-        "<Leader>",
-        "<Tab>"
-      ],
-      "commands": [
-        "C_Cpp.SwitchHeaderSource"
       ]
     }
   ],
