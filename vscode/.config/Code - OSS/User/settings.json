@@ -24,6 +24,7 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "fish",
   "typescript.surveys.enabled": false,
+  "update.mode": "none",
   "vim.hlsearch": true,
   "vim.leader": "<Space>",
   "vim.normalModeKeyBindingsNonRecursive": [
