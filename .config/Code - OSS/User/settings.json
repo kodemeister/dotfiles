@@ -7,12 +7,10 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 19,
   "editor.formatOnSave": true,
-  "editor.guides.indentation": false,
   "editor.lineHeight": 24,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.parameterHints.cycle": true,
-  "editor.renderWhitespace": "all",
   "extensions.ignoreRecommendations": true,
   "files.enableTrash": false,
   "files.hotExit": "off",
@@ -151,6 +149,15 @@
     }
   ],
   "vim.visualstar": true,
+  "workbench.colorCustomizations": {
+    "[GitHub Light Default]": {
+      "editorCursor.background": "#ffffff",
+      "editorCursor.foreground": "#044289",
+      "terminalCursor.background": "#ffffff",
+      "terminalCursor.foreground": "#044289"
+    }
+  },
+  "workbench.colorTheme": "GitHub Light Default",
   "workbench.enableExperiments": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "[cabal]": {
