@@ -19,7 +19,9 @@ set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
 # Advertise itself as a VTE-based terminal for cursor shapes to work.
-set -x VTE_VERSION 6800
+if not set -q VTE_VERSION
+  set -x VTE_VERSION 7000
+end
 
 # Define useful key bindings for Vi mode.
 bind -M insert \cy accept-autosuggestion
