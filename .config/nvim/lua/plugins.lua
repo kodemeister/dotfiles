@@ -13,12 +13,22 @@ require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
 
   use({
+    'projekt0n/github-nvim-theme',
+    config = function()
+      require('github-theme').setup({
+        theme_style = 'light_default'
+      })
+    end
+  })
+
+  use({
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
+    after = 'github-nvim-theme',
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'codedark'
+          theme = 'github_light_default'
         }
       })
     end
@@ -59,13 +69,6 @@ require('packer').startup(function(use)
   })
 
   use('nelstrom/vim-visual-star-search')
-
-  use({
-    'Mofiqul/vscode.nvim',
-    config = function()
-      vim.cmd('colorscheme vscode')
-    end
-  })
 
   if packer_bootstrap then
     require('packer').sync()

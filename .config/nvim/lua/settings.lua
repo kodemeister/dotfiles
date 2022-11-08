@@ -53,10 +53,6 @@ vim.o.relativenumber = true
 -- Highlight the line containing the cursor.
 vim.o.cursorline = true
 
--- Enable list mode, show whitespace characters.
-vim.o.list = true
-vim.opt.listchars = {tab = '» ', space = '·', extends = '>', precedes = '<'}
-
 -- Don't show the current mode on the last line.
 vim.o.showmode = false
 
