@@ -3,6 +3,11 @@ set -x EDITOR nvim
 set -x VISUAL nvim
 set -x PAGER less
 
+# Create XDG style directories.
+if not test -d $XDG_STATE_HOME/bash
+  mkdir -p $XDG_STATE_HOME/bash
+end
+
 # Suppress the greeting message.
 set fish_greeting
 
