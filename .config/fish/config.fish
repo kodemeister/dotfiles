@@ -3,9 +3,6 @@ set -x EDITOR nvim
 set -x VISUAL nvim
 set -x PAGER less
 
-# Add user-wide bin directories to $fish_user_paths if they exist.
-fish_add_path -g ~/.local/bin ~/bin
-
 # Suppress the greeting message.
 set fish_greeting
 
