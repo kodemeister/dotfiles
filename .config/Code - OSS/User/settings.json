@@ -28,99 +28,44 @@
   "vim.leader": "<Space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "Y"
-      ],
-      "after": [
-        "y",
-        "$"
-      ]
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
     {
-      "before": [
-        "<Tab>"
-      ],
-      "after": [
-        "C-^"
-      ]
+      "before": ["<Tab>"],
+      "after": ["C-^"]
     },
     {
-      "before": [
-        "[",
-        "<Space>"
-      ],
-      "after": [
-        "O",
-        "<Esc>",
-        "j",
-        "0"
-      ]
+      "before": ["[", "<Space>"],
+      "after": ["O", "<Esc>", "j", "0"]
     },
     {
-      "before": [
-        "]",
-        "<Space>"
-      ],
-      "after": [
-        "o",
-        "<Esc>",
-        "k",
-        "0"
-      ]
+      "before": ["]", "<Space>"],
+      "after": ["o", "<Esc>", "k", "0"]
     },
     {
-      "before": [
-        "[",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
+      "before": ["[", "b"],
+      "commands": ["workbench.action.previousEditor"]
     },
     {
-      "before": [
-        "]",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
+      "before": ["]", "b"],
+      "commands": ["workbench.action.nextEditor"]
     },
     {
-      "before": [
-        "[",
-        "e"
-      ],
-      "commands": [
-        "editor.action.moveLinesUpAction"
-      ]
+      "before": ["[", "e"],
+      "commands": ["editor.action.moveLinesUpAction"]
     },
     {
-      "before": [
-        "]",
-        "e"
-      ],
-      "commands": [
-        "editor.action.moveLinesDownAction"
-      ]
+      "before": ["]", "e"],
+      "commands": ["editor.action.moveLinesDownAction"]
     },
     {
-      "before": [
-        "<Leader>",
-        "<Leader>"
-      ],
-      "commands": [
-        ":nohl",
-      ]
+      "before": ["<Leader>", "<Leader>"],
+      "commands": [":nohl"]
     },
     {
-      "before": [
-        "<Leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.files.save"
-      ]
+      "before": ["<Leader>", "w"],
+      "commands": ["workbench.action.files.save"]
     }
   ],
   "vim.replaceWithRegister": true,
@@ -129,22 +74,12 @@
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "[",
-        "e"
-      ],
-      "commands": [
-        "editor.action.moveLinesUpAction"
-      ]
+      "before": ["[", "e"],
+      "commands": ["editor.action.moveLinesUpAction"]
     },
     {
-      "before": [
-        "]",
-        "e"
-      ],
-      "commands": [
-        "editor.action.moveLinesDownAction"
-      ]
+      "before": ["]", "e"],
+      "commands": ["editor.action.moveLinesDownAction"]
     }
   ],
   "vim.visualstar": true,
@@ -163,24 +98,30 @@
     "editor.tabSize": 2
   },
   "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[haskell]": {
     "editor.tabSize": 2
   },
   "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[shellscript]": {
@@ -190,9 +131,11 @@
     "editor.tabSize": 2
   },
   "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 2
   },
   "[xml]": {
