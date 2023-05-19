@@ -52,6 +52,20 @@
       "commands": ["workbench.action.nextEditor"]
     },
     {
+      "before": ["[", "c"],
+      "commands": [
+        "workbench.action.editor.previousChange",
+        "workbench.action.compareEditor.previousChange"
+      ]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": [
+        "workbench.action.editor.nextChange",
+        "workbench.action.compareEditor.nextChange"
+      ]
+    },
+    {
       "before": ["[", "e"],
       "commands": ["editor.action.moveLinesUpAction"]
     },
@@ -66,6 +80,24 @@
     {
       "before": ["<Leader>", "w"],
       "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<C-H>"],
+      "after": ["<C-W>", "h"],
+      "commands": ["workbench.action.compareEditor.focusSecondarySide"]
+    },
+    {
+      "before": ["<C-J>"],
+      "after": ["<C-W>", "j"]
+    },
+    {
+      "before": ["<C-K>"],
+      "after": ["<C-W>", "k"]
+    },
+    {
+      "before": ["<C-L>"],
+      "after": ["<C-W>", "l"],
+      "commands": ["workbench.action.compareEditor.focusPrimarySide"]
     }
   ],
   "vim.replaceWithRegister": true,
