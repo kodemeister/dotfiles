@@ -29,92 +29,112 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["Y"],
-      "after": ["y", "$"]
+      "after": ["y", "$"],
+      "silent": true
     },
     {
       "before": ["<Tab>"],
-      "after": ["C-^"]
+      "after": ["C-^"],
+      "silent": true
     },
     {
       "before": ["[", "<Space>"],
-      "after": ["O", "<Esc>", "j", "0"]
+      "after": ["O", "<Esc>", "j", "0"],
+      "silent": true
     },
     {
       "before": ["]", "<Space>"],
-      "after": ["o", "<Esc>", "k", "0"]
+      "after": ["o", "<Esc>", "k", "0"],
+      "silent": true
     },
     {
       "before": ["[", "b"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
+      "silent": true
     },
     {
       "before": ["]", "b"],
-      "commands": ["workbench.action.nextEditor"]
+      "commands": ["workbench.action.nextEditor"],
+      "silent": true
     },
     {
       "before": ["[", "c"],
       "commands": [
         "workbench.action.editor.previousChange",
         "workbench.action.compareEditor.previousChange"
-      ]
+      ],
+      "silent": true
     },
     {
       "before": ["]", "c"],
       "commands": [
         "workbench.action.editor.nextChange",
         "workbench.action.compareEditor.nextChange"
-      ]
+      ],
+      "silent": true
     },
     {
       "before": ["[", "e"],
-      "commands": ["editor.action.moveLinesUpAction"]
+      "commands": ["editor.action.moveLinesUpAction"],
+      "silent": true
     },
     {
       "before": ["]", "e"],
-      "commands": ["editor.action.moveLinesDownAction"]
+      "commands": ["editor.action.moveLinesDownAction"],
+      "silent": true
     },
     {
       "before": ["[", "q"],
-      "commands": ["search.action.focusPreviousSearchResult"]
+      "commands": ["search.action.focusPreviousSearchResult"],
+      "silent": true
     },
     {
       "before": ["]", "q"],
-      "commands": ["search.action.focusNextSearchResult"]
+      "commands": ["search.action.focusNextSearchResult"],
+      "silent": true
     },
     {
       "before": ["<Leader>", "<Leader>"],
-      "commands": [":nohl"]
+      "commands": [":nohl"],
+      "silent": true
     },
     {
       "before": ["<Leader>", "w"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
+      "silent": true
     },
     {
       "before": ["<Leader>", "/"],
-      "commands": ["workbench.action.findInFiles"]
+      "commands": ["workbench.action.findInFiles"],
+      "silent": true
     },
     {
       "before": ["<Leader>", "*"],
       "after": ["v", "i", "w"],
-      "commands": ["workbench.action.findInFiles"]
+      "commands": ["workbench.action.findInFiles"],
+      "silent": true
     },
     {
       "before": ["<C-H>"],
       "after": ["<C-W>", "h"],
-      "commands": ["workbench.action.compareEditor.focusSecondarySide"]
+      "commands": ["workbench.action.compareEditor.focusSecondarySide"],
+      "silent": true
     },
     {
       "before": ["<C-J>"],
-      "after": ["<C-W>", "j"]
+      "after": ["<C-W>", "j"],
+      "silent": true
     },
     {
       "before": ["<C-K>"],
-      "after": ["<C-W>", "k"]
+      "after": ["<C-W>", "k"],
+      "silent": true
     },
     {
       "before": ["<C-L>"],
       "after": ["<C-W>", "l"],
-      "commands": ["workbench.action.compareEditor.focusPrimarySide"]
+      "commands": ["workbench.action.compareEditor.focusPrimarySide"],
+      "silent": true
     }
   ],
   "vim.replaceWithRegister": true,
@@ -124,15 +144,18 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["[", "e"],
-      "commands": ["editor.action.moveLinesUpAction"]
+      "commands": ["editor.action.moveLinesUpAction"],
+      "silent": true
     },
     {
       "before": ["]", "e"],
-      "commands": ["editor.action.moveLinesDownAction"]
+      "commands": ["editor.action.moveLinesDownAction"],
+      "silent": true
     },
     {
       "before": ["<Leader>", "*"],
-      "commands": ["workbench.action.findInFiles"]
+      "commands": ["workbench.action.findInFiles"],
+      "silent": true
     }
   ],
   "vim.visualstar": true,
