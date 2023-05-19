@@ -74,12 +74,29 @@
       "commands": ["editor.action.moveLinesDownAction"]
     },
     {
+      "before": ["[", "q"],
+      "commands": ["search.action.focusPreviousSearchResult"]
+    },
+    {
+      "before": ["]", "q"],
+      "commands": ["search.action.focusNextSearchResult"]
+    },
+    {
       "before": ["<Leader>", "<Leader>"],
       "commands": [":nohl"]
     },
     {
       "before": ["<Leader>", "w"],
       "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<Leader>", "/"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<Leader>", "*"],
+      "after": ["v", "i", "w"],
+      "commands": ["workbench.action.findInFiles"]
     },
     {
       "before": ["<C-H>"],
@@ -112,6 +129,10 @@
     {
       "before": ["]", "e"],
       "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["<Leader>", "*"],
+      "commands": ["workbench.action.findInFiles"]
     }
   ],
   "vim.visualstar": true,
