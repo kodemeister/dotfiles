@@ -1,0 +1,12 @@
+[user]
+	name = Arthur Kasimov
+	email = kodemeister@outlook.com
+[core]
+	autocrlf = input
+	safecrlf = true
+[push]
+	default = simple
+[pull]
+	ff = only
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
