@@ -15,9 +15,8 @@ require('packer').startup(function(use)
   use({
     'projekt0n/github-nvim-theme',
     config = function()
-      require('github-theme').setup({
-        theme_style = 'light_default'
-      })
+      require('github-theme').setup({})
+      vim.cmd('colorscheme github_dark')
     end
   })
 
@@ -28,7 +27,7 @@ require('packer').startup(function(use)
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'github_light_default'
+          theme = 'github_dark'
         }
       })
     end
