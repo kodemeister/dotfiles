@@ -1,7 +1,12 @@
-/.config/fish/functions/fundle.fish
-/.config/fish/fundle/
-/.config/fish/fish_variables
+/vscode/.config/Code/*
+!/vscode/.config/Code/User/
+/vscode/.config/Code/User/*
+!/vscode/.config/Code/User/settings.json
 
-/.config/ghc/ghci_history
+/fish/.config/fish/functions/fundle.fish
+/fish/.config/fish/fundle/
+/fish/.config/fish/fish_variables
 
-/.config/nvim/plugin/packer_compiled.lua
+/ghc/.config/ghc/ghci_history
+
+/neovim/.config/nvim/plugin/packer_compiled.lua
