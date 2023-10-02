@@ -1,4 +1,5 @@
 {
+  // General settings.
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.cursorBlinking": "solid",
@@ -14,17 +15,94 @@
   "files.enableTrash": false,
   "files.hotExit": "off",
   "files.insertFinalNewline": true,
-  "git.allowForcePush": true,
-  "haskell.plugin.ghcide-completions.config.snippetsOn": false,
-  "python.formatting.provider": "black",
-  "python.linting.pylintEnabled": true,
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.defaultProfile.linux": "fish",
-  "typescript.surveys.enabled": false,
   "update.mode": "none",
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+
+  // Color theme.
+  "workbench.colorTheme": "GitHub Light Default",
+  "workbench.colorCustomizations": {
+    "[GitHub Light Default]": {
+      "editorCursor.background": "#ffffff",
+      "editorCursor.foreground": "#044289",
+      "terminalCursor.background": "#ffffff",
+      "terminalCursor.foreground": "#044289"
+    }
+  },
+
+  // Language-specific settings.
+  "[cabal]": {
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[haskell]": {
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[shellscript]": {
+    "editor.tabSize": 2
+  },
+  "[toml]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[xml]": {
+    "editor.tabSize": 2
+  },
+
+  // Git.
+  "git.allowForcePush": true,
+
+  // Haskell.
+  "haskell.plugin.ghcide-completions.config.snippetsOn": false,
+
+  // Python.
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": true,
+
+  // Typescript.
+  "typescript.surveys.enabled": false,
+
+  // Vim.
   "vim.hlsearch": true,
   "vim.leader": "<Space>",
+  "vim.replaceWithRegister": true,
+  "vim.smartcase": false,
+  "vim.startofline": false,
+  "vim.useSystemClipboard": true,
+  "vim.visualstar": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["Y"],
@@ -136,10 +214,6 @@
       "silent": true
     }
   ],
-  "vim.replaceWithRegister": true,
-  "vim.smartcase": false,
-  "vim.startofline": false,
-  "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["[", "e"],
@@ -156,64 +230,5 @@
       "commands": ["workbench.action.findInFiles"],
       "silent": true
     }
-  ],
-  "vim.visualstar": true,
-  "workbench.colorCustomizations": {
-    "[GitHub Light Default]": {
-      "editorCursor.background": "#ffffff",
-      "editorCursor.foreground": "#044289",
-      "terminalCursor.background": "#ffffff",
-      "terminalCursor.foreground": "#044289"
-    }
-  },
-  "workbench.colorTheme": "GitHub Light Default",
-  "workbench.enableExperiments": false,
-  "workbench.settings.enableNaturalLanguageSearch": false,
-  "[cabal]": {
-    "editor.tabSize": 2
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[haskell]": {
-    "editor.tabSize": 2
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[shellscript]": {
-    "editor.tabSize": 2
-  },
-  "[toml]": {
-    "editor.tabSize": 2
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
-  },
-  "[xml]": {
-    "editor.tabSize": 2
-  }
+  ]
 }
