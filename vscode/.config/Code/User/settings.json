@@ -92,6 +92,9 @@
   "python.formatting.provider": "black",
   "python.linting.pylintEnabled": true,
 
+  // shell-format.
+  "shellformat.flag": "--indent=2 --case-indent --binary-next-line",
+
   // Typescript.
   "typescript.surveys.enabled": false,
 
