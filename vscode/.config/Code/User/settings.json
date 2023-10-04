@@ -35,17 +35,21 @@
 
   // Language-specific settings.
   "[cabal][haskell]": {
+    "editor.rulers": [80],
     "editor.tabSize": 2
   },
   "[css][html][json][jsonc][less][scss][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
     "editor.tabSize": 2
   },
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
     "editor.tabSize": 2
   },
   "[shellscript]": {
+    "editor.rulers": [80],
     "editor.tabSize": 2
   },
   "[toml]": {
