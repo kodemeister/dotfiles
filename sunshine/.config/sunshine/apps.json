@@ -1,0 +1,24 @@
+{
+    "env": "",
+    "apps": [
+        {
+            "name": "Desktop",
+            "image-path": "desktop.png",
+            "exclude-global-prep-cmd": "false",
+            "auto-detach": "true"
+        },
+        {
+            "name": "Steam",
+            "cmd": "steam -gamepadui",
+            "prep-cmd": [
+                {
+                    "do": "$(HOME)\/.config\/sunshine\/session.sh started",
+                    "undo": "$(HOME)\/.config\/sunshine\/session.sh stopped"
+                }
+            ],
+            "image-path": "steam.png",
+            "exclude-global-prep-cmd": "false",
+            "auto-detach": "true"
+        }
+    ]
+}

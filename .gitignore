@@ -1,8 +1,3 @@
-/vscode/.config/Code/*
-!/vscode/.config/Code/User/
-/vscode/.config/Code/User/*
-!/vscode/.config/Code/User/settings.json
-
 /fish/.config/fish/functions/fundle.fish
 /fish/.config/fish/fundle/
 /fish/.config/fish/fish_variables
@@ -10,3 +5,12 @@
 /ghc/.config/ghc/ghci_history
 
 /neovim/.config/nvim/plugin/packer_compiled.lua
+
+/sunshine/.config/sunshine/credentials/
+/sunshine/.config/sunshine/sunshine_*
+/sunshine/.config/sunshine/sunshine.log
+
+/vscode/.config/Code/*
+!/vscode/.config/Code/User/
+/vscode/.config/Code/User/*
+!/vscode/.config/Code/User/settings.json
