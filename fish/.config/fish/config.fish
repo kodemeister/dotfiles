@@ -15,9 +15,9 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
-# Advertise itself as a VTE-based terminal for cursor shapes to work.
-if not set -q VTE_VERSION
-  set -x VTE_VERSION 7000
+# Make cursor shapes work in Visual Studio Code integrated terminal.
+if test "$TERM_PROGRAM" = "vscode"
+  set fish_vi_force_cursor true
 end
 
 # Define useful key bindings for Vi mode.
