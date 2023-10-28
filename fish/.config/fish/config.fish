@@ -25,13 +25,8 @@ bind -M insert \cy accept-autosuggestion
 bind -M insert \cp up-or-search
 bind -M insert \cn down-or-search
 
-# Automatically install fundle on the first run.
-if not functions -q fundle
-  eval (curl -sfL https://git.io/fundle-install)
+# Automatically install all plugins on the first run.
+if not functions -q fisher && status is-interactive
+  set fisher_url https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
+  curl -sL $fisher_url | source && fisher update
 end
-
-# Declare the required plugins.
-fundle plugin jorgebucaran/autopair.fish
-fundle plugin patrickf1/colored_man_pages.fish
-fundle plugin IlanCosman/tide@v6
-fundle init

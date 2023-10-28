@@ -1,5 +1,7 @@
-/fish/.config/fish/functions/fundle.fish
-/fish/.config/fish/fundle/
+/fish/.config/fish/completions/
+/fish/.config/fish/conf.d/
+/fish/.config/fish/functions/
+/fish/.config/fish/themes/
 /fish/.config/fish/fish_variables
 
 /ghc/.config/ghc/ghci_history
