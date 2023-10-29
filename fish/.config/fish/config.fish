@@ -1,3 +1,6 @@
+# Add user directories to $fish_user_paths if they exist.
+fish_add_path -g ~/.ghcup/bin ~/.local/bin ~/bin
+
 # Setup editor environment variables.
 set -x EDITOR nvim
 set -x VISUAL nvim
