@@ -59,6 +59,10 @@
     "editor.tabSize": 2
   },
 
+  // CMake Tools.
+  "cmake.configureOnOpen": true,
+  "cmake.showOptionsMovedNotification": false,
+
   // Git.
   "git.allowForcePush": true,
 
