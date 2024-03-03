@@ -9,6 +9,8 @@
 /neovim/.config/nvim/plugin/packer_compiled.lua
 
 /sunshine/.config/sunshine/credentials/
+/sunshine/.config/sunshine/dummy.mp4
+/sunshine/.config/sunshine/mpv.pid
 /sunshine/.config/sunshine/sunshine_*
 /sunshine/.config/sunshine/sunshine.log
 

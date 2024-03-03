@@ -31,6 +31,12 @@ session_started() {
   qdbus org.kde.ActivityManager /ActivityManager/Activities SetCurrentActivity \
     "${activity_guid}"
 
+  # HACK: Play dummy video in background to prevent stream stuttering.
+  # https://github.com/LizardByte/Sunshine/discussions/2193
+  nohup mpv --vo=gpu --hwdec=vaapi --loop-file=inf --window-minimized=yes \
+    ~/.config/sunshine/dummy.mp4 >/dev/null 2>&1 &
+  echo $! >~/.config/sunshine/mpv.pid
+
   # Determine the requested streaming resolution.
   local dummy_plug_mode
   dummy_plug_mode="$(printf "%sx%s@%s" \
@@ -55,6 +61,10 @@ session_started() {
 }
 
 session_stopped() {
+  # Terminate the media player process.
+  kill "$(cat ~/.config/sunshine/mpv.pid)"
+  rm ~/.config/sunshine/mpv.pid
+
   # Restore the original display configuration.
   kscreen-doctor \
     "output.${DISPLAY1_NAME}.enable" \
