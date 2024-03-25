@@ -9,7 +9,7 @@
         },
         {
             "name": "Steam",
-            "cmd": "steam -gamepadui",
+            "cmd": "steam -gamepadui -udpforce",
             "prep-cmd": [
                 {
                     "do": "$(HOME)\/.config\/sunshine\/session.sh started",
