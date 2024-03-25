@@ -28,7 +28,7 @@ session_started() {
   local activity_guid
   activity_guid="$(awk -F "=" "\$2 == \"${ACTIVITY_NAME}\" { print \$1 }" \
     ~/.config/kactivitymanagerdrc)"
-  qdbus org.kde.ActivityManager /ActivityManager/Activities SetCurrentActivity \
+  qdbus6 org.kde.ActivityManager /ActivityManager/Activities SetCurrentActivity \
     "${activity_guid}"
 
   # HACK: Play dummy video in background to prevent stream stuttering.
