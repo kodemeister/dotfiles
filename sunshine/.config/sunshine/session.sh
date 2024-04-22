@@ -1,25 +1,22 @@
 #!/bin/bash
 
-if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
-  readonly DISPLAY1_NAME="DP-1"
-  readonly DISPLAY1_POSITION="0,0"
-  readonly DISPLAY2_NAME="DP-2"
-  readonly DISPLAY2_POSITION="1920,0"
-  readonly DUMMY_PLUG_NAME="HDMI-A-1"
-else
-  readonly DISPLAY1_NAME="DP-1"
-  readonly DISPLAY1_POSITION="0,0"
-  readonly DISPLAY2_NAME="DP-2"
-  readonly DISPLAY2_POSITION="3840,0"
-  readonly DUMMY_PLUG_NAME="HDMI-1"
-fi
-
+readonly DISPLAY1_NAME="DP-1"
 readonly DISPLAY1_MODE="3840x2160@60"
+readonly DISPLAY1_POSITION="0,0"
 readonly DISPLAY1_SCALE=2
 readonly DISPLAY1_PRIORITY=1
+readonly DISPLAY2_NAME="DP-2"
 readonly DISPLAY2_MODE="3840x2160@60"
 readonly DISPLAY2_SCALE=2
 readonly DISPLAY2_PRIORITY=2
+
+if [[ "${XDG_SESSION_TYPE}" == "wayland" ]]; then
+  readonly DISPLAY2_POSITION="1920,0"
+  readonly DUMMY_PLUG_NAME="HDMI-A-1"
+else
+  readonly DISPLAY2_POSITION="3840,0"
+  readonly DUMMY_PLUG_NAME="HDMI-1"
+fi
 
 readonly DEFAULT_ACTIVITY="Default"
 readonly GAMING_ACTIVITY="Gaming"
@@ -33,12 +30,6 @@ session_started() {
     ~/.config/kactivitymanagerdrc)"
   qdbus6 org.kde.ActivityManager /ActivityManager/Activities \
     SetCurrentActivity "${activity_guid}"
-
-  # HACK: Play dummy video in background to prevent stream stuttering.
-  # https://github.com/LizardByte/Sunshine/discussions/2193
-  nohup mpv --vo=gpu --hwdec=vaapi --loop-file=inf --window-minimized=yes \
-    ~/.config/sunshine/dummy.mp4 >/dev/null 2>&1 &
-  echo $! >~/.config/sunshine/mpv.pid
 
   # Determine the requested streaming resolution.
   local dummy_plug_mode
@@ -62,6 +53,12 @@ session_started() {
     "output.${DUMMY_PLUG_NAME}.mode.${dummy_plug_mode}" \
     "output.${DUMMY_PLUG_NAME}.scale.1"
   sleep "${SLEEP_INTERVAL}"
+
+  # HACK: Play dummy video in background to prevent stream stuttering.
+  # https://github.com/LizardByte/Sunshine/discussions/2193
+  nohup mpv --vo=gpu --hwdec=vaapi --loop-file=inf --window-minimized=yes \
+    ~/.config/sunshine/dummy.mp4 >/dev/null 2>&1 &
+  echo $! >~/.config/sunshine/mpv.pid
 }
 
 session_stopped() {
