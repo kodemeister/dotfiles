@@ -19,6 +19,19 @@
             "image-path": "steam.png",
             "exclude-global-prep-cmd": "false",
             "auto-detach": "true"
+        },
+        {
+            "name": "Bottles",
+            "cmd": "bottles",
+            "prep-cmd": [
+                {
+                    "do": "$(HOME)\/.config\/sunshine\/session.sh started",
+                    "undo": "$(HOME)\/.config\/sunshine\/session.sh stopped"
+                }
+            ],
+            "image-path": "$(HOME)\/.config\/sunshine\/bottles.png",
+            "exclude-global-prep-cmd": "false",
+            "auto-detach": "true"
         }
     ]
 }
