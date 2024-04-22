@@ -21,15 +21,18 @@ readonly DISPLAY2_MODE="3840x2160@60"
 readonly DISPLAY2_SCALE=2
 readonly DISPLAY2_PRIORITY=2
 
-readonly ACTIVITY_NAME="Gaming"
+readonly DEFAULT_ACTIVITY="Default"
+readonly GAMING_ACTIVITY="Gaming"
+
+readonly SLEEP_INTERVAL=5
 
 session_started() {
-  # Switch to the Gaming activity.
+  # Switch to Gaming activity.
   local activity_guid
-  activity_guid="$(awk -F "=" "\$2 == \"${ACTIVITY_NAME}\" { print \$1 }" \
+  activity_guid="$(awk -F "=" "\$2 == \"${GAMING_ACTIVITY}\" { print \$1 }" \
     ~/.config/kactivitymanagerdrc)"
-  qdbus6 org.kde.ActivityManager /ActivityManager/Activities SetCurrentActivity \
-    "${activity_guid}"
+  qdbus6 org.kde.ActivityManager /ActivityManager/Activities \
+    SetCurrentActivity "${activity_guid}"
 
   # HACK: Play dummy video in background to prevent stream stuttering.
   # https://github.com/LizardByte/Sunshine/discussions/2193
@@ -58,6 +61,7 @@ session_started() {
     "output.${DUMMY_PLUG_NAME}.enable" \
     "output.${DUMMY_PLUG_NAME}.mode.${dummy_plug_mode}" \
     "output.${DUMMY_PLUG_NAME}.scale.1"
+  sleep "${SLEEP_INTERVAL}"
 }
 
 session_stopped() {
@@ -78,6 +82,14 @@ session_stopped() {
     "output.${DISPLAY2_NAME}.position.${DISPLAY2_POSITION}" \
     "output.${DISPLAY2_NAME}.scale.${DISPLAY2_SCALE}" \
     "output.${DUMMY_PLUG_NAME}.disable"
+  sleep "${SLEEP_INTERVAL}"
+
+  # Switch to Default activity.
+  local activity_guid
+  activity_guid="$(awk -F "=" "\$2 == \"${DEFAULT_ACTIVITY}\" { print \$1 }" \
+    ~/.config/kactivitymanagerdrc)"
+  qdbus6 org.kde.ActivityManager /ActivityManager/Activities \
+    SetCurrentActivity "${activity_guid}"
 }
 
 main() {
