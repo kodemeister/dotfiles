@@ -174,28 +174,6 @@
       "after": ["v", "i", "w"],
       "commands": ["workbench.action.findInFiles"],
       "silent": true
-    },
-    {
-      "before": ["<C-H>"],
-      "after": ["<C-W>", "h"],
-      "commands": ["workbench.action.compareEditor.focusSecondarySide"],
-      "silent": true
-    },
-    {
-      "before": ["<C-J>"],
-      "after": ["<C-W>", "j"],
-      "silent": true
-    },
-    {
-      "before": ["<C-K>"],
-      "after": ["<C-W>", "k"],
-      "silent": true
-    },
-    {
-      "before": ["<C-L>"],
-      "after": ["<C-W>", "l"],
-      "commands": ["workbench.action.compareEditor.focusPrimarySide"],
-      "silent": true
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
