@@ -145,6 +145,16 @@
       "silent": true
     },
     {
+      "before": ["[", "l"],
+      "commands": ["editor.action.marker.prevInFiles"],
+      "silent": true
+    },
+    {
+      "before": ["]", "l"],
+      "commands": ["editor.action.marker.nextInFiles"],
+      "silent": true
+    },
+    {
       "before": ["[", "q"],
       "commands": ["search.action.focusPreviousSearchResult"],
       "silent": true
@@ -157,6 +167,16 @@
     {
       "before": ["<Leader>", "<Leader>"],
       "commands": [":nohl"],
+      "silent": true
+    },
+    {
+      "before": ["<Leader>", "l"],
+      "commands": ["workbench.actions.view.problems"],
+      "silent": true
+    },
+    {
+      "before": ["<Leader>", "m"],
+      "commands": ["workbench.action.tasks.build"],
       "silent": true
     },
     {
