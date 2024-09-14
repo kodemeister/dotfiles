@@ -166,7 +166,11 @@
     },
     {
       "before": ["<Leader>", "<Leader>"],
-      "commands": [":nohl"],
+      "commands": [
+        ":nohl",
+        "search.action.clearSearchResults",
+        "workbench.action.focusActiveEditorGroup"
+      ],
       "silent": true
     },
     {
@@ -202,7 +206,11 @@
     {
       "before": ["<Leader>", "*"],
       "after": ["v", "i", "w"],
-      "commands": ["workbench.action.findInFiles"],
+      "commands": [
+        "workbench.action.findInFiles",
+        "workbench.action.focusActiveEditorGroup",
+        "extension.vim_escape"
+      ],
       "silent": true
     },
     {
@@ -224,7 +232,11 @@
     },
     {
       "before": ["<Leader>", "*"],
-      "commands": ["workbench.action.findInFiles"],
+      "commands": [
+        "workbench.action.findInFiles",
+        "workbench.action.focusActiveEditorGroup",
+        "extension.vim_escape"
+      ],
       "silent": true
     }
   ]
