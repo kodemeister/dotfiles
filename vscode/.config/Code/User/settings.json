@@ -170,6 +170,11 @@
       "silent": true
     },
     {
+      "before": ["<Leader>", "<Tab>"],
+      "commands": ["C_Cpp.SwitchHeaderSource"],
+      "silent": true
+    },
+    {
       "before": ["<Leader>", "l"],
       "commands": ["workbench.actions.view.problems"],
       "silent": true
