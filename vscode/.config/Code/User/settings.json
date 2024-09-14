@@ -180,6 +180,11 @@
       "silent": true
     },
     {
+      "before": ["<Leader>", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"],
+      "silent": true
+    },
+    {
       "before": ["<Leader>", "w"],
       "commands": ["workbench.action.files.save"],
       "silent": true
