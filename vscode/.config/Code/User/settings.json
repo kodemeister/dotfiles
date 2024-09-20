@@ -59,6 +59,10 @@
     "editor.tabSize": 2
   },
 
+  // Bash IDE.
+  "bashIde.shfmt.binaryNextLine": true,
+  "bashIde.shfmt.caseIndent": true,
+
   // CMake Tools.
   "cmake.configureOnOpen": true,
   "cmake.showOptionsMovedNotification": false,
@@ -72,9 +76,6 @@
   // Python.
   "python.formatting.provider": "black",
   "python.linting.pylintEnabled": true,
-
-  // shell-format.
-  "shellformat.flag": "--indent=2 --case-indent --binary-next-line",
 
   // Typescript.
   "typescript.surveys.enabled": false,
