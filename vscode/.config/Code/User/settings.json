@@ -17,6 +17,7 @@
   "files.insertFinalNewline": true,
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
   "terminal.integrated.defaultProfile.linux": "fish",
   "update.mode": "none",
   "workbench.enableExperiments": false,
