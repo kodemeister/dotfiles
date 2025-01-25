@@ -1,19 +1,9 @@
--- Configure the <Leader> key.
-vim.g.mapleader = ' '
-
 -- Sets a global mapping for the given mode.
 local function map(mode, lhs, rhs, opts)
   local default_opts = {silent = true}
   opts = vim.tbl_extend('force', default_opts, opts or {})
   vim.keymap.set(mode, lhs, rhs, opts)
 end
-
--- Quickly open configuration files.
-local config_dir = vim.fn.fnameescape(vim.fn.stdpath('config'))
-map('n', '<Leader>ve', ':edit ' .. config_dir .. '/init.lua<CR>')
-map('n', '<Leader>vm', ':edit ' .. config_dir .. '/lua/mappings.lua<CR>')
-map('n', '<Leader>vp', ':edit ' .. config_dir .. '/lua/plugins.lua<CR>')
-map('n', '<Leader>vs', ':edit ' .. config_dir .. '/lua/settings.lua<CR>')
 
 -- Fast saving.
 map('n', '<Leader>w', ':write<CR>')

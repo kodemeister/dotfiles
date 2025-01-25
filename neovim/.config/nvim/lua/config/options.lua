@@ -1,3 +1,6 @@
+-- Configure the <Leader> key.
+vim.g.mapleader = ' '
+
 -- Don't clutter the filesystem with garbage files.
 vim.o.writebackup = false
 vim.o.swapfile = false

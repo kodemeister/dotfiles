@@ -1,4 +1,4 @@
 -- Load Lua configuration files.
-require('settings')
-require('mappings')
-require('plugins')
+require("config.options")
+require("config.lazy")
+require("config.keymaps")
