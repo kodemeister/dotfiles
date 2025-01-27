@@ -1,12 +1,12 @@
 -- Configure the <Leader> key.
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- Don't clutter the filesystem with garbage files.
 vim.o.writebackup = false
 vim.o.swapfile = false
 
 -- Make all yank, delete, change and put operations work with system clipboard.
-vim.opt.clipboard = {'unnamedplus'}
+vim.opt.clipboard = { "unnamedplus" }
 
 -- Enable 24-bit colors in the terminal.
 vim.o.termguicolors = true
@@ -26,10 +26,10 @@ vim.o.sidescrolloff = 10
 
 -- Show the completion popup menu even if there is only one match.
 -- Don't automatically select any matches from the menu.
-vim.opt.completeopt = {'menuone', 'noselect'}
+vim.opt.completeopt = { "menuone", "noselect" }
 
 -- Suppress the annoying completion messages like 'match 1 of 2'.
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.shortmess = vim.o.shortmess .. "c"
 
 -- Limit the number of items in the completion popup menu.
 vim.o.pumheight = 10
@@ -39,14 +39,14 @@ vim.o.updatetime = 250
 
 -- Configure the cursor shape.
 vim.opt.guicursor = {
-  'n-v-c-sm-o:block',
-  'i-ci-ve:ver25',
-  'r-cr:hor20',
-  'a:blinkon0'
+  "n-v-c-sm-o:block",
+  "i-ci-ve:ver25",
+  "r-cr:hor20",
+  "a:blinkon0"
 }
 
 -- Always show the signcolumn.
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Show absolute number for the current line and relative numbers for all other
 -- lines.
