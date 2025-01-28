@@ -60,6 +60,14 @@
     "editor.tabSize": 2
   },
 
+  // Auto Close Tag.
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "javascriptreact",
+    "typescriptreact",
+    "xml"
+  ],
+
   // Bash IDE.
   "bashIde.shfmt.binaryNextLine": true,
   "bashIde.shfmt.caseIndent": true,
@@ -73,6 +81,11 @@
 
   // Haskell.
   "haskell.plugin.ghcide-completions.config.snippetsOn": false,
+
+  // HTML.
+  // NOTE: Disable built-in close tag support since it doesn't work well with
+  // nvim-surround plugin, e.g. with "yswt".
+  "html.autoClosingTags": false,
 
   // Typescript.
   "typescript.surveys.enabled": false,
