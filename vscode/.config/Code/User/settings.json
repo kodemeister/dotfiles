@@ -52,14 +52,11 @@
     "editor.rulers": [80],
     "editor.tabSize": 2
   },
-  "[shellscript]": {
+  "[lua][shellscript]": {
     "editor.rulers": [80],
     "editor.tabSize": 2
   },
-  "[toml]": {
-    "editor.tabSize": 2
-  },
-  "[xml]": {
+  "[toml][xml]": {
     "editor.tabSize": 2
   },
 
