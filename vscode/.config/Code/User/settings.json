@@ -74,10 +74,6 @@
   // Haskell.
   "haskell.plugin.ghcide-completions.config.snippetsOn": false,
 
-  // Python.
-  "python.formatting.provider": "black",
-  "python.linting.pylintEnabled": true,
-
   // Typescript.
   "typescript.surveys.enabled": false,
 
