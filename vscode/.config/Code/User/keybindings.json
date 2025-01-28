@@ -1,4 +1,5 @@
 [
+  // Easy navigation between regular and diff windows.
   {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",
@@ -27,6 +28,8 @@
     "command": "workbench.action.compareEditor.focusPrimarySide",
     "when": "isInDiffEditor && isInDiffLeftEditor"
   },
+
+  // Close Quick Open popup with Ctrl+[ in addition to Esc.
   {
     "key": "ctrl+[",
     "command": "workbench.action.closeQuickOpen",
