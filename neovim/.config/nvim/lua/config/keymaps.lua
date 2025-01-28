@@ -1,15 +1,11 @@
--- Sets a global mapping for the given mode.
-local function map(mode, lhs, rhs, opts)
-  local default_opts = { silent = true }
-  opts = vim.tbl_extend("force", default_opts, opts or {})
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
+-- Use "map" instead of "vim.keymap.set" for clarity.
+local map = vim.keymap.set
 
 -- Fast saving.
-map("n", "<Leader>w", ":write<CR>")
+map("n", "<Leader>w", "<Cmd>write<CR>")
 
 -- Clear the last search highlighting.
-map("n", "<Leader><Space>", ":nohlsearch<CR>")
+map("n", "<Leader><Space>", "<Cmd>nohlsearch<CR>")
 
 -- Move cursor up/down by screen lines when wrapping the text.
 map("n", "j", [[v:count == 0 ? "gj" : "j"]], { expr = true })
