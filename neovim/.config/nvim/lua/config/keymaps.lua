@@ -8,10 +8,11 @@ map("n", "<Leader>w", "<Cmd>write<CR>")
 map("n", "<Leader><Space>", "<Cmd>nohlsearch<CR>")
 
 -- Move cursor up/down by screen lines when wrapping the text.
-map("n", "j", [[v:count == 0 ? "gj" : "j"]], { expr = true })
-map("n", "k", [[v:count == 0 ? "gk" : "k"]], { expr = true })
-map("n", "<Down>", [[v:count == 0 ? "gj" : "j"]], { expr = true })
-map("n", "<Up>", [[v:count == 0 ? "gk" : "k"]], { expr = true })
+-- NOTE: Use recursive mappings to make "gj" and "gk" work in VSCode.
+map("n", "j", [[v:count == 0 ? "gj" : "j"]], { expr = true, remap = true })
+map("n", "k", [[v:count == 0 ? "gk" : "k"]], { expr = true, remap = true })
+map("n", "<Down>", [[v:count == 0 ? "gj" : "j"]], { expr = true, remap = true })
+map("n", "<Up>", [[v:count == 0 ? "gk" : "k"]], { expr = true, remap = true })
 
 -- Easy navigation between windows.
 map("n", "<C-H>", "<C-W>h")
