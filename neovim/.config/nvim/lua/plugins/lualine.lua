@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  cond = not vim.g.vscode,
   opts = {
     options = {
       -- Set lualine theme to match current Neovim color scheme.

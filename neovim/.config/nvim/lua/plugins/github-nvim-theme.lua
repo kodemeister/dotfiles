@@ -1,5 +1,6 @@
 return {
   "projekt0n/github-nvim-theme",
+  cond = not vim.g.vscode,
 
   -- Load this color scheme during startup before all other plugins.
   lazy = false,
