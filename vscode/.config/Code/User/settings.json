@@ -11,6 +11,7 @@
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.parameterHints.cycle": true,
+  "editor.stickyScroll.enabled": false,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
