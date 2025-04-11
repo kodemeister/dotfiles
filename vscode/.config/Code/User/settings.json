@@ -57,6 +57,14 @@
     "editor.rulers": [80],
     "editor.tabSize": 2
   },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.rulers": [88],
+    "editor.tabSize": 4
+  },
   "[toml][xml]": {
     "editor.tabSize": 2
   },
@@ -87,6 +95,12 @@
   // NOTE: Disable built-in close tag support since it doesn't work well with
   // nvim-surround plugin, e.g. with "yswt".
   "html.autoClosingTags": false,
+
+  // isort.
+  "isort.args": ["--profile", "black"],
+
+  // Pylint.
+  "pylint.args": ["--max-line-length=88"],
 
   // Typescript.
   "typescript.surveys.enabled": false,
