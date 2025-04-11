@@ -43,7 +43,7 @@
     "editor.rulers": [80],
     "editor.tabSize": 2
   },
-  "[css][html][json][jsonc][less][scss][yaml]": {
+  "[css][less][scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
     "editor.tabSize": 2
@@ -53,7 +53,17 @@
     "editor.rulers": [80],
     "editor.tabSize": 2
   },
-  "[lua][shellscript]": {
+  "[json][jsonc][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2
+  },
+  "[lua]": {
     "editor.rulers": [80],
     "editor.tabSize": 2
   },
@@ -65,7 +75,11 @@
     "editor.rulers": [88],
     "editor.tabSize": 4
   },
-  "[toml][xml]": {
+  "[shellscript]": {
+    "editor.rulers": [80],
+    "editor.tabSize": 2
+  },
+  "[xml]": {
     "editor.tabSize": 2
   },
 
