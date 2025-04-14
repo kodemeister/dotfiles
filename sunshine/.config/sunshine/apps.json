@@ -12,8 +12,8 @@
             "cmd": "steam -gamepadui",
             "prep-cmd": [
                 {
-                    "do": "$(HOME)\/.config\/sunshine\/session.sh started",
-                    "undo": "$(HOME)\/.config\/sunshine\/session.sh stopped"
+                    "do": "$(HOME)\/.config\/sunshine\/stream.py start",
+                    "undo": "$(HOME)\/.config\/sunshine\/stream.py stop"
                 }
             ],
             "image-path": "steam.png",
@@ -25,8 +25,8 @@
             "cmd": "bottles",
             "prep-cmd": [
                 {
-                    "do": "$(HOME)\/.config\/sunshine\/session.sh started",
-                    "undo": "$(HOME)\/.config\/sunshine\/session.sh stopped"
+                    "do": "$(HOME)\/.config\/sunshine\/stream.py start",
+                    "undo": "$(HOME)\/.config\/sunshine\/stream.py stop"
                 }
             ],
             "image-path": "$(HOME)\/.config\/sunshine\/bottles.png",
