@@ -34,5 +34,18 @@
     "key": "ctrl+[",
     "command": "workbench.action.closeQuickOpen",
     "when": "inQuickOpen"
+  },
+
+  // Switch between the current and alternate files.
+  {
+    "key": "ctrl+6",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "list.select"
+      ]
+    },
+    "when": "editorTextFocus && neovim.mode == 'normal'"
   }
 ]
