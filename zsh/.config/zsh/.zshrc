@@ -18,6 +18,21 @@ export EDITOR=micro
 export VISUAL=micro
 export PAGER=less
 
+# Disable annoying beeps.
+unsetopt BEEP
+
+# Enable case-insensitive globbing.
+unsetopt CASE_GLOB
+
+# Enter just a directory name to automatically change into it.
+setopt AUTO_CD
+
+# Prompt to correct misspelled commands and their arguments.
+setopt CORRECT_ALL
+
+# Remove the delay after pressing the Esc key.
+KEYTIMEOUT=1
+
 # Save the command history to the specified file.
 HISTFILE=${ZDOTDIR}/.zsh_history
 HISTSIZE=10000
