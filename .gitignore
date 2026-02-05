@@ -16,6 +16,8 @@
 !/vscode/.config/Code/User/keybindings.json
 !/vscode/.config/Code/User/settings.json
 
+/zsh/.config/zsh/.antidote/
 /zsh/.config/zsh/.zcompcache/
 /zsh/.config/zsh/.zcompdump
 /zsh/.config/zsh/.zsh_history
+/zsh/.config/zsh/.zsh_plugins.zsh

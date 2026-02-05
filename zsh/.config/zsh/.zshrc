@@ -61,3 +61,18 @@ zstyle ':completion:*' menu select
 
 # Cancel the completion menu with the Esc key.
 bindkey -M menuselect '\e' send-break
+
+# Install the Antidote plugin manager on the first run.
+if [[ ! -d ${ZDOTDIR}/.antidote ]]; then
+  git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR}/.antidote
+fi
+
+# Use nice human-readable names for plugin directories.
+zstyle ':antidote:bundle' use-friendly-names yes
+
+# Load zstyle settings for plugins.
+source ${ZDOTDIR}/.zstyles
+
+# Load all plugins listed in .zsh_plugins.txt.
+source ${ZDOTDIR}/.antidote/antidote.zsh
+antidote load
