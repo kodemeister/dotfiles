@@ -1,3 +1,7 @@
+# ------------------------------------------------------------------------------
+# Environment
+# ------------------------------------------------------------------------------
+
 # Prevent duplicate entries in the $path and $fpath arrays.
 typeset -U path fpath
 
@@ -10,13 +14,17 @@ fi
 path=(
   ~/.local/bin(N)
   ~/bin(N)
-  $path
+  ${path}
 )
 
 # Set editor-related environment variables.
 export EDITOR=micro
 export VISUAL=micro
 export PAGER=less
+
+# ------------------------------------------------------------------------------
+# General
+# ------------------------------------------------------------------------------
 
 # Disable annoying beeps.
 unsetopt BEEP
@@ -32,6 +40,10 @@ setopt CORRECT_ALL
 
 # Remove the delay after pressing the Esc key.
 KEYTIMEOUT=1
+
+# ------------------------------------------------------------------------------
+# History
+# ------------------------------------------------------------------------------
 
 # Save the command history to the specified file.
 HISTFILE=${ZDOTDIR}/.zsh_history
@@ -49,6 +61,10 @@ setopt HIST_REDUCE_BLANKS
 # Append commands to the history file immediately after they are entered.
 setopt INC_APPEND_HISTORY
 
+# ------------------------------------------------------------------------------
+# Completion
+# ------------------------------------------------------------------------------
+
 # Initialize the completion system.
 autoload -Uz compinit && compinit
 zmodload zsh/complist
@@ -61,6 +77,10 @@ zstyle ':completion:*' menu select
 
 # Cancel the completion menu with the Esc key.
 bindkey -M menuselect '\e' send-break
+
+# ------------------------------------------------------------------------------
+# Plugins
+# ------------------------------------------------------------------------------
 
 # Install the Antidote plugin manager on the first run.
 if [[ ! -d ${ZDOTDIR}/.antidote ]]; then
@@ -76,6 +96,10 @@ source ${ZDOTDIR}/.zstyles
 # Load all plugins listed in .zsh_plugins.txt.
 source ${ZDOTDIR}/.antidote/antidote.zsh
 antidote load
+
+# ------------------------------------------------------------------------------
+# Additional Settings
+# ------------------------------------------------------------------------------
 
 # Apply additional customizations from files in .zshrc.d.
 for rc_file in ${ZDOTDIR}/.zshrc.d/*.zsh; do
