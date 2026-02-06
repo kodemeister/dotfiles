@@ -76,3 +76,9 @@ source ${ZDOTDIR}/.zstyles
 # Load all plugins listed in .zsh_plugins.txt.
 source ${ZDOTDIR}/.antidote/antidote.zsh
 antidote load
+
+# Apply additional customizations from files in .zshrc.d.
+for rc_file in ${ZDOTDIR}/.zshrc.d/*.zsh; do
+  source ${rc_file}
+done
+unset rc_file
