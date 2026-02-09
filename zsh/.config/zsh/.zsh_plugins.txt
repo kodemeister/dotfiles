@@ -1,0 +1,2 @@
+# Fast and elegant zsh prompt.
+sindresorhus/pure

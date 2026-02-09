@@ -1,0 +1,6 @@
+# Show Git stash status in the prompt.
+zstyle ':prompt:pure:git:stash' show yes
+
+# Adjust prompt colors to work well on both dark and light backgrounds.
+zstyle ':prompt:pure:prompt:success' color green
+zstyle ':prompt:pure:git:dirty' color magenta
