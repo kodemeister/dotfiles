@@ -1,2 +1,5 @@
 # Fast and elegant zsh prompt.
 sindresorhus/pure
+
+# Fish-like syntax highlighting.
+zsh-users/zsh-syntax-highlighting
