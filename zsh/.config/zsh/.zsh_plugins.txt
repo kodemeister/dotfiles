@@ -1,6 +1,7 @@
 # Fast and elegant zsh prompt.
 sindresorhus/pure
 
-# Fish-like syntax highlighting and autosuggestions.
+# Fish-style syntax highlighting, autosuggestions, and history search.
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
