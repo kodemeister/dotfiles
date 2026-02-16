@@ -1,6 +1,15 @@
 # Fast and elegant zsh prompt.
 sindresorhus/pure
 
+# Colorizes completions, man pages, and output of some commands.
+mattmc3/zephyr path:plugins/color
+
+# Automatically inserts matching brackets and quotes.
+hlissner/zsh-autopair
+
+# Additional completion definitions for zsh.
+zsh-users/zsh-completions
+
 # Fish-style syntax highlighting, autosuggestions, and history search.
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
