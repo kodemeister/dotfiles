@@ -90,9 +90,6 @@ fi
 # Use nice human-readable names for plugin directories.
 zstyle ':antidote:bundle' use-friendly-names yes
 
-# Load zstyle settings for plugins.
-source ${ZDOTDIR}/.zstyles
-
 # Load all plugins listed in .zsh_plugins.txt.
 source ${ZDOTDIR}/.antidote/antidote.zsh
 antidote load
