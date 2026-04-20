@@ -109,9 +109,6 @@ if [[ ! -d ${ZDOTDIR}/.antidote ]]; then
   git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR}/.antidote
 fi
 
-# Use nice human-readable names for plugin directories.
-zstyle ':antidote:bundle' use-friendly-names yes
-
 # Load all plugins listed in .zsh_plugins.txt.
 source ${ZDOTDIR}/.antidote/antidote.zsh
 antidote load
