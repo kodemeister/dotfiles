@@ -6,10 +6,6 @@
 
 /ghc/.config/ghc/ghci_history
 
-/sunshine/.config/sunshine/credentials/
-/sunshine/.config/sunshine/sunshine_*
-/sunshine/.config/sunshine/sunshine.log
-
 /vscode/.config/Code/*
 !/vscode/.config/Code/User/
 /vscode/.config/Code/User/*
