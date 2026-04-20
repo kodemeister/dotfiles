@@ -5,6 +5,7 @@ done
 for key in ${terminfo[kcud1]} '^[[B' '^[OB'; do
   [[ -n ${key} ]] && bindkey ${key} history-substring-search-down
 done
+unset key
 
 # Tweak search highlight colors for better readability.
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=yellow,bold,standout'
