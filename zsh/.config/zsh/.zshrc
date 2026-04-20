@@ -79,6 +79,28 @@ zstyle ':completion:*' menu select
 bindkey -M menuselect '\e' send-break
 
 # ------------------------------------------------------------------------------
+# Keybindings
+# ------------------------------------------------------------------------------
+
+# Use Home/End to move the cursor to the start/end of the line.
+for key in ${terminfo[khome]} '^[[H' '^[OH'; do
+  [[ -n ${key} ]] && bindkey ${key} beginning-of-line
+done
+for key in ${terminfo[kend]} '^[[F' '^[OF'; do
+  [[ -n ${key} ]] && bindkey ${key} end-of-line
+done
+unset key
+
+# Use Option+Left/Option+Right to move the cursor to the previous/next word.
+for key in ${terminfo[kLFT3]} '^[[1;3D'; do
+  [[ -n ${key} ]] && bindkey ${key} backward-word
+done
+for key in ${terminfo[kRIT3]} '^[[1;3C'; do
+  [[ -n ${key} ]] && bindkey ${key} forward-word
+done
+unset key
+
+# ------------------------------------------------------------------------------
 # Plugins
 # ------------------------------------------------------------------------------
 
