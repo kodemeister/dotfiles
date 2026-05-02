@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Enable highlighting for user-defined regular expressions and brackets.
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp brackets)
 

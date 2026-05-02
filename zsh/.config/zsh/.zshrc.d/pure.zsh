@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Show Git stash status in the prompt.
 zstyle ':prompt:pure:git:stash' show yes
 

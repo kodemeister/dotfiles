@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Use Up/Down arrow keys to search the command history.
 for key in ${terminfo[kcuu1]} '^[[A' '^[OA'; do
   [[ -n ${key} ]] && bindkey ${key} history-substring-search-up
