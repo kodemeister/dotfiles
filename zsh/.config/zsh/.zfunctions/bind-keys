@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Bind a ZLE widget to multiple key sequences.
+bind-keys() {
+  local widget=$1
+  shift
+
+  local key
+  for key in "$@"; do
+    [[ -n ${key} ]] && bindkey ${key} ${widget}
+  done
+}
