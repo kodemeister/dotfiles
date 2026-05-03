@@ -8,7 +8,7 @@
 typeset -U path fpath
 
 # Initialize the Homebrew shell environment if it is installed.
-if (( $+commands[brew] )); then
+if (($+commands[brew])); then
   eval $(brew shellenv zsh)
 fi
 

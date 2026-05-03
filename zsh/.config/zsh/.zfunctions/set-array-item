@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Assign a value to an array element.
+# Works around an shfmt issue where keys containing hyphens (e.g. foo-bar) are
+# reformatted incorrectly.
+# https://github.com/mvdan/sh/issues/1233
+set-array-item() {
+  local array=$1
+  local key=$2
+  local value=$3
+  eval "${array}[\${key}]=\${value}"
+}
