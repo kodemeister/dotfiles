@@ -19,9 +19,9 @@ path=(
   ${path}
 )
 
-# Load custom functions from files in .zfunctions.
-fpath=(${ZDOTDIR}/.zfunctions ${fpath})
-autoload -Uz ${ZDOTDIR}/.zfunctions/*(.:t)
+# Load custom functions from all files in functions directory.
+fpath=(${ZDOTDIR}/functions ${fpath})
+autoload -Uz ${ZDOTDIR}/functions/*(.:t)
 
 # Set editor-related environment variables.
 export EDITOR=micro
