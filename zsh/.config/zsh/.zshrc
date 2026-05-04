@@ -13,14 +13,14 @@ unset rc_file
 # Prevent duplicate entries in the $path and $fpath arrays.
 typeset -U path fpath
 
-# Prepend user-specific directories to $path if they exist.
+# Prepend additional directories to the $path array.
 path=(
   ~/.local/bin(N)
   ~/bin(N)
   ${path}
 )
 
-# Load custom functions from all files in functions directory.
+# Load custom functions from all files in the functions directory.
 fpath=(${ZDOTDIR}/functions ${fpath})
 autoload -Uz ${ZDOTDIR}/functions/*(.:t)
 
@@ -116,7 +116,7 @@ antidote load
 # Additional Settings
 # ------------------------------------------------------------------------------
 
-# Apply additional customizations from *.zsh files in settings directory.
+# Apply additional customizations from *.zsh files in the settings directory.
 for rc_file in ${ZDOTDIR}/settings/*.zsh; do
   source ${rc_file}
 done
