@@ -115,8 +115,8 @@ antidote load
 # Additional Settings
 # ------------------------------------------------------------------------------
 
-# Apply additional customizations from files in .zshrc.d.
-for rc_file in ${ZDOTDIR}/.zshrc.d/*.zsh; do
+# Apply additional customizations from *.zsh files in settings directory.
+for rc_file in ${ZDOTDIR}/settings/*.zsh; do
   source ${rc_file}
 done
 unset rc_file
