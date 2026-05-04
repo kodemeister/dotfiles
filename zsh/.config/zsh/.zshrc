@@ -4,13 +4,14 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+# Apply environment settings from *.zsh files in the environment directory.
+for rc_file in ${ZDOTDIR}/environment/*.zsh; do
+  source ${rc_file}
+done
+unset rc_file
+
 # Prevent duplicate entries in the $path and $fpath arrays.
 typeset -U path fpath
-
-# Initialize the Homebrew shell environment if it is installed.
-if (($+commands[brew])); then
-  eval $(brew shellenv zsh)
-fi
 
 # Prepend user-specific directories to $path if they exist.
 path=(
