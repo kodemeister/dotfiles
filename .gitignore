@@ -13,6 +13,7 @@
 
 /zsh/.config/zsh/.antidote/
 /zsh/.config/zsh/.zcompcache/
+/zsh/.config/zsh/functions/_docker
 /zsh/.config/zsh/.zcompdump
 /zsh/.config/zsh/.zsh_history
 /zsh/.config/zsh/.zsh_plugins.zsh
