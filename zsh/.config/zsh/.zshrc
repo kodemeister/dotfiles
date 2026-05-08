@@ -72,18 +72,20 @@ setopt INC_APPEND_HISTORY
 # Completion
 # ------------------------------------------------------------------------------
 
-# Initialize the completion system.
-autoload -Uz compinit && compinit
-zmodload zsh/complist
-
 # Enable case-insensitive prefix completion.
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Use arrow keys to select and highlight completions.
 zstyle ':completion:*' menu select
 
+# Load the zsh/complist module that provides the menu-select widget.
+zmodload zsh/complist
+
 # Cancel the completion menu with the Esc key.
 bindkey -M menuselect '\e' send-break
+
+# Initialize the completion system.
+autoload -Uz compinit && compinit
 
 # ------------------------------------------------------------------------------
 # Keybindings
