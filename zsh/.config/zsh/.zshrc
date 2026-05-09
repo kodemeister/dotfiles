@@ -84,9 +84,6 @@ zmodload zsh/complist
 # Cancel the completion menu with the Esc key.
 bindkey -M menuselect '\e' send-break
 
-# Initialize the completion system.
-autoload -Uz compinit && compinit
-
 # ------------------------------------------------------------------------------
 # Keybindings
 # ------------------------------------------------------------------------------

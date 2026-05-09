@@ -1,3 +1,9 @@
+# Properly initializes the completion system for other plugins.
+mattmc3/ez-compinit
+
+# Additional completion definitions for zsh.
+zsh-users/zsh-completions
+
 # Fast and elegant zsh prompt.
 sindresorhus/pure
 
@@ -6,9 +12,6 @@ mattmc3/zephyr path:plugins/color
 
 # Automatically inserts matching brackets and quotes.
 hlissner/zsh-autopair
-
-# Additional completion definitions for zsh.
-zsh-users/zsh-completions
 
 # Fish-style autosuggestions, syntax highlighting, and history search.
 zsh-users/zsh-autosuggestions
