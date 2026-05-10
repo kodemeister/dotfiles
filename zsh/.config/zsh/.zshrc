@@ -92,11 +92,15 @@ bindkey -M menuselect '\e' send-break
 bind-keys beginning-of-line $terminfo[khome] '^[[H' '^[OH'
 bind-keys end-of-line $terminfo[kend] '^[[F' '^[OF'
 
-# Use Option+Left/Right or Ctrl+Left/Right to move the cursor by words.
-bind-keys backward-word $terminfo[kLFT3] '^[[1;3D'
-bind-keys backward-word $terminfo[kLFT5] '^[[1;5D'
-bind-keys forward-word $terminfo[kRIT3] '^[[1;3C'
-bind-keys forward-word $terminfo[kRIT5] '^[[1;5C'
+# Use Option+Left/Right (macOS) and Ctrl+Left/Right (Linux or Windows) to move
+# the cursor to the previous/next word.
+if is-macos; then
+  bind-keys backward-word $terminfo[kLFT3] '^[[1;3D'
+  bind-keys forward-word $terminfo[kRIT3] '^[[1;3C'
+else
+  bind-keys backward-word $terminfo[kLFT5] '^[[1;5D'
+  bind-keys forward-word $terminfo[kRIT5] '^[[1;5C'
+fi
 
 # ------------------------------------------------------------------------------
 # Plugins

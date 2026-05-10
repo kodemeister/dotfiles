@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# Determine whether the shell is running on macOS.
+is-macos() {
+  [[ $OSTYPE == darwin* ]]
+}
