@@ -7,6 +7,6 @@ bind-keys() {
 
   local key
   for key in "$@"; do
-    [[ -n ${key} ]] && bindkey ${key} ${widget}
+    [[ -n $key ]] && bindkey $key $widget
   done
 }

@@ -8,5 +8,5 @@ set-array-item() {
   local array=$1
   local key=$2
   local value=$3
-  eval "${array}[\${key}]=\${value}"
+  eval "${array}[\$key]=\$value"
 }

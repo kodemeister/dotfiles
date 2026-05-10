@@ -5,8 +5,8 @@
 # ------------------------------------------------------------------------------
 
 # Apply environment settings from *.zsh files in the environment directory.
-for rc_file in ${ZDOTDIR}/environment/*.zsh; do
-  source ${rc_file}
+for rc_file in $ZDOTDIR/environment/*.zsh; do
+  source $rc_file
 done
 unset rc_file
 
@@ -17,12 +17,12 @@ typeset -U path fpath
 path=(
   ~/.local/bin(N)
   ~/bin(N)
-  ${path}
+  $path
 )
 
 # Load custom functions from all files in the functions directory.
-fpath=(${ZDOTDIR}/functions ${fpath})
-autoload -Uz ${ZDOTDIR}/functions/*(.:t)
+fpath=($ZDOTDIR/functions $fpath)
+autoload -Uz $ZDOTDIR/functions/*(.:t)
 
 # Set editor-related environment variables.
 export EDITOR=micro
@@ -53,7 +53,7 @@ KEYTIMEOUT=1
 # ------------------------------------------------------------------------------
 
 # Save the command history to the specified file.
-HISTFILE=${ZDOTDIR}/.zsh_history
+HISTFILE=$ZDOTDIR/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -89,26 +89,26 @@ bindkey -M menuselect '\e' send-break
 # ------------------------------------------------------------------------------
 
 # Use Home/End to move the cursor to the start/end of the line.
-bind-keys beginning-of-line ${terminfo[khome]} '^[[H' '^[OH'
-bind-keys end-of-line ${terminfo[kend]} '^[[F' '^[OF'
+bind-keys beginning-of-line $terminfo[khome] '^[[H' '^[OH'
+bind-keys end-of-line $terminfo[kend] '^[[F' '^[OF'
 
 # Use Option+Left/Right or Ctrl+Left/Right to move the cursor by words.
-bind-keys backward-word ${terminfo[kLFT3]} '^[[1;3D'
-bind-keys backward-word ${terminfo[kLFT5]} '^[[1;5D'
-bind-keys forward-word ${terminfo[kRIT3]} '^[[1;3C'
-bind-keys forward-word ${terminfo[kRIT5]} '^[[1;5C'
+bind-keys backward-word $terminfo[kLFT3] '^[[1;3D'
+bind-keys backward-word $terminfo[kLFT5] '^[[1;5D'
+bind-keys forward-word $terminfo[kRIT3] '^[[1;3C'
+bind-keys forward-word $terminfo[kRIT5] '^[[1;5C'
 
 # ------------------------------------------------------------------------------
 # Plugins
 # ------------------------------------------------------------------------------
 
 # Install the Antidote plugin manager on the first run.
-if [[ ! -d ${ZDOTDIR}/.antidote ]]; then
-  git clone https://github.com/mattmc3/antidote.git ${ZDOTDIR}/.antidote
+if [[ ! -d $ZDOTDIR/.antidote ]]; then
+  git clone https://github.com/mattmc3/antidote.git $ZDOTDIR/.antidote
 fi
 
 # Load all plugins listed in .zsh_plugins.txt.
-source ${ZDOTDIR}/.antidote/antidote.zsh
+source $ZDOTDIR/.antidote/antidote.zsh
 antidote load
 
 # ------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ antidote load
 # ------------------------------------------------------------------------------
 
 # Apply additional customizations from *.zsh files in the settings directory.
-for rc_file in ${ZDOTDIR}/settings/*.zsh; do
-  source ${rc_file}
+for rc_file in $ZDOTDIR/settings/*.zsh; do
+  source $rc_file
 done
 unset rc_file

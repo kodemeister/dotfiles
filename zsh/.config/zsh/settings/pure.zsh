@@ -14,8 +14,8 @@ zstyle ':prompt:pure:git:dirty' color magenta
 __pure_first_prompt=1
 
 print() {
-  if [[ ${funcstack[-1]} == "prompt_pure_precmd" && $# -eq 0 ]]; then
-    if [[ ${__pure_first_prompt} -eq 1 ]]; then
+  if [[ $funcstack[-1] == "prompt_pure_precmd" && $# -eq 0 ]]; then
+    if [[ $__pure_first_prompt -eq 1 ]]; then
       __pure_first_prompt=0
     else
       builtin print "$@"

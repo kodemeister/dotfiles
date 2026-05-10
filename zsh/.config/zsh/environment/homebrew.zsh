@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Exit if Homebrew is not installed.
-((${+commands[brew]})) || return 1
+(($+commands[brew])) || return 1
 
 # Initialize the Homebrew shell environment.
 eval "$(brew shellenv zsh)"
