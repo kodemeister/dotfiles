@@ -7,6 +7,7 @@
   "editor.lineHeight": 24,
   "editor.minimap.enabled": false,
   "editor.parameterHints.cycle": true,
+  "editor.stickyScroll.enabled": false,
   "extensions.ignoreRecommendations": true,
   "files.hotExit": "off",
   "files.insertFinalNewline": true,
