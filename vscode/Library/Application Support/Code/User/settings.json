@@ -19,26 +19,45 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
 
   // Language-specific settings.
-  "[cabal][haskell]": {
+  "[cabal]": {
     "editor.rulers": [80],
     "editor.tabSize": 2,
   },
-  "[css][less][scss]": {
+  "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
     "editor.tabSize": 2,
   },
-  "[javascript][javascriptreact][typescript][typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.rulers": [80],
-    "editor.tabSize": 2,
-  },
-  "[json][jsonc][yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[haskell]": {
     "editor.rulers": [80],
     "editor.tabSize": 2,
   },
   "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
+  "[less]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
     "editor.tabSize": 2,
@@ -51,11 +70,31 @@
     "editor.rulers": [88],
     "editor.tabSize": 4,
   },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
   "[shellscript]": {
     "editor.rulers": [80],
     "editor.tabSize": 2,
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
+    "editor.tabSize": 2,
+  },
   "[xml]": {
+    "editor.tabSize": 2,
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [80],
     "editor.tabSize": 2,
   },
 
