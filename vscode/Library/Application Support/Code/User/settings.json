@@ -22,81 +22,81 @@
   // Language-specific settings.
   "[cabal]": {
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[haskell]": {
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[less]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit",
+      "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.rulers": [88],
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[shellscript]": {
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[xml]": {
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [80],
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
 
   // Bash IDE.
@@ -113,5 +113,5 @@
   "isort.args": ["--profile", "black"],
 
   // Pylint.
-  "pylint.args": ["--max-line-length=88"],
+  "pylint.args": ["--max-line-length=88"]
 }
