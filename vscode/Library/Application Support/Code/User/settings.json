@@ -16,8 +16,10 @@
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.initialHint": false,
   "terminal.integrated.minimumContrastRatio": 1,
+  "terminal.integrated.stickyScroll.enabled": false,
   "workbench.colorTheme": "GitHub Light Default",
   "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.tree.enableStickyScroll": false,
 
   // Language-specific settings.
   "[cabal]": {
