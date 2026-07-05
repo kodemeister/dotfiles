@@ -1,7 +1,7 @@
 {
   // General settings.
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.fontFamily": "SF Mono",
+  "editor.fontFamily": "'SF Mono', Menlo, 'Cascadia Mono', Consolas, monospace",
   "editor.fontSize": 18,
   "editor.formatOnSave": true,
   "editor.lineHeight": 24,
