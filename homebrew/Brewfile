@@ -1,0 +1,54 @@
+# CLI applications.
+brew "cmake"
+brew "mas"
+brew "micro"
+brew "ninja"
+brew "shellcheck"
+brew "shfmt"
+brew "stow"
+brew "xz"
+
+# GUI applications.
+cask "amneziavpn"
+cask "chatgpt-classic"
+cask "coteditor"
+cask "docker-desktop"
+cask "drawio"
+cask "flowvision"
+cask "google-chrome"
+cask "iina"
+cask "iterm2"
+cask "logi-options+"
+cask "moonlight"
+cask "obsidian"
+cask "proxy-audio-device"
+cask "retroarch"
+cask "steam"
+cask "telegram"
+cask "transmission"
+cask "visual-studio-code"
+
+# App Store applications.
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 361285480
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
+mas "wBlock", id: 6746388723
+mas "Xcode", id: 497799835
+
+# Visual Studio Code extensions.
+vscode "dbaeumer.vscode-eslint"
+vscode "esbenp.prettier-vscode"
+vscode "GitHub.github-vscode-theme"
+vscode "github.vscode-github-actions"
+vscode "haskell.haskell"
+vscode "haskell.language-haskell"
+vscode "mads-hartmann.bash-ide-vscode"
+vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.pylint"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
