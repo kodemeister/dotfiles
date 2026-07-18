@@ -1,5 +1,6 @@
 # CLI applications.
 brew "cmake"
+brew "fnm"
 brew "mas"
 brew "micro"
 brew "ninja"
