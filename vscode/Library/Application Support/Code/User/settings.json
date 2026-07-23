@@ -69,7 +69,7 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
     },
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.rulers": [88],
     "editor.tabSize": 4
   },
@@ -109,11 +109,5 @@
   "git.allowForcePush": true,
 
   // Haskell.
-  "haskell.plugin.ghcide-completions.config.snippetsOn": false,
-
-  // isort.
-  "isort.args": ["--profile", "black"],
-
-  // Pylint.
-  "pylint.args": ["--max-line-length=88"]
+  "haskell.plugin.ghcide-completions.config.snippetsOn": false
 }

@@ -39,6 +39,7 @@ mas "wBlock", id: 6746388723
 mas "Xcode", id: 497799835
 
 # Visual Studio Code extensions.
+vscode "charliermarsh.ruff"
 vscode "dbaeumer.vscode-eslint"
 vscode "esbenp.prettier-vscode"
 vscode "GitHub.github-vscode-theme"
@@ -46,10 +47,7 @@ vscode "github.vscode-github-actions"
 vscode "haskell.haskell"
 vscode "haskell.language-haskell"
 vscode "mads-hartmann.bash-ide-vscode"
-vscode "ms-python.black-formatter"
 vscode "ms-python.debugpy"
-vscode "ms-python.isort"
-vscode "ms-python.pylint"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
